@@ -1,0 +1,107 @@
+@charset "utd-8";
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: antiquewhite;
+    height: 15vh;
+    padding: 8vh 5vw 0;
+}
+
+.header .logo{
+    font-size: 34px;
+    font-weight: bold;
+    float: left;
+}
+
+.header .navbar {
+    float: right;
+}
+
+.header .navbar .navbar__list {
+    margin-top: 1vh;
+    white-space: nowrap;
+}
+
+.header .navbar .navbar__list::after {
+    content: "";
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.header .navbar .navbar__list .navbar__list__item {
+    margin-left: 20px;
+    float: left;
+}
+
+.header::after {
+    content: "";
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.main {
+    height: 70vh;
+    text-align: center;
+    font-size: 34px;
+    padding: 5vh 0;
+}
+.main .main__search {
+    margin: auto;
+    position: relative;
+    background-color: aqua;
+    width: 500px;
+}
+.main .main__search input {
+    padding: 5px 10px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    font-size: 34px;
+    border: 1px solid black;
+    margin: 0;
+    vertical-align: bottom;
+}
+
+.main .main__search button {
+    left: 100%;
+    position: absolute;
+    padding: 10px 30px;
+    font-size: 24px;
+    overflow: visible;
+}
+
+.main .main__menu__button {
+    margin: 80px auto 0;
+    width: 800px;
+}
+
+.main .main__menu__button li {
+    float: left;
+    text-align: center;
+    width: 48%;
+    border: 3px solid black;
+    padding: 80px 0;
+    border-radius: 30px;
+}
+.main .main__menu__button li:nth-child(2) {
+    margin-left: 4%;
+}
+
+.main .main__menu__button li h2 {
+    font-size: 80px;
+    margin-bottom: 50px;
+}
+.footer {
+    background-color: antiquewhite;
+    height: 15vh;
+}
