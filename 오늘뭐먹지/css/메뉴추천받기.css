@@ -1,0 +1,107 @@
+@charset "utd-8";
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: antiquewhite;
+  height: 15vh;
+  padding: 8vh 5vw 0;
+}
+
+.header .logo {
+  font-size: 34px;
+  font-weight: bold;
+  float: left;
+}
+
+.header .navbar {
+  float: right;
+}
+
+.header .navbar .navbar__list {
+  margin-top: 1vh;
+  white-space: nowrap;
+}
+
+.header .navbar .navbar__list::after {
+  content: "";
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.header .navbar .navbar__list .navbar__list__item {
+  margin-left: 20px;
+  float: left;
+}
+
+.header::after {
+  content: "";
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.main {
+  height: 70vh;
+  text-align: center;
+  padding: 5vh 0;
+}
+.main h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.main p {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.main .inner {
+  text-align: left;
+  width: 60%;
+  margin: auto;
+}
+.main .keyword_nav ul::after {
+  content: "";
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.main .keyword_nav ul li {
+  width: 30%;
+  height: 40px;
+  float: left;
+}
+.main .keyword_nav ul li:nth-child(2),
+.main .keyword_nav ul li:nth-child(3) {
+  margin-left: 5%;
+}
+.main .keyword_nav ul li .keyword_nav__item {
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+} 
+
+.main input {
+  display: none;
+}
+
+
+
+
+.footer {
+  background-color: antiquewhite;
+  height: 15vh;
+}

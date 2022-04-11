@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/메뉴추천받기.css" />
+    <script
+      src="https://kit.fontawesome.com/bfafa52380.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo">
+        <a href="">오늘 뭐 먹지?</a>
+      </h1>
+      <nav class="navbar">
+        <ul class="navbar__list">
+          <li class="navbar__list__item">
+            <a href="">회원가입</a>
+          </li>
+          <li class="navbar__list__item">
+            <a href="">로그인</a>
+          </li>
+          <li class="navbar__list__item">
+            <a href="">장바구니</a>
+          </li>
+          <li class="navbar__list__item">
+            <a href="">마이페이지</a>
+          </li>
+          <li class="navbar__list__item">
+            <a href="">고객센터</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="inner">
+        <h2>오늘 뭐 먹지?</h2>
+        <p>키워드로 메뉴 추천을 도와드릴게요</p>
+        <input
+          type="radio"
+          name="keyword_nav__trigger"
+          id="keyword_nav__trigger01"
+          checked
+        />
+        <input
+          type="radio"
+          name="keyword_nav__trigger"
+          id="keyword_nav__trigger02"
+        />
+        <input
+          type="radio"
+          name="keyword_nav__trigger"
+          id="keyword_nav__trigger03"
+        />
+        <nav class="keyword_nav">
+          <ul>
+            <li>
+              <label class="keyword_nav__item" for="keyword_nav__trigger01"
+                >오늘 기분은?</label
+              >
+            </li>
+            <li>
+              <label class="keyword_nav__item" for="keyword_nav__trigger02"
+                >오늘 날씨는?</label
+              >
+            </li>
+            <li>
+              <label class="keyword_nav__item" for="keyword_nav__trigger03"
+                >오늘 상황은?</label
+              >
+            </li>
+          </ul>
+        </nav>
+        <ul class="keyword_box">
+          <li class="keyword_box__item">
+            <form>
+              <input type="checkbox" name="꿀꿀해" id="꿀꿀해" />
+              <label for="꿀꿀해">꿀꿀해</label>
+              <input type="checkbox" name="따분해" id="따분해" />
+              <label for="따분해">따분해</label>
+              <input type="checkbox" name="심심해" id="심심해" />
+              <label for="심심해">심심해</label>
+              <input type="checkbox" name="나쁘지않아" id="나쁘지않아" />
+              <label for="나쁘지않아">나쁘지않아</label>
+              <input type="checkbox" name="신나" id="신나" />
+              <label for="신나">신나</label>
+              <input type="checkbox" name="여유로워" id="여유로워" />
+              <label for="여유로워">여유로워</label>
+              <input type="checkbox" name="불안해" id="불안해" />
+              <label for="불안해">불안해</label>
+              <input type="checkbox" name="지루해" id="지루해" />
+              <label for="지루해">지루해</label>
+              <input type="checkbox" name="착잡해" id="착잡해" />
+              <label for="착잡해">착잡해</label>
+              <input type="checkbox" name="즐거워" id="즐거워" />
+              <label for="즐거워">즐거워</label>
+              <input type="checkbox" name="평온해" id="평온해" />
+              <label for="평온해">평온해</label>
+              <input type="checkbox" name="무기력해" id="무기력해" />
+              <label for="무기력해">무기력해</label>
+            </form>
+          </li>
+          <li class="keyword_box__item">
+            <form>
+              <input type="checkbox" name="습해" id="습해" />
+              <label for="습해">습해</label>
+              <input type="checkbox" name="화창해" id="화창해" />
+              <label for="화창해">화창해</label>
+              <input type="checkbox" name="선선해" id="선선해" />
+              <label for="선선해">선선해</label>
+              <input type="checkbox" name="추워" id="추워" />
+              <label for="추워">추워</label>
+              <input type="checkbox" name="더워" id="더워" />
+              <label for="더워">더워</label>
+              <input type="checkbox" name="건조해" id="건조해" />
+              <label for="건조해">건조해</label>
+              <input type="checkbox" name="비와" id="비와" />
+              <label for="비와">비와</label>
+              <input type="checkbox" name="눈와" id="눈와" />
+              <label for="눈와">눈와</label>
+              <input type="checkbox" name="흐려" id="흐려" />
+              <label for="흐려">흐려</label>
+              <input type="checkbox" name="번개쳐" id="번개쳐" />
+              <label for="번개쳐">번개쳐</label>
+              <input type="checkbox" name="바람불어" id="바람불어" />
+              <label for="바람불어">바람불어</label>
+              <input type="checkbox" name="미세먼지" id="미세먼지" />
+              <label for="미세먼지">미세먼지</label>
+            </form>
+          </li>
+          <li class="keyword_box__item">
+            <form>
+              <input type="checkbox" name="면접전날" id="면접전날" />
+              <label for="면접전날">면접전날</label>
+              <input type="checkbox" name="시험전날" id="시험전날" />
+              <label for="시험전날">시험전날</label>
+              <input type="checkbox" name="숙취심한날" id="숙취심한날" />
+              <label for="숙취심한날">숙취심한날</label>
+              <input type="checkbox" name="외사점심회식" id="외사점심회식" />
+              <label for="외사점심회식">외사점심회식</label>
+              <input type="checkbox" name="회의간식" id="회의간식" />
+              <label for="회의간식">회의간식</label>
+              <input type="checkbox" name="어르신과식사" id="어르신과식사" />
+              <label for="어르신과식사">어르신과식사</label>
+              <input type="checkbox" name="소개팅전날" id="소개팅전날" />
+              <label for="소개팅전날">소개팅전날</label>
+              <input type="checkbox" name="홈파티" id="홈파티" />
+              <label for="홈파티">홈파티</label>
+              <input type="checkbox" name="가족식사" id="가족식사" />
+              <label for="가족식사">가족식사</label>
+              <input type="checkbox" name="2-3인용" id="2-3인용" />
+              <label for="2-3인용">2-3인용</label>
+            </form>
+          </li>
+        </ul>
+        <button>결정하기</button>
+        <button>더 고르기</button>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>
