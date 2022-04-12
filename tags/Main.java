@@ -13,7 +13,7 @@ public class Main {
 
         menus.put("비오는날", "");
         menus.put("비오는날", "#자장면");
-        menus.put("비오는날", menus.get("비오는날") + "#피자");
+        menus.put("비오는날", menus.get("비오는") + "#피자");
         menus.put("비오는날", menus.get("비오는날") + "#설빙");
         menus.put("비오는날", menus.get("비오는날") + "#바나나");
         menus.put("비오는날", menus.get("비오는날") + "#사과");
