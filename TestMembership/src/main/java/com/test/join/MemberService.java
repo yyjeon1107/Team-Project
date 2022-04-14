@@ -3,14 +3,23 @@ package com.test.join;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
 public class MemberService {
 
+<<<<<<< Updated upstream
 	private final MemberRepository memberRepository;
     private final ModelMapper modelMapper;
+=======
+	private final MemberRepository memberRepository;    
+	private final ModelMapper modelMapper;
+>>>>>>> Stashed changes
     private final PasswordEncoder passwordEncoder;
 
 
