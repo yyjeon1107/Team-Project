@@ -13,13 +13,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class MemberService {
 
-<<<<<<< Updated upstream
-	private final MemberRepository memberRepository;
-    private final ModelMapper modelMapper;
-=======
+
 	private final MemberRepository memberRepository;    
 	private final ModelMapper modelMapper;
->>>>>>> Stashed changes
     private final PasswordEncoder passwordEncoder;
 
 
