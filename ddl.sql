@@ -1,3 +1,7 @@
+CREATE DATABASE mcdb DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
+
+CREATE USER 'multicampus'@'%' IDENTIFIED BY 'multicampus1234'; 
+
 CREATE TABLE user(
     id VARCHAR(128) PRIMARY KEY,
     password VARCHAR(128),
