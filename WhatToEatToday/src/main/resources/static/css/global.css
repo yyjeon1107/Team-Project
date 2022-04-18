@@ -1,0 +1,104 @@
+@charset "UTF-8";
+@font-face {
+  src: url(/font/BMJUA_ttf.ttf);
+  font-family: "jua";
+}
+/* Global */
+
+:root {
+  /* Color */
+  --color-flat-flesh: #fad390;
+  --color-squash-blossom: #f6b93b;
+  --color-iceland-poppy: #fa983a;
+  --color-carrot-orange: #e58e26;
+  --color-melon-melody: #f8c291;
+  --color-mandarin-red: #e55039;
+  --color-tomato-red: #eb2f06;
+  --color-jalapeno-red: #b71540;
+  --color-azraq-blue: #4a69bd;
+  --color-yue-guang-lan-blue: #1e3799;
+  --color-dark-sapphire: #0c2461;
+  --color-spray: #82ccdd;
+  --color-dupin: #60a3bc;
+  --color-good-samaritan: #3c6382;
+  --color-forest-blues: #0a3d62;
+  --color-paradise-green: #b8e994;
+  --color-aurora-green: #78e08f;
+  --color-waterfall: #38ada9;
+  --color-reef-encounter: #079992;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px;
+  /* animation */
+  --animation-duration: 300ms;
+  --transition-duration: 300ms;
+}
+
+/* Universal tags */
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blind {
+  overflow: hidden;
+  position: absolute;
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.inner {
+  width: 1024px;
+  margin: auto;
+}
+.inner::after {
+  content: "";
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+body {
+  font-family: "jua", Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+}
+input,
+button {
+  font-family: "jua", Arial, Helvetica, sans-serif;
+}
+
+button {
+  transition: all var(--transition-duration);
+}
+
+.main {
+  min-height: 791px;
+  background-color: var(--color-flat-flesh);
+}
+
+.main .inner {
+  padding: 30px 100px;
+}
+
+.main .inner > h2 {
+  text-align: center;
+  color: saddlebrown;
+  font-size: var(--font-large);
+}

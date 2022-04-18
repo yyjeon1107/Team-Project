@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <th:block th:fragment="script">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+      function getAddress() {
+        new daum.Postcode({
+          oncomplete: function (data) {
+            var addr = data.address; // 최종 주소 변수
+
+            // 주소 정보를 해당 필드에 넣는다.
+            document.getElementById("address").value = addr;
+            // 주소로 상세 정보를 검색
+          },
+        }).open();
+      }
+    </script>
+  </th:block>
+</html>

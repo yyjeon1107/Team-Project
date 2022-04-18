@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+    <header th:replace="fragments/header :: header" />
+    <main th:replace= "( 'fragments/main/' + ${page} ) :: main" />
+    <footer th:replace="fragments/footer :: footer" />
+
+    <script th:inline="javascript">
+        window.onload = () => {
+            var message = [[${session.message}]];
+            if(message !== null) {
+                alert(message);
+                fetch("/message_reset", {
+                  method: "GET",
+                });
+            }
+        }
+    </script>
+    <th:block th:replace= "( 'fragments/script/' + ${page} ) :: script" />
+</body>
+</html>

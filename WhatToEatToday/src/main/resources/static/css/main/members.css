@@ -1,0 +1,62 @@
+.main .inner {
+  padding: 30px 0;
+}
+
+.members {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--color-carrot-orange);
+  border-radius: 15px;
+}
+
+.members .members__caption {
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+  font-size: var(--font-medium);
+  background-color: var(--color-carrot-orange);
+}
+
+.members tr th,
+.members tr td {
+  color: black;
+  vertical-align: middle;
+  border: 2px dotted var(--color-carrot-orange);
+  border-bottom: 2px solid var(--color-carrot-orange);
+  background-color: aliceblue;
+}
+.members tr th {
+  font-weight: bold;
+  border: 3px solid var(--color-carrot-orange);
+}
+
+.members tr {
+  height: 30px;
+}
+.members tr td {
+  text-align: center;
+}
+
+.members tbody tr td:nth-child(1) {
+  padding-left: 40px;
+  text-align: left;
+}
+
+.pagenation {
+  padding: 15px 0 5px;
+  display: inline-block;
+}
+.pagenation::after {
+  content: "";
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+.pagenation li {
+  float: left;
+  font-weight: bold;
+}
+
+.pagenation li:nth-child(n + 2) {
+  margin-left: 10px;
+}

@@ -1,0 +1,29 @@
+.main .inner {
+  padding-top: 180px;
+}
+.join_button {
+  width: 48%;
+  height: 400px;
+  float: left;
+  border: 3px solid var(--color-iceland-poppy);
+  border-radius: 15px;
+  background-color: white;
+}
+
+.join_button:hover {
+  color: aliceblue;
+  background-color: var(--color-iceland-poppy);
+}
+
+.join_button:nth-child(2) {
+  margin-left: 4%;
+}
+
+.join_button__icon {
+  font-size: 120px;
+}
+
+.join_button__text {
+  margin-top: 30px;
+  font-size: var(--font-medium);
+}

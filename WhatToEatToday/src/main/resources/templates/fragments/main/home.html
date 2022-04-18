@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <main class="main" th:fragment="main">
+    <div class="inner">
+      <form action="#" method="post">
+        <fieldset class="search">
+          <input
+            type="search"
+            class="search__text"
+            placeholder="메뉴를 검색하세요"
+          />
+          <button class="search__button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </fieldset>
+        <fieldset class="menu">
+          <button class="menu__button">
+            <figure>
+              <i class="fa-solid fa-thumbs-up menu__button__icon"></i>
+              <figcaption class="menu__button__text">메뉴 추천 받기</figcaption>
+            </figure>
+          </button>
+          <button class="menu__button">
+            <figure>
+              <i class="fa-solid fa-utensils menu__button__icon"></i>
+              <figcaption class="menu__button__text">메뉴 전체 보기</figcaption>
+            </figure>
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </main>
+</html>
