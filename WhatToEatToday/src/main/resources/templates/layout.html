@@ -7,11 +7,12 @@
     <main th:replace= "( 'fragments/main/' + ${page} ) :: main" />
     <footer th:replace="fragments/footer :: footer" />
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script th:inline="javascript">
         window.onload = () => {
             var message = [[${session.message}]];
             if(message !== null) {
-                alert(message);
+                swal(message);
                 fetch("/message_reset", {
                   method: "GET",
                 });
