@@ -51,7 +51,7 @@ input[name="map_active_button"] {
 
 .members tbody tr td:nth-child(8) label[for*="map_active_button"] {
   cursor: pointer;
-  color: var(--color-aurora-green);
+  color: var(--color-waterfall);
   text-decoration: underline;
 }
 
