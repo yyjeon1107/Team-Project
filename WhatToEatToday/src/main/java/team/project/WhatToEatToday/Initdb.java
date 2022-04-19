@@ -11,11 +11,11 @@ import team.project.WhatToEatToday.domain.member.Manager;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 
-@Component
-@RequiredArgsConstructor
+@Component //component-scan을 선언에 의해 특정 패키지 안의 클래스들을 스캔하고, @Component Annotation이 있는 클래스에 대하여 bean 인스턴스를 생성
+@RequiredArgsConstructor //final이나 @NonNull인 필드 값만 파라미터로 받는 생성자를 추가한다
 public class Initdb {
 
-    private final InitService initService;
+    private final InitService initService; //InitService 클래스
 
     @PostConstruct
     public void init() {
@@ -25,16 +25,17 @@ public class Initdb {
     }
 
     @Component
-    @Transactional
+    @Transactional //일반적으로 DB데이터를 등록/수정/삭제하는 Service 메소드는 @Transactional을 필수적으로 가져감
     @RequiredArgsConstructor
     static class InitService {
 
-        private final EntityManager em;
+        private final EntityManager em; //EntityManager의 객체 em 생성 -> @RequiredArgsConstructor를 이용해 Entitymanager클래스의 생성자 주입
 
         public void dbInit1() {
             System.out.println("Init1" + this.getClass());
             Admin admin = createAdmin("admin", "admin", "admin", "admin", "admin", "admin");
-            em.persist(admin);
+            em.persist(admin); // EntityManger.persist(enitity); --> 엔티티 객체를 DB(JPA 영속성 컨테스트)에 저장하는 것
+
         }
         public void dbInit2() {
             System.out.println("Init2" + this.getClass());
