@@ -23,8 +23,10 @@ public abstract class Member {
     private String email;
     private String tel;
 
-    @Column(length=1000)
+    @Column(length=2000)
     private String address;
+
+    private String addressDetail;
 
 //    private String customer_id
 }

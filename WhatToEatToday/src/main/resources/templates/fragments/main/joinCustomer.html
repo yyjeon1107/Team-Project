@@ -85,6 +85,14 @@
           <button type="button" class="join__button" onclick="getAddress()">
             주소 검색
           </button>
+          <input
+                  class="join__input"
+                  type="text"
+                  placeholder="상세주소"
+                  autocomplete="off"
+                  required
+                  th:field="*{addressDetail}"
+          />
         </fieldset>
         <button class="join__button">회원가입</button>
       </form>
