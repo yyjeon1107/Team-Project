@@ -22,6 +22,8 @@ public abstract class Member {
     private String name;
     private String email;
     private String tel;
+
+    @Column(length=1000)
     private String address;
 
 //    private String customer_id

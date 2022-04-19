@@ -33,21 +33,23 @@ public class Initdb {
 
         public void dbInit1() {
             System.out.println("Init1" + this.getClass());
-            Admin admin = createAdmin("admin", "admin", "admin", "admin", "admin", "admin");
+            Admin admin = createAdmin("admin", "admin", "admin", "admin", "admin", null);
             em.persist(admin);
         }
+
         public void dbInit2() {
             System.out.println("Init2" + this.getClass());
-            Manager manager1 = createManager("manager1", "manager1", "manager1", "manager1", "manager1", "manager1");
+            Manager manager1 = createManager("manager1", "manager1", "manager1", "manager1", "manager1", null);
             em.persist(manager1);
-            Manager manager2 = createManager("manager2", "manager2", "manager2", "manager2", "manager2", "manager2");
+            Manager manager2 = createManager("manager2", "manager2", "manager2", "manager2", "manager2", null);
             em.persist(manager2);
-            Manager manager3 = createManager("manager3", "manager3", "manager3", "manager3", "manager3", "manager3");
+            Manager manager3 = createManager("manager3", "manager3", "manager3", "manager3", "manager3", null);
             em.persist(manager3);
         }
+
         public void dbInit3() {
             System.out.println("Init3" + this.getClass());
-            Customer customer = createCustomer("customer", "customer", "customer", "customer", "customer", "customer");
+            Customer customer = createCustomer("customer", "customer", "customer", "customer", "customer", null);
             em.persist(customer);
         }
 
@@ -61,6 +63,7 @@ public class Initdb {
             admin.setAddress(address);
             return admin;
         }
+
         private Manager createManager(String id, String password, String name, String email, String tel, String address) {
             Manager manager = new Manager();
             manager.setId(id);
@@ -71,6 +74,7 @@ public class Initdb {
             manager.setAddress(address);
             return manager;
         }
+
         private Customer createCustomer(String id, String password, String name, String email, String tel, String address) {
             Customer customer = new Customer();
             customer.setId(id);

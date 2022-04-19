@@ -33,7 +33,7 @@ public class CustomerServiceTest {
 
         //given
         Customer customer = new Customer();
-        customer.setId("customer");
+        customer.setId("customer1");
 
         //when
         String savedId = customerService.join(customer);

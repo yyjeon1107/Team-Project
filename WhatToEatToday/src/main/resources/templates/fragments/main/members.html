@@ -28,7 +28,7 @@
             <th>주소</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="members_body">
           <tr th:each="member, iterStat : ${members}">
             <td th:text="${iterStat.count}">No</td>
             <td th:text="${member.getClass().getSimpleName()}">유형</td>
@@ -37,7 +37,7 @@
             <td th:text="${member.getName()}">이름</td>
             <td th:text="${member.getEmail()}">이메일</td>
             <td th:text="${member.getTel()}">전화번호</td>
-            <td th:text="${member.getAddress()}">주소</td>
+            <td>주소</td>
           </tr>
         </tbody>
         <tfoot>

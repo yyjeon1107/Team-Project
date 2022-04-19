@@ -67,11 +67,17 @@
         <fieldset class="join__fieldset">
           <legend class="join__legend">주소</legend>
           <input
+            class="blind"
+            id="address-info"
+            type="text"
+            th:field="*{address}"
+          />
+          <input
             class="join__input"
             type="text"
             id="address"
+            onkeyup="addressEmptyCheck()"
             onclick="getAddress()"
-            th:field="*{address}"
             placeholder="Address"
             autocomplete="off"
             required
