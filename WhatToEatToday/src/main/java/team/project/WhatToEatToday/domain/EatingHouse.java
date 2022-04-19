@@ -15,16 +15,16 @@ import java.util.List;
 public class EatingHouse {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue//AutoIncrement
     @Column(name = "eating_house_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
+    @JoinColumn(name = "manager_id") //매니저 id
     private Manager manager;
 
     @OneToMany(mappedBy = "eatingHouse")
     private List<Item> items = new ArrayList<>();
 
-    private String Name;
+    private String Name; //가게명
 }
