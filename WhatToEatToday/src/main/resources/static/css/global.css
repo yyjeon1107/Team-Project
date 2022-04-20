@@ -131,6 +131,17 @@ label {
   font-size: var(--font-large);
 }
 
+.download_button {
+  display: block;
+  margin: 15px 0;
+  float: right;
+  width: 200px;
+  padding: 10px;
+  font-size: var(--font-regular);
+  border-radius: 5px;
+  background-color: #3c6382;
+}
+
 .loading {
   position: fixed;
   margin: auto;
