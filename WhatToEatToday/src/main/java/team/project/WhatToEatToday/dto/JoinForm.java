@@ -15,4 +15,5 @@ public class JoinForm {
     private String email;
     private String tel;
     private String address;
+    private String addressDetail;
 }

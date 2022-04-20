@@ -67,10 +67,16 @@
         <fieldset class="join__fieldset">
           <legend class="join__legend">주소</legend>
           <input
+            class="blind"
+            id="address-info"
+            type="text"
+            th:field="*{address}"
+          />
+          <input
             class="join__input"
             type="text"
             id="address"
-            th:field="*{address}"
+            onkeyup="addressEmptyCheck()"
             onclick="getAddress()"
             placeholder="Address"
             autocomplete="off"
@@ -79,6 +85,14 @@
           <button type="button" class="join__button" onclick="getAddress()">
             주소 검색
           </button>
+          <input
+                  class="join__input"
+                  type="text"
+                  placeholder="상세주소"
+                  autocomplete="off"
+                  required
+                  th:field="*{addressDetail}"
+          />
         </fieldset>
         <button class="join__button">회원가입</button>
       </form>

@@ -35,7 +35,7 @@ public class AdminServiceTest {
 
         //given
         Admin admin = new Admin();
-        admin.setId("admin");
+        admin.setId("admin1");
 
         //when
         String savedId = adminService.join(admin);

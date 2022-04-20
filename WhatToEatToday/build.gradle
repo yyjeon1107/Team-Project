@@ -32,6 +32,11 @@ dependencies {
 	testImplementation("org.junit.vintage:junit-vintage-engine") {
 		exclude group: "org.hamcrest", module: "hamcrest-core"
 	}
+	//Jackson 추가
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.13.2'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.13.1'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.2.2'
+
 }
 
 test {

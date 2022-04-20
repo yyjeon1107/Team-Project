@@ -1,7 +1,32 @@
 @charset "UTF-8";
+
 @font-face {
   src: url(/font/BMJUA_ttf.ttf);
   font-family: "jua";
+}
+@font-face {
+  src: url(/font/NotoSansKR-Thin.otf);
+  font-family: "NotoSansKR-Thin";
+}
+@font-face {
+  src: url(/font/NotoSansKR-Light.otf);
+  font-family: "NotoSansKR-Light";
+}
+@font-face {
+  src: url(/font/NotoSansKR-Regular.otf);
+  font-family: "NotoSansKR-Regular";
+}
+@font-face {
+  src: url(/font/NotoSansKR-Medium.otf);
+  font-family: "NotoSansKR-Medium";
+}
+@font-face {
+  src: url(/font/NotoSansKR-Bold.otf);
+  font-family: "NotoSansKR-Bold";
+}
+@font-face {
+  src: url(/font/NotoSansKR-Black.otf);
+  font-family: "NotoSansKR-Black";
 }
 /* Global */
 
@@ -65,7 +90,7 @@ a {
 }
 
 .inner {
-  width: 1024px;
+  max-width: 1024px;
   margin: auto;
 }
 .inner::after {
@@ -84,12 +109,15 @@ button {
   font-family: "jua", Arial, Helvetica, sans-serif;
 }
 
-button {
-  transition: all var(--transition-duration);
+button,
+label {
+  transition-property: color, background;
+  transition-duration: var(--transition-duration);
 }
 
 .main {
-  min-height: 791px;
+  min-height: 100vh;
+  padding: 15vh 0;
   background-color: var(--color-flat-flesh);
 }
 

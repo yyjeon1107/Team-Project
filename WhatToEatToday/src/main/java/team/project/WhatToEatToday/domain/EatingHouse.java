@@ -27,4 +27,7 @@ public class EatingHouse {
     private List<Item> items = new ArrayList<>();
 
     private String Name;
+
+    @Column(length=1000)
+    private String address;
 }

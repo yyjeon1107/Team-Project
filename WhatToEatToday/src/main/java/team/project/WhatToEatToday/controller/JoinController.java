@@ -51,6 +51,7 @@ public class JoinController {
             admin.setEmail(joinForm.getEmail());
             admin.setTel(joinForm.getTel());
             admin.setAddress(joinForm.getAddress());
+            admin.setAddressDetail(joinForm.getAddressDetail());
             adminService.join(admin);
             session.setAttribute("message", "회원가입 되셨습니다.");
             return "redirect:/";
@@ -78,6 +79,7 @@ public class JoinController {
             manager.setEmail(joinForm.getEmail());
             manager.setTel(joinForm.getTel());
             manager.setAddress(joinForm.getAddress());
+            manager.setAddressDetail(joinForm.getAddressDetail());
             managerService.join(manager);
             session.setAttribute("message", "회원가입 되셨습니다.");
             return "redirect:/";
@@ -105,6 +107,7 @@ public class JoinController {
             customer.setEmail(joinForm.getEmail());
             customer.setTel(joinForm.getTel());
             customer.setAddress(joinForm.getAddress());
+            customer.setAddressDetail(joinForm.getAddressDetail());
             customerService.join(customer);
             session.setAttribute("message", "회원가입 되셨습니다.");
             return "redirect:/";
