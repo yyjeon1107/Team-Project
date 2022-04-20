@@ -28,6 +28,8 @@ public class EatingHouse {
 
     private String Name;
 
-    @Column(length=1000)
+    @Column(length=2000)
     private String address;
+    
+    private String tel;
 }
