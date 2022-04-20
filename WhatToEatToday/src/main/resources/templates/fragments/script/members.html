@@ -84,14 +84,19 @@
               },
               disableKineticPan: false
             });
-            console.log(address)
 
             const urlMarker = new naver.maps.Marker({
                 position: new naver.maps.LatLng(Lat, Lng),
                 map: map,
                 title: 'urlMarker',
-                icon: HOME_PATH +"/img/map/pin_default.png",
-                animation: naver.maps.Animation.DROP
+                icon: {
+                  url: HOME_PATH +"/img/map/pin_User.png",
+                  size: new naver.maps.Size(44, 65),
+                  scaledSize: new naver.maps.Size(44, 65),
+                  origin: new naver.maps.Point(0, 0),
+                  anchor: new naver.maps.Point(12, 34)
+                },
+                animation: naver.maps.Animation.BOUNCE
             });
 
             naver.maps.Event.addListener(urlMarker, 'click', function() {
