@@ -31,5 +31,7 @@ public class EatingHouse {
     @Column(length=2000)
     private String address;
     
+    private String addressDetail;
+    
     private String tel;
 }

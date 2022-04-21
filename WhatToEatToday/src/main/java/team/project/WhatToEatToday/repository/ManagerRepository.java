@@ -15,7 +15,7 @@ public class ManagerRepository {
     public void save(Manager manager) {
         em.persist(manager);
     }
-    public Manager findOne(String id) {
+    public Manager findOne(String id) {	// 없는 id 찾을시 error
         return em.find(Manager.class, id);
     }
 
@@ -24,7 +24,7 @@ public class ManagerRepository {
                 .getResultList();
     }
 
-    public List<Manager> findById(String id) {
+    public List<Manager> findById(String id) { // 없는 id 찾을시 비어있는 list출력 (error X)
         return em.createQuery("SELECT m FROM Manager m where m.id = :id", Manager.class)
                 .setParameter("id", id)
                 .getResultList();
