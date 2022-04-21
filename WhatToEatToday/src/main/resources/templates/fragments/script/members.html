@@ -8,7 +8,6 @@
     <script th:inline="javascript">
       const members = [[${members}]];
 
-      console.log(members)
       const membersBody = document.querySelector(".members_body");
       const tr = membersBody.querySelectorAll("tr");
       for( let i=0; i<members.length; i++) {
@@ -116,6 +115,55 @@
             });
           }
       }
+
+      function setDownloadMembersCsv() {
+        const csv = []
+        const tempMembers = members;
+        let columns = Object.keys(tempMembers[0])
+
+        for(let i=1; i<tempMembers.length; i++){
+          columns = columns.filter(column => Object.keys(tempMembers[i]).includes(column));
+        }
+
+        csv.push(columns.join(","));
+
+        for(let member of tempMembers){
+          const data = []
+          for(let column of columns){
+            if(column === "address"){
+              if(member[column] !== null){
+                console.log(JSON.parse(member[column]))
+                data.push(JSON.parse(member[column]).addresses[0].roadAddress);
+              }else {
+                data.push("");
+              }
+            }else {
+              data.push(member[column]);
+            }
+          }
+          csv.push(data.join(","))
+        }
+
+        downloadCSV(csv.join("\n"), "멤버 정보");
+      }
+      function downloadCSV(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        //한글 처리를 해주기 위해 BOM 추가하기
+        const BOM = "\uFEFF";
+        csv = BOM + csv;
+
+        csvFile = new Blob([csv], { type: "text/csv" });
+
+        downloadLink = document.createElement("a");
+        downloadLink.className = "download_button"
+        downloadLink.innerText = filename + " 다운받기"
+        downloadLink.download = filename;
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+        document.querySelector(".main .inner").prepend(downloadLink);
+      }
+      setDownloadMembersCsv();
     </script>
   </th:block>
 </html>
