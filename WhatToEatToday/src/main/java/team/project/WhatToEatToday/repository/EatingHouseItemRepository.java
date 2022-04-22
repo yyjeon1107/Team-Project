@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import lombok.RequiredArgsConstructor;
 import team.project.WhatToEatToday.domain.EatingHouse;
 import team.project.WhatToEatToday.domain.Item;
+import team.project.WhatToEatToday.domain.member.Manager;
 
 @Repository
 @RequiredArgsConstructor
@@ -22,11 +23,23 @@ public class EatingHouseItemRepository {
             em.merge(item);
         }
     }
+    
+    public EatingHouse findOne(Long id) {
+    	return em.find(EatingHouse.class, id);
+    }
+    
     public List<Item> findAll() {
         return em.createQuery("SELECT e FROM Item e", Item.class)
                 .getResultList();
     }
     
+   
+    public EatingHouse findId(Manager id) { // 없는 id 찾을시 비어있는 list출력 (error X)
+        return em.createQuery("SELECT e FROM EatingHouse e where manager_id = :id", EatingHouse.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
     
+
 
 }

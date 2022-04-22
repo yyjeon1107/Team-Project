@@ -22,6 +22,11 @@ public class EatingHouseService {
     	eatingHouseRepository.save(eatinghouse);
         return eatinghouse.getId();
     }  
+    
+    public List<EatingHouse> findAll(){
+    	return eatingHouseRepository.findAll();
+    }
+    
     public EatingHouse findOne(Long eatingHouseId) {
         return eatingHouseRepository.findOne(eatingHouseId);
     }

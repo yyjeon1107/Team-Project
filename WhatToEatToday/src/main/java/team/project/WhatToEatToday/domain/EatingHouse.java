@@ -5,6 +5,9 @@ import lombok.Setter;
 import team.project.WhatToEatToday.domain.member.Manager;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class EatingHouse {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
+    @JsonIgnore
     private Manager manager;
 
     @OneToMany(mappedBy = "eatingHouse")
