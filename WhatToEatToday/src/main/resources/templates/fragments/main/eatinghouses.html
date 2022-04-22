@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <main class="main" th:fragment="main">
+    <div class="inner">
+      <details class="members__details">
+        <summary class="members__summary">
+          매장정보
+        </summary>
+        <p>
+          <input type="radio" name="map_active_button" id="map_close_button" checked/>
+          <table class="members">
+            <caption class="members__caption blind">
+              매장정보
+            </caption>
+            <colgroup>
+              <col class="no_space" />       
+              <col class="name_space" />      
+              <col class="tel_space" />
+              <col class="address_space" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>가게명</th>
+                <th>전화번호</th>
+                <th>주소</th>
+              </tr>
+            </thead>
+            <tbody class="members_body">
+              <tr th:each="eatinghouse, iterStat : ${eatinghouses}">
+                <td th:text="${iterStat.count}">No</td>     
+                <td th:text="${eatinghouse.getName()}">가게명</td>            
+                <td th:text="${eatinghouse.getTel()}">전화번호</td>
+                <td th:text="${eatinghouse.getAddress()}">주소</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+      </details>
+    </div>
+  </main>
+</html>

@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< Updated upstream
 <th:block th:fragment="script">
+=======
+  <th:block th:fragment="script">
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8uij0746cx&submodules=panorama"
+    ></script>
+    <script th:inline="javascript">
+      const members = [[${members}]];
+>>>>>>> Stashed changes
 
 </th:block>

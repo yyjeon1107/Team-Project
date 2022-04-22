@@ -24,6 +24,7 @@ public class AdminController {
         List<Member> members = memberService.findAll();
         model.addAttribute("page", "members");
         model.addAttribute("members", members);
+        System.out.println("---haaaaa----" + members.get(5).getAddress());
         return "layout";
     }
 }
