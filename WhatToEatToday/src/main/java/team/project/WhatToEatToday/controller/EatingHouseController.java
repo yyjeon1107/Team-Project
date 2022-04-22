@@ -1,5 +1,7 @@
 package team.project.WhatToEatToday.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -11,18 +13,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.RequiredArgsConstructor;
+import team.project.WhatToEatToday.Service.EatingHouseItemService;
 import team.project.WhatToEatToday.Service.EatingHouseService;
 import team.project.WhatToEatToday.Service.ManagerService;
 import team.project.WhatToEatToday.domain.EatingHouse;
+import team.project.WhatToEatToday.domain.Item;
 import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.domain.member.Member;
 import team.project.WhatToEatToday.dto.EatingHouseForm;
+import team.project.WhatToEatToday.dto.EatingHouseItemForm;
 
 @Controller
 @RequestMapping("/eatinghouse")
 @RequiredArgsConstructor
 public class EatingHouseController {
 	
+	private final EatingHouseItemService eatingHouseItemService;
 	private final EatingHouseService eatingHouseService;
 	private final ManagerService managerService;
 	
@@ -34,7 +40,7 @@ public class EatingHouseController {
     }
     
     @PostMapping("/store")
-    public String postJoinManager(HttpServletRequest request, @Valid EatingHouseForm eatingHouseForm) {
+    public String postJoinStore(HttpServletRequest request, @Valid EatingHouseForm eatingHouseForm) {
         HttpSession session = request.getSession();
         try {
             EatingHouse eatinghouse = new EatingHouse();
@@ -50,7 +56,37 @@ public class EatingHouseController {
             return "redirect:/";
         } catch (IllegalStateException e) {
             session.setAttribute("message", "이미 존재하는 가게입니다.");
-            return "redirect:/join/manager";
+            return "redirect:/eatinghouse/store";
+        }
+    }
+    
+    @GetMapping("/item")
+    public String joinItem(Model model) {
+        model.addAttribute("page", "joinEatingHouseItem");
+        model.addAttribute("joinStoreItem", new EatingHouseItemForm());
+        return "layout";        
+    }
+    
+    @PostMapping("/item")
+    public String postJoinManager(HttpServletRequest request, @Valid EatingHouseItemForm eatingHouseItemForm) {
+        HttpSession session = request.getSession();
+        try {
+            Item item = new Item();
+            Member member = (Member)session.getAttribute("member");
+            Manager manager = managerService.findOne(member.getId());
+            EatingHouse eatinghouse = eatingHouseService.findId(manager);
+            System.out.println("*************************************");
+            System.out.println(eatinghouse);
+            System.out.println("*************************************");
+            item.setEatingHouse(eatinghouse);
+            item.setName(eatingHouseItemForm.getName());
+            item.setPrice(eatingHouseItemForm.getPrice());
+            eatingHouseItemService.join(item);
+            session.setAttribute("message", "음식이 등록되었습니다.");
+            return "redirect:/";
+        } catch (IllegalStateException e) {
+            session.setAttribute("message", "이미 존재하는 메뉴입니다.");
+            return "redirect:/eatinghouse/item";
         }
     }
     

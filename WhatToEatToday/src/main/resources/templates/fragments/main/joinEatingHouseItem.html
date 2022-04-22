@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <main class="main" th:fragment="main">
     <div class="inner">
-      <h2>음식 추가</h2>
+      <h2>메뉴 등록</h2>
       <form
-        action="/eatinghouse/store"
+        action="/eatinghouse/item"
         method="post"
-        th:object="${joinStore}"
+        th:object="${joinStoreItem}"
         class="join"
       >
                
@@ -22,47 +22,18 @@
           />
         </fieldset>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">전화번호</legend>
+          <legend class="join__legend">가격</legend>
           <input
             class="join__input"
-            type="tel"
-            th:field="*{tel}"
-            placeholder="phone number"
+            type="text"
+            th:field="*{price}"
+            placeholder="price"
             autocomplete="off"
             required
           />
         </fieldset>
-        <fieldset class="join__fieldset">
-          <legend class="join__legend">주소</legend>
-          <input
-            class="blind"
-            id="address-info"
-            type="text"
-            th:field="*{address}"
-          />
-          <input
-            class="join__input"
-            type="text"
-            id="address"
-            onkeyup="addressEmptyCheck()"
-            onclick="getAddress()"
-            placeholder="Address"
-            autocomplete="off"
-            required
-          />
-          <button type="button" class="join__button" onclick="getAddress()">
-            주소 검색
-          </button>
-          <input
-                  class="join__input"
-                  type="text"
-                  placeholder="상세주소"
-                  autocomplete="off"
-                  required
-                  th:field="*{addressDetail}"
-          />
-        </fieldset>
-        <button class="join__button">매장등록</button>
+      
+        <button class="join__button">메뉴등록</button>
       </form>
     </div>
   </main>

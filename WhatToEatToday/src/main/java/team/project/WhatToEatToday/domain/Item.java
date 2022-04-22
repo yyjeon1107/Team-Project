@@ -2,6 +2,7 @@ package team.project.WhatToEatToday.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import team.project.WhatToEatToday.domain.member.Manager;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -28,10 +29,10 @@ public class Item {
 
     @OneToMany(mappedBy = "item")
     List<OrderItem> orderItems = new ArrayList<>();
-
-    public void setItem(EatingHouse eatingHouse) {
-        this.eatingHouse = eatingHouse;
-        eatingHouse.getItems().add(this);
+    
+    public void setEatingHouse(EatingHouse eatingHouse) {
+    	this.eatingHouse = eatingHouse;
+    	eatingHouse.getItems().add(this);
     }
 
     public void addOrderItem(OrderItem orderItem) {
