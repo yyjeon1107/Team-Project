@@ -161,7 +161,7 @@
         downloadLink.innerText = filename + " 다운받기"
         downloadLink.download = filename;
         downloadLink.href = window.URL.createObjectURL(csvFile);
-        document.querySelector(".main .inner").prepend(downloadLink);
+        document.querySelector(".main .inner .members__summary").appendChild(downloadLink);
       }
       setDownloadMembersCsv();
     </script>
