@@ -1,3 +1,4 @@
+/*
 package team.project.WhatToEatToday;
 
 
@@ -94,3 +95,4 @@ public class Initdb {
         }
     }
 }
+*/
