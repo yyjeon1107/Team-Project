@@ -39,6 +39,7 @@ public class EatingHouse {
     private String addressDetail;
     
     private String tel;
+<<<<<<< Updated upstream
 
 
     public void setManager(Manager manager) {
@@ -52,4 +53,18 @@ public class EatingHouse {
     }
 
 
+=======
+    
+    public void setManager(Manager manager) {
+    	this.manager = manager;
+    	manager.getEatingHouses().add(this);
+    }
+    
+    public void addItem(Item item) {
+    	this.items.add(item);
+    	item.setEatingHouse(this);
+    }
+    
+    
+>>>>>>> Stashed changes
 }

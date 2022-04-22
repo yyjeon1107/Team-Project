@@ -9,16 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
-import team.project.WhatToEatToday.Service.CustomerService;
 import team.project.WhatToEatToday.Service.EatingHouseService;
-import team.project.WhatToEatToday.Service.MemberService;
+import team.project.WhatToEatToday.Service.ManagerService;
 import team.project.WhatToEatToday.domain.EatingHouse;
 import team.project.WhatToEatToday.domain.member.Manager;
+import team.project.WhatToEatToday.domain.member.Member;
 import team.project.WhatToEatToday.dto.EatingHouseForm;
-import team.project.WhatToEatToday.dto.JoinForm;
 
 @Controller
 @RequestMapping("/eatinghouse")
@@ -26,6 +24,7 @@ import team.project.WhatToEatToday.dto.JoinForm;
 public class EatingHouseController {
 	
 	private final EatingHouseService eatingHouseService;
+	private final ManagerService managerService;
 	
     @GetMapping("/store")
     public String joinStore(Model model) {
@@ -39,8 +38,10 @@ public class EatingHouseController {
         HttpSession session = request.getSession();
         try {
             EatingHouse eatinghouse = new EatingHouse();
-            //eatinghouse.setManager(session.);
-            eatinghouse.setName(eatingHouseForm.getName());
+            Member member = (Member)session.getAttribute("member");
+            Manager manager = managerService.findOne(member.getId());
+            eatinghouse.setManager(manager);
+        	eatinghouse.setName(eatingHouseForm.getName());
             eatinghouse.setTel(eatingHouseForm.getTel());
             eatinghouse.setAddress(eatingHouseForm.getAddress());
             eatinghouse.setAddressDetail(eatingHouseForm.getAddressDetail());
