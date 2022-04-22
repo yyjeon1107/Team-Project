@@ -131,6 +131,8 @@ label {
   font-size: var(--font-large);
 }
 
+
+
 .download_button {
   display: block;
   float: right;
@@ -140,6 +142,7 @@ label {
   border-radius: 5px;
   background-color: #3c6382;
 }
+
 
 .loading {
   position: fixed;

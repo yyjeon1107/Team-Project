@@ -8,6 +8,7 @@
     <script th:inline="javascript">
       const members = [[${members}]];
 
+
       const membersBody = document.querySelector(".members_body");
       const tr = membersBody.querySelectorAll("tr");
       for( let i=0; i<members.length; i++) {
@@ -115,6 +116,7 @@
             });
           }
       }
+
 
       function setDownloadMembersCsv() {
         const csv = []

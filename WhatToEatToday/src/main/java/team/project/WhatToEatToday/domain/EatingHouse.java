@@ -31,8 +31,15 @@ public class EatingHouse {
     private List<Item> items = new ArrayList<>();
 
 
-    @Column(length=1000)
+
+    @Column(length=2000)
     private String address;
+
+    
+    private String addressDetail;
+    
+    private String tel;
+
 
     public void setManager(Manager manager) {
         this.manager = manager;
@@ -43,5 +50,6 @@ public class EatingHouse {
         this.items.add(item);
         item.setEatingHouse(this);
     }
+
 
 }

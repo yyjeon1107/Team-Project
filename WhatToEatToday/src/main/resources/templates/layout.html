@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head th:replace="fragments/head :: head"> </head>
   <body>
+
     <header th:replace="fragments/header :: header" />
     <main th:replace="( 'fragments/main/' + ${page} ) :: main" />
     <footer th:replace="fragments/footer :: footer" />

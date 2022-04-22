@@ -2,7 +2,12 @@ package team.project.WhatToEatToday.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import team.project.WhatToEatToday.domain.EatingHouse;
+import team.project.WhatToEatToday.domain.member.Customer;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -18,5 +23,11 @@ public class EatingHouseRepository {
             em.merge(eatingHouse);
         }
     }
+    public List<EatingHouse> findAll() {
+        return em.createQuery("SELECT e FROM EatingHouse e", EatingHouse.class)
+                .getResultList();
+    }
+    
+    
 
 }
