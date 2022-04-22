@@ -1,10 +1,13 @@
 package team.project.WhatToEatToday.Service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import team.project.WhatToEatToday.domain.EatingHouse;
+import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.repository.EatingHouseRepository;
 
 @Service
@@ -19,5 +22,14 @@ public class EatingHouseService {
     	eatingHouseRepository.save(eatinghouse);
         return eatinghouse.getId();
     }  
-
+    public EatingHouse findOne(Long eatingHouseId) {
+        return eatingHouseRepository.findOne(eatingHouseId);
+    }
+    public List<EatingHouse> findById(String id) { 
+        return eatingHouseRepository.findById(id);
+    }
+    
+    public EatingHouse findId(Manager id) { 
+        return eatingHouseRepository.findId(id);
+    }
 }

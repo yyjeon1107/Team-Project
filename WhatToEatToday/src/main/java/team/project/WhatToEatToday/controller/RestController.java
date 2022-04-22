@@ -27,7 +27,7 @@ public class RestController {
 
 	
 //	@ResponseBody
-//    @GetMapping("/store")
+//    @GetMapping("/item")
 //    public List<EatingHouse> joinStore() {
 //        return eatingHouseRepository.findAll();        
 //    }

@@ -18,9 +18,6 @@ public class LogoutController {
         HttpSession session = request.getSession();
         session.setAttribute("login", null);
         session.setAttribute("member", null);
-        session.setAttribute("memberType", null);
-        session.setAttribute("message", "로그아웃");
-
         return "redirect:/";
     }
 
