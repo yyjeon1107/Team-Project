@@ -19,6 +19,10 @@ public class EatingHouse {
     @Column(name = "eating_house_id")
     private Long id;
 
+    private String Name;
+
+    private String description;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
     private Manager manager;
@@ -26,14 +30,26 @@ public class EatingHouse {
     @OneToMany(mappedBy = "eatingHouse")
     private List<Item> items = new ArrayList<>();
 
-    private String Name;
 
 
     @Column(length=2000)
     private String address;
+
     
     private String addressDetail;
     
     private String tel;
+
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+        manager.getEatingHouses().add(this);
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+        item.setEatingHouse(this);
+    }
+
 
 }
