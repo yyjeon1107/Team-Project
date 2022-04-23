@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 package team.project.WhatToEatToday;
 
 
@@ -98,7 +95,4 @@ public class Initdb {
         }
     }
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <th:block th:fragment="script">
-    <script
+     <script
       type="text/javascript"
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8uij0746cx&submodules=panorama"
     ></script>
     <script th:inline="javascript">
-      const members = [[${members}]];
+      const members = [[${eatinghouses}]];
 
       console.log(members)
       const membersBody = document.querySelector(".members_body");
@@ -15,7 +15,7 @@
           if(members[i].address !== null) {
 
             const address = JSON.parse(members[i].address).addresses[0];
-            const addressTd = tr[i].querySelector("td:nth-child(8)");
+            const addressTd = tr[i].querySelector("td:nth-child(4)");
 
             addressTd.innerText = "";
 
