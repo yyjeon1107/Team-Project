@@ -5,6 +5,9 @@ import lombok.Setter;
 import team.project.WhatToEatToday.domain.member.Customer;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)

@@ -19,14 +19,41 @@
             <th>가게명</th>            
             <th>전화번호</th>
             <th>주소</th>
-          </tr>
+          </tr>          
         </thead>
         <tbody class="members_body">
           <tr th:each="eatinghouses, iterStat : ${eatinghouses}">
             <td th:text="${iterStat.count}">No</td>           
             <td th:text="${eatinghouses.getName()}">가게명</td>
             <td th:text="${eatinghouses.getTel()}">전화번호</td>
-            <td>주소</td>
+            <td>주소</td>            
+          </tr>         
+        </tbody>        
+      </table>
+    </div>
+    <br>
+    <br>
+    <div class="inner">
+      <input type="radio" name="map_active_button" id="map_close_button" checked/>
+      <table class="members">
+        <caption class="members__caption">
+          메뉴정보
+        </caption>
+        <colgroup>
+          <col class="no_space" />        
+          <col class="name_space" />         
+          <col class="price_space" />
+        </colgroup>
+        <thead>          
+           <tr>
+            <th>메뉴이름</th>
+            <th>가격</th>
+          </tr>
+        </thead>
+        <tbody class="members_body">          
+          <tr th:each="eatinghousesitem, iterStats : ${eatinghousesitem}">            
+            <td th:text="${eatinghousesitem.getName()}">메뉴이름</td>
+            <td th:text="${eatinghousesitem.getPrice()}">가격</td>        
           </tr>
         </tbody>
       </table>

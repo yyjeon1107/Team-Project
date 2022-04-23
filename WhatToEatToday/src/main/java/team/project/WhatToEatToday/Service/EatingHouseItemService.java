@@ -1,5 +1,7 @@
 package team.project.WhatToEatToday.Service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,10 @@ public class EatingHouseItemService {
     	eatingHouseItemRepository.save(item);
         return item.getId();
     }  
-   /* public EatingHouse findOne(String eatingHouseId) {
+   public Item findOne(Long eatingHouseId) {
         return eatingHouseItemRepository.findOne(eatingHouseId);
-    }*/
+    }
+   public List<Item> findAll() {
+       return eatingHouseItemRepository.findAll();
+   }
 }
