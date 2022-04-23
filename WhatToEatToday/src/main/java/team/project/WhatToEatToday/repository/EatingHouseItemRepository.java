@@ -22,11 +22,28 @@ public class EatingHouseItemRepository {
             em.merge(item);
         }
     }
+<<<<<<< Updated upstream
+=======
+    
+    public Item findOne(Long id) {
+    	return em.find(Item.class, id);
+    }
+    
+>>>>>>> Stashed changes
     public List<Item> findAll() {
         return em.createQuery("SELECT e FROM Item e", Item.class)
                 .getResultList();
     }
     
+<<<<<<< Updated upstream
+=======
+   
+    public Item findId(Manager id) { 
+        return em.createQuery("SELECT e FROM Item e where manager_id = :id", Item.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+>>>>>>> Stashed changes
     
 
 }

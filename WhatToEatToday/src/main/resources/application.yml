@@ -1,7 +1,11 @@
 spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/whatToEatToday
+<<<<<<< Updated upstream
     username: root
+=======
+    username: root  
+>>>>>>> Stashed changes
     password: 
     driver-class-name: org.h2.Driver
   jpa:

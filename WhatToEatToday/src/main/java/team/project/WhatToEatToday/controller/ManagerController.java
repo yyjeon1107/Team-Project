@@ -16,11 +16,19 @@ import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.domain.member.Member;
 import team.project.WhatToEatToday.dto.JoinForm;
 
+<<<<<<< Updated upstream
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+=======
+import lombok.RequiredArgsConstructor;
+import team.project.WhatToEatToday.Service.EatingHouseItemService;
+import team.project.WhatToEatToday.Service.EatingHouseService;
+import team.project.WhatToEatToday.domain.EatingHouse;
+import team.project.WhatToEatToday.domain.Item;
+>>>>>>> Stashed changes
 
 @Controller
 @RequestMapping("/manager")
@@ -30,12 +38,26 @@ public class ManagerController {
 	private final MemberService memberService;
     private final CustomerService customerService;
 
+<<<<<<< Updated upstream
 
     @GetMapping("/store")
     public String all(Model model) {
     	List<Member> members = memberService.findAll();
         model.addAttribute("page", "members");
         model.addAttribute("members", members);
+=======
+	private final EatingHouseService eatingHouseService;
+	private final EatingHouseItemService eatingHouseItemService;
+
+
+    @GetMapping("/store")
+    public String all(Model model) {
+    	List<EatingHouse> eatingHouses = eatingHouseService.findAll();
+    	List<Item> eatingHousesItem = eatingHouseItemService.findAll();
+        model.addAttribute("page", "eatinghouses");
+        model.addAttribute("eatinghouses", eatingHouses);
+        model.addAttribute("eatinghousesitem", eatingHousesItem);
+>>>>>>> Stashed changes
         return "layout";
         
     }
