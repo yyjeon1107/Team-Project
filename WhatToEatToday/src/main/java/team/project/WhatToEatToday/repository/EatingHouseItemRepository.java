@@ -3,6 +3,7 @@ package team.project.WhatToEatToday.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -42,6 +43,10 @@ public class EatingHouseItemRepository {
     }
 
     
+    public void removeItem(Long id) {
+    	Item item = em.find(Item.class, id);
+    	em.remove(item);
+    }
 
 
 }

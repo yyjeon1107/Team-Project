@@ -46,14 +46,23 @@
         </colgroup>
         <thead>          
            <tr>
+
+            <th>No</th>
             <th>메뉴이름</th>
             <th>가격</th>
+            <th></th>
           </tr>
         </thead>
         <tbody class="members_body">          
-          <tr th:each="eatinghousesitem, iterStats : ${eatinghousesitem}">            
+          <tr th:each="eatinghousesitem, iterStat : ${eatinghousesitem}">
+          	<td th:text="${iterStat.count}">No</td>            
             <td th:text="${eatinghousesitem.getName()}">메뉴이름</td>
-            <td th:text="${eatinghousesitem.getPrice()}">가격</td>        
+            <td th:text="${eatinghousesitem.getPrice()}">가격</td> 
+            <td>
+            	<a th:href="@{/eatinghouse/item/{id}/edit (id=${eatinghousesitem.id})}" role="button">수정</a>
+            	<a th:href="@{/eatinghouse/item/{id}/delete (id=${eatinghousesitem.id})}" role="button">삭제</a>
+            </td>       
+
           </tr>
         </tbody>
       </table>

@@ -6,9 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.boot.Banner.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -89,5 +92,46 @@ public class EatingHouseController {
             return "redirect:/eatinghouse/item";
         }
     }
+    
+    @GetMapping("item/{itemId}/edit")
+    public String updateItem(@PathVariable("itemId") Long itemId, Model model) {
+    	
+    	Item item = eatingHouseItemService.findOne(itemId);
+    	
+    	EatingHouseItemForm updateEatingHouseForm = new EatingHouseItemForm();
+    	updateEatingHouseForm.setId(item.getId());
+    	updateEatingHouseForm.setName(item.getName());
+    	updateEatingHouseForm.setPrice(item.getPrice());
+    	model.addAttribute("page", "updateEatingHouseItem");
+    	model.addAttribute("form", updateEatingHouseForm);
+    	
+    	return "layout";
+    }
+    
+    
+    @PostMapping("item/{itemId}/edit")
+    public String updateItem(@ModelAttribute("form") EatingHouseItemForm form) {
+    	
+    	Item item = new Item();
+    	
+    	item.setId(form.getId());
+    	item.setName(form.getName());
+    	item.setPrice(form.getPrice());
+    	
+    	eatingHouseItemService.join(item);
+    	return "redirect:/manager/store";
+    }
+    
+    
+    @GetMapping("item/{itemId}/delete")
+    public String deleteItem(@PathVariable("itemId") Long itemId) {
+    	
+    
+    	
+    	
+    	this.eatingHouseItemService.removeItem(itemId);
+    	return "redirect:/manager/store";
+    }
+    
     
 }
