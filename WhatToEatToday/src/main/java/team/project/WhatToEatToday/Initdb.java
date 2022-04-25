@@ -1,4 +1,4 @@
-/*
+
 package team.project.WhatToEatToday;
 
 
@@ -34,12 +34,12 @@ public class Initdb {
     static class InitService {
 
         private final EntityManager em;
-        private final EatingHouseRepository eatingHouseRepository;
+//        private final EatingHouseRepository eatingHouseRepository;
 
         public void dbInit1() {
-        	EatingHouse eatingHouse = new EatingHouse();
-        	eatingHouse.setName("cys");
-        	eatingHouseRepository.save(eatingHouse) ;
+//        	EatingHouse eatingHouse = new EatingHouse();
+//        	eatingHouse.setName("cys");
+//        	eatingHouseRepository.save(eatingHouse) ;
             System.out.println("Init1" + this.getClass());
             Admin admin = createAdmin("admin", "admin", "admin", "admin", "admin", null);
             em.persist(admin);
@@ -95,4 +95,4 @@ public class Initdb {
         }
     }
 }
-*/
+

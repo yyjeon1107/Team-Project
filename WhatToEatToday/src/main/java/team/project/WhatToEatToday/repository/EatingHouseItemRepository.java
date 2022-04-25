@@ -24,22 +24,24 @@ public class EatingHouseItemRepository {
             em.merge(item);
         }
     }
-    
-    public EatingHouse findOne(Long id) {
-    	return em.find(EatingHouse.class, id);
+
+    public Item findOne(Long id) {
+    	return em.find(Item.class, id);
     }
     
+
     public List<Item> findAll() {
         return em.createQuery("SELECT e FROM Item e", Item.class)
                 .getResultList();
     }
     
-   
-    public EatingHouse findId(Manager id) { // 없는 id 찾을시 비어있는 list출력 (error X)
-        return em.createQuery("SELECT e FROM EatingHouse e where manager_id = :id", EatingHouse.class)
+
+    public Item findId(Manager id) { 
+        return em.createQuery("SELECT e FROM Item e where manager_id = :id", Item.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
+
     
     public void removeItem(Long id) {
     	Item item = em.find(Item.class, id);

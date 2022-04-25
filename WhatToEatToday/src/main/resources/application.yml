@@ -1,12 +1,10 @@
 spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/whatToEatToday
-<<<<<<< Updated upstream
-    username: hj  
-=======
-    username: hj
->>>>>>> Stashed changes
-    password: hj
+
+    username: root  
+    password: 
+
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:

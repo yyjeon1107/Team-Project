@@ -19,16 +19,13 @@
             <th>가게명</th>            
             <th>전화번호</th>
             <th>주소</th>
-          </tr>
+          </tr>          
         </thead>
         <tbody class="members_body">
           <tr th:each="eatinghouses, iterStat : ${eatinghouses}">
             <td th:text="${iterStat.count}">No</td>           
             <td th:text="${eatinghouses.getName()}">가게명</td>
             <td th:text="${eatinghouses.getTel()}">전화번호</td>
-<<<<<<< Updated upstream
-            <td>주소</td>
-=======
             <td>주소</td>            
           </tr>         
         </tbody>        
@@ -49,6 +46,7 @@
         </colgroup>
         <thead>          
            <tr>
+
             <th>No</th>
             <th>메뉴이름</th>
             <th>가격</th>
@@ -64,7 +62,7 @@
             	<a th:href="@{/eatinghouse/item/{id}/edit (id=${eatinghousesitem.id})}" role="button">수정</a>
             	<a th:href="@{/eatinghouse/item/{id}/delete (id=${eatinghousesitem.id})}" role="button">삭제</a>
             </td>       
->>>>>>> Stashed changes
+
           </tr>
         </tbody>
       </table>
