@@ -27,7 +27,7 @@ public class EatingHouseItemService {
 
     }
 
-    }
+    
    public List<Item> findAll() {
        return eatingHouseItemRepository.findAll();
    }
