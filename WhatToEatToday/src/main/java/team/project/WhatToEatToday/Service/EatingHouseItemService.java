@@ -22,5 +22,17 @@ public class EatingHouseItemService {
     }  
    /* public EatingHouse findOne(String eatingHouseId) {
         return eatingHouseItemRepository.findOne(eatingHouseId);
+<<<<<<< Updated upstream
     }*/
+=======
+    }
+   public List<Item> findAll() {
+       return eatingHouseItemRepository.findAll();
+   }
+   
+   public void removeItem(Long ItemId) {
+	   this.eatingHouseItemRepository.removeItem(ItemId);
+   }
+   
+>>>>>>> Stashed changes
 }
