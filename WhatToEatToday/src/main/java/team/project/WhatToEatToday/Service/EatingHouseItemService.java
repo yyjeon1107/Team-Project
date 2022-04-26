@@ -24,17 +24,8 @@ public class EatingHouseItemService {
     }  
    public Item findOne(Long eatingHouseId) {
         return eatingHouseItemRepository.findOne(eatingHouseId);
-
-    }
-
     }
    public List<Item> findAll() {
        return eatingHouseItemRepository.findAll();
    }
-
-   
-   public void removeItem(Long ItemId) {
-	   this.eatingHouseItemRepository.removeItem(ItemId);
-   }
-   
 }

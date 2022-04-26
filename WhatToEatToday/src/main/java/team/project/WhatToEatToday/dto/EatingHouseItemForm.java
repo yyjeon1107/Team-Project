@@ -8,8 +8,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter @Setter
 public class EatingHouseItemForm {
 
-   
-    private Long id;
+    @NotEmpty(message = "메뉴 이름은 필수 입니다.")
     private String name;
     private int price;
 
