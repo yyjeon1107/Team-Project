@@ -16,7 +16,6 @@ public class CustomerRepository {
         em.persist(customer);
     }
 
-
     public Customer findOne(String id) {
         return em.find(Customer.class, id);
     }

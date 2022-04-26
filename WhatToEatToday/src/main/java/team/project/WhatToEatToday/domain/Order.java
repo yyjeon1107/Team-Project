@@ -5,9 +5,6 @@ import lombok.Setter;
 import team.project.WhatToEatToday.domain.member.Customer;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +21,10 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
-    @JsonIgnore
     private Customer customer;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderMenu> orderMenus = new ArrayList<>();
 
     private LocalDateTime orderDateTime;
 
@@ -39,8 +35,8 @@ public class Order {
         customer.getOrders().add(this);
     }
 
-    public void addOrderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
-        orderItem.setOrder(this);
+    public void addOrderMenu(OrderMenu orderMenu) {
+        orderMenus.add(orderMenu);
+        orderMenu.setOrder(this);
     }
 }

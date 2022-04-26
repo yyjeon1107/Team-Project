@@ -16,15 +16,22 @@
                     <a href="/join">회원가입</a>
                 </li>
             </ul>
-            <ul   th:if=" ${session.login == 'logined'} ">
-                <th:block th:switch="${session.memberType}">
-                    <li th:case="Admin">
+            <ul   th:if=" ${session.login == 'logined'} "  th:switch="${session.memberType}" >
+                <th:block th:case="Admin">
+                    <li>
                         <a href="/admin/members" >회원관리</a>
                     </li>
-                    <li th:case="Manager">
-                        <a href="/manager/store" >매장관리</a>
+                </th:block>
+                <th:block th:case="Manager">
+                    <li>
+                        <a href="/manager/eating_house" >매장관리</a>
                     </li>
-                    <li th:case="Customer">
+                    <li>
+                        <a href="/manager/eating_house/add" >매장추가</a>
+                    </li>
+                </th:block>
+                <th:block th:case="Customer">
+                    <li>
                         <a href="/customer" >마이페이지</a>
                     </li>
                 </th:block>

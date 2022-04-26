@@ -1,7 +1,7 @@
-.join {
+.eating_house {
   padding: 10px 50px 0;
 }
-.join__fieldset {
+.eating_house__fieldset {
   border: 3px solid var(--color-iceland-poppy);
   background-color: white;
   padding-bottom: 10px;
@@ -9,7 +9,7 @@
   border-radius: 8px;
 }
 
-.join__legend {
+.eating_house__legend {
   font-size: var(--font-regular);
   padding: 5px 10px;
   background-color: white;
@@ -17,13 +17,20 @@
   color: #8b8b8b;
   border-radius: 8px;
 }
-.join__input {
+.eating_house__input {
   padding: 10px;
   width: 100%;
+  border: 0;
+  font-size: var(--font-regular);
+}
+.eating_house__textarea {
+  width: 100%;
+  padding: 10px;
+  resize: none;
   font-size: var(--font-regular);
 }
 
-.join__button {
+.eating_house__button {
   font-size: var(--font-medium);
   padding: 15px;
   width: 100%;
@@ -33,11 +40,11 @@
   border: 0;
 }
 
-.join__input[id="address"] {
+.eating_house__input[id="address"] {
   float: left;
   width: 78%;
 }
-.join__input[id="address"] + .join__button {
+.eating_house__input[id="address"] + .eating_house__button {
   font-size: var(--font-regular);
   padding: 10px;
   width: 20%;
@@ -45,12 +52,11 @@
   border-radius: 8px;
   color: whitesmoke;
   border: 0;
-  clear: left;
   margin: 0;
+  clear: left;
   margin-right: 2%;
 }
-
-.join__button:last-child {
+.eating_house__button:last-child {
   background-color: var(--color-squash-blossom);
   margin-top: 30px;
 }

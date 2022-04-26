@@ -42,5 +42,24 @@
         }
       }
     </script>
+    <script th:inline="javascript">
+      function formSet() {
+        const eatingHouseName = [[${eatingHouse.getName()}]];
+        const name = document.querySelector("input[name='name']");
+        name.value = eatingHouseName;
+        const eatingHouseDescription = [[${eatingHouse.getDescription()}]];
+        const description = document.querySelector("textarea[name='description']");
+        description.value = eatingHouseDescription;
+        const eatingHouseAddress = [[${eatingHouse.getAddress()}]];
+        const addressInfo = document.querySelector("#address-info");
+        addressInfo.value = eatingHouseAddress;
+        const address = document.querySelector("#address");
+        address.value = JSON.parse(eatingHouseAddress).addresses[0].roadAddress;
+        const eatingHouseAddressDetail = [[${eatingHouse.getAddressDetail()}]];
+        const addressDetail = document.querySelector("input[name='addressDetail']");
+        addressDetail.value = eatingHouseAddressDetail;
+      }
+      formSet()
+    </script>
   </th:block>
 </html>

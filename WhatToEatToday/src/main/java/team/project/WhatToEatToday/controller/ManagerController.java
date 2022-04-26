@@ -1,36 +1,126 @@
 package team.project.WhatToEatToday.controller;
 
-import java.util.List;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import lombok.RequiredArgsConstructor;
-import team.project.WhatToEatToday.Service.EatingHouseItemService;
+import org.springframework.web.bind.annotation.*;
 import team.project.WhatToEatToday.Service.EatingHouseService;
+import team.project.WhatToEatToday.Service.ManagerService;
+import team.project.WhatToEatToday.Service.MenuService;
 import team.project.WhatToEatToday.domain.EatingHouse;
-import team.project.WhatToEatToday.domain.Item;
+import team.project.WhatToEatToday.domain.Menu;
+import team.project.WhatToEatToday.domain.member.Manager;
+import team.project.WhatToEatToday.domain.member.Member;
+import team.project.WhatToEatToday.dto.EatingHouseForm;
+import team.project.WhatToEatToday.dto.LoginForm;
+import team.project.WhatToEatToday.dto.MenuForm;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/manager")
 @RequiredArgsConstructor
 public class ManagerController {
-	
 
-	private final EatingHouseService eatingHouseService;
-	private final EatingHouseItemService eatingHouseItemService;
+    private final ManagerService managerService;
+    private final EatingHouseService eatingHouseService;
+    private final MenuService menuService;
 
+    @GetMapping("/eating_house")
+    public String getManager(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        try {
+            Member member = (Member) session.getAttribute("member");
+            Manager manager = managerService.findOne(member.getId());
+            model.addAttribute("page", "manager");
+            model.addAttribute("eatingHouses", manager.getEatingHouses());
+            return "layout";
+        } catch (Exception e){
+            session.setAttribute("message", "유저 정보가 올바르지 않습니다.");
+            return "redirect:/logout";
+        }
 
-    @GetMapping("/store")
-    public String all(Model model) {
-    	List<EatingHouse> eatingHouses = eatingHouseService.findAll();
-    	List<Item> eatingHousesItem = eatingHouseItemService.findAll();
-        model.addAttribute("page", "eatinghouses");
-        model.addAttribute("eatinghouses", eatingHouses);
-        model.addAttribute("eatinghousesitem", eatingHousesItem);
-        return "layout";
-        
     }
+
+    @GetMapping("eating_house/add")
+    public String getAddEatingHouse(Model model) {
+        model.addAttribute("page", "addEatingHouse");
+        model.addAttribute("eatingHouseForm", new EatingHouseForm());
+        return "layout";
+    }
+
+    @PostMapping("eating_house/add")
+    public String postAddEatingHouse(HttpServletRequest request, @Valid EatingHouseForm eatingHouseForm) {
+        HttpSession session = request.getSession();
+        try {
+            EatingHouse eatingHouse = new EatingHouse();
+            eatingHouse.setName(eatingHouseForm.getName());
+            eatingHouse.setDescription(eatingHouseForm.getDescription());
+            Member member = (Member) session.getAttribute("member");
+            Manager manager = managerService.findOne(member.getId());
+            eatingHouse.setManager(manager);
+            eatingHouse.setAddress(eatingHouseForm.getAddress());
+            eatingHouse.setAddressDetail(eatingHouseForm.getAddressDetail());
+            eatingHouseService.join(eatingHouse);
+            session.setAttribute("message", "매장 등록 성공");
+            return "redirect:/manager/eating_house";
+        } catch (Exception e) {
+            session.setAttribute("message", "매장 등록 실패");
+            return "redirect:/manager/eating_house/add";
+        }
+    }
+
+
+    @GetMapping("eating_house/edit/{eatingHouseId}")
+    public String getEatingHouseEdit(@PathVariable Long eatingHouseId, Model model, EatingHouseForm eatingHouseForm) {
+        model.addAttribute("page", "editEatingHouse");
+        model.addAttribute("eatingHouseForm", eatingHouseForm);
+        model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
+        return "layout";
+    }
+
+    @PostMapping("eating_house/edit/{eatingHouseId}")
+    public String postEatingHouseDetail(@PathVariable Long eatingHouseId, @Valid EatingHouseForm eatingHouseForm) {
+        EatingHouse eatingHouse = eatingHouseService.findOne(eatingHouseId);
+        eatingHouse.setName(eatingHouseForm.getName());
+        eatingHouse.setDescription(eatingHouseForm.getDescription());
+        eatingHouse.setAddress(eatingHouseForm.getAddress());
+        eatingHouse.setAddressDetail(eatingHouseForm.getAddressDetail());
+        eatingHouseService.join(eatingHouse);
+        return "redirect:/manager/eating_house";
+    }
+
+    @GetMapping("eating_house/edit/{eatingHouseId}/menu/add")
+    public String getAddMenu(@PathVariable Long eatingHouseId, Model model, MenuForm menuForm){
+        eatingHouseService.findOne(eatingHouseId);
+        model.addAttribute("page", "addMenu");
+        model.addAttribute("menuForm", menuForm);
+        model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
+        return "layout";
+    }
+
+
+    @PostMapping("eating_house/edit/{eatingHouseId}/menu/add")
+    public String postAddMenu(HttpServletRequest request, @PathVariable Long eatingHouseId, @Valid MenuForm menuForm){
+        HttpSession session = request.getSession();
+        Menu menu = new Menu();
+        menu.setName(menuForm.getName());
+        menu.setPrice(menuForm.getPrice());
+        menu.setEatingHouse(eatingHouseService.findOne(eatingHouseId));
+        menuService.join(menu);
+        session.setAttribute("message", "메뉴추가");
+        return "redirect:/manager/eating_house/edit/" + eatingHouseId;
+    }
+
+    @GetMapping("eating_house/delete/{eatingHouseId}")
+    public String deleteEatingHouseDetail(HttpServletRequest request, @PathVariable Long eatingHouseId) {
+        HttpSession session = request.getSession();
+        session.setAttribute("message", "삭제완료");
+        EatingHouse eatingHouse = eatingHouseService.findOne(eatingHouseId);
+        eatingHouseService.delete(eatingHouse);
+        return "redirect:/manager/eating_house";
+    }
+
 }

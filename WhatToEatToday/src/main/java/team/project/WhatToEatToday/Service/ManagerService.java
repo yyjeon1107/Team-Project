@@ -38,9 +38,5 @@ public class ManagerService {
     public Manager findOne(String managerId) {
         return managerRepository.findOne(managerId);
     }
-    public List<Manager> findById(String id) { // 없는 id 찾을시 비어있는 list출력 (error X)
-        return em.createQuery("SELECT categoryid FROM Manager m where m.id = :id", Manager.class)
-                .setParameter("id", id)
-                .getResultList();
-    }
+
 }
