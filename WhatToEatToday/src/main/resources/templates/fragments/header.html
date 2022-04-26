@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header class="header" th:fragment="header">
+    <div class="inner">
+        <h1 class="logo">
+            <a href="/">
+                오늘 뭐 먹지?
+            </a>
+        </h1>
+        <nav class="navbar">
+            <ul  th:if=" ${session.login == null} ">
+                <li>
+                    <a href="/login">로그인</a>
+                </li>
+                <li>
+                    <a href="/join">회원가입</a>
+                </li>
+            </ul>
+            <ul   th:if=" ${session.login == 'logined'} "  th:switch="${session.memberType}" >
+                <th:block th:case="Admin">
+                    <li>
+                        <a href="/admin/members" >회원관리</a>
+                    </li>
+                </th:block>
+                <th:block th:case="Manager">
+                    <li>
+                        <a href="/manager/eating_house" >매장관리</a>
+                    </li>
+                    <li>
+                        <a href="/manager/eating_house/add" >매장추가</a>
+                    </li>
+                </th:block>
+                <th:block th:case="Customer">
+                    <li>
+                        <a href="/customer" >마이페이지</a>
+                    </li>
+                </th:block>
+                <li>
+                    <a href="/logout">로그아웃</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
