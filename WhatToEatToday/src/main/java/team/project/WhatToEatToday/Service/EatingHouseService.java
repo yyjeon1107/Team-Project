@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import team.project.WhatToEatToday.domain.EatingHouse;
+import team.project.WhatToEatToday.domain.Item;
 import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.repository.EatingHouseRepository;
 
@@ -37,4 +38,8 @@ public class EatingHouseService {
     public EatingHouse findId(Manager id) { 
         return eatingHouseRepository.findId(id);
     }
+    
+    
+    
+    
 }

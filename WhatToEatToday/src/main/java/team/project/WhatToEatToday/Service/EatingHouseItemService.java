@@ -31,10 +31,5 @@ public class EatingHouseItemService {
    public List<Item> findAll() {
        return eatingHouseItemRepository.findAll();
    }
-
-   
-   public void removeItem(Long ItemId) {
-	   this.eatingHouseItemRepository.removeItem(ItemId);
-   }
-   
+      
 }

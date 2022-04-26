@@ -41,12 +41,6 @@ public class EatingHouseItemRepository {
                 .setParameter("id", id)
                 .getSingleResult();
     }
-
     
-    public void removeItem(Long id) {
-    	Item item = em.find(Item.class, id);
-    	em.remove(item);
-    }
-
-
+   
 }

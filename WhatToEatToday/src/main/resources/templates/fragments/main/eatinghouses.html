@@ -47,13 +47,18 @@
         <thead>          
            <tr>
             <th>No</th>
+            <th style="display:none;">아이디</th>
+            <th>카테고리</th>
             <th>메뉴이름</th>
             <th>가격</th>
+            <th><th>
           </tr>
         </thead>
         <tbody class="members_body">          
           <tr th:each="eatinghousesitem, iterStat : ${eatinghousesitem}">
-          	<td th:text="${iterStat.count}">No</td>            
+          	<td th:text="${iterStat.count}">No</td>
+          	<td  style="display:none;" th:text="${eatinghousesitem.getId}">아이디</td>  
+          	<td th:text="${eatinghousesitem.getCategories}">카테고리</td>          
             <td th:text="${eatinghousesitem.getName()}">메뉴이름</td>
             <td th:text="${eatinghousesitem.getPrice()}">가격</td> 
             <td>

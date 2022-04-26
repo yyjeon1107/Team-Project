@@ -84,6 +84,7 @@ public class EatingHouseController {
             item.setEatingHouse(eatinghouse);
             item.setName(eatingHouseItemForm.getName());
             item.setPrice(eatingHouseItemForm.getPrice());
+            item.setCategories(eatingHouseItemForm.getCategories());
             eatingHouseItemService.join(item);
             session.setAttribute("message", "음식이 등록되었습니다.");
             return "redirect:/";
@@ -123,15 +124,6 @@ public class EatingHouseController {
     }
     
     
-    @GetMapping("item/{itemId}/delete")
-    public String deleteItem(@PathVariable("itemId") Long itemId) {
-    	
-    
-    	
-    	
-    	this.eatingHouseItemService.removeItem(itemId);
-    	return "redirect:/manager/store";
-    }
     
     
 }

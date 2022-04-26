@@ -27,7 +27,7 @@ public class EatingHouse {
     @JsonIgnore
     private Manager manager;
 
-    @OneToMany(mappedBy = "eatingHouse")
+    @OneToMany(mappedBy = "eatingHouse", orphanRemoval=true, cascade=CascadeType.PERSIST)
     private List<Item> items = new ArrayList<>();
 
     private String Name;
