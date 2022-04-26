@@ -3,6 +3,7 @@ package team.project.WhatToEatToday.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import team.project.WhatToEatToday.domain.EatingHouse;
+import team.project.WhatToEatToday.domain.Menu;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -37,6 +38,10 @@ public class EatingHouseRepository {
 
 
     public void delete(EatingHouse eatingHouse){
+        List<Menu> menus = eatingHouse.getMenus();
+        for(Menu menu : menus){
+            em.remove(menu);
+        }
         em.remove(eatingHouse);
     }
 }

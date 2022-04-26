@@ -23,6 +23,13 @@ public class MenuService {
         menuRepository.save(menu);
         return menu.getId();
     }
+
+    @Transactional
+    public Long delete(Menu menu) {
+        Long deletedMenuId = menu.getId();
+        menuRepository.delete(menu);
+        return deletedMenuId;
+    }
     //회원 전체 조회
     public List<Menu> findAll() {
         return menuRepository.findAll();

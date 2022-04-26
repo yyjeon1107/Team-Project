@@ -21,6 +21,10 @@ public class MenuRepository {
         }
     }
 
+    public void delete(Menu menu) {
+        em.remove(menu);
+    }
+
     public Menu findOne(Long id) {
         return em.find(Menu.class, id);
     }

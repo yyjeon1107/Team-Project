@@ -3,7 +3,7 @@
   <main class="main" th:fragment="main">
     <div class="inner">
       <form
-        th:action="@{ '/manager/eating_house/edit/' + ${eatingHouse.getId()} + '/menu/add'}"
+        th:action="@{ '/manager/eating_house/edit/' + ${eatingHouse.getId()} + '/menu/edit/' + ${menu.getId()}}"
         method="post"
         th:object="${menuForm}"
         class="menu"
@@ -25,7 +25,8 @@
             step="100"
           />
         </fieldset>
-        <button class="menu__button">등록</button>
+        <button class="menu__button">수정</button>
+        <a th:href="@{ '/manager/eating_house/edit/' + ${eatingHouse.getId()} + '/menu/delete/' + ${menu.getId()}}" class="menu__button">삭제</a>
       </form>
     </div>
   </main>

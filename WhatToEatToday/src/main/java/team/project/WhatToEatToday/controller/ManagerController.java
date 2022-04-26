@@ -12,7 +12,6 @@ import team.project.WhatToEatToday.domain.Menu;
 import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.domain.member.Member;
 import team.project.WhatToEatToday.dto.EatingHouseForm;
-import team.project.WhatToEatToday.dto.LoginForm;
 import team.project.WhatToEatToday.dto.MenuForm;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,14 +43,14 @@ public class ManagerController {
 
     }
 
-    @GetMapping("eating_house/add")
+    @GetMapping("/eating_house/add")
     public String getAddEatingHouse(Model model) {
         model.addAttribute("page", "addEatingHouse");
         model.addAttribute("eatingHouseForm", new EatingHouseForm());
         return "layout";
     }
 
-    @PostMapping("eating_house/add")
+    @PostMapping("/eating_house/add")
     public String postAddEatingHouse(HttpServletRequest request, @Valid EatingHouseForm eatingHouseForm) {
         HttpSession session = request.getSession();
         try {
@@ -73,7 +72,7 @@ public class ManagerController {
     }
 
 
-    @GetMapping("eating_house/edit/{eatingHouseId}")
+    @GetMapping("/eating_house/edit/{eatingHouseId}")
     public String getEatingHouseEdit(@PathVariable Long eatingHouseId, Model model, EatingHouseForm eatingHouseForm) {
         model.addAttribute("page", "editEatingHouse");
         model.addAttribute("eatingHouseForm", eatingHouseForm);
@@ -81,7 +80,7 @@ public class ManagerController {
         return "layout";
     }
 
-    @PostMapping("eating_house/edit/{eatingHouseId}")
+    @PostMapping("/eating_house/edit/{eatingHouseId}")
     public String postEatingHouseDetail(@PathVariable Long eatingHouseId, @Valid EatingHouseForm eatingHouseForm) {
         EatingHouse eatingHouse = eatingHouseService.findOne(eatingHouseId);
         eatingHouse.setName(eatingHouseForm.getName());
@@ -92,17 +91,24 @@ public class ManagerController {
         return "redirect:/manager/eating_house";
     }
 
-    @GetMapping("eating_house/edit/{eatingHouseId}/menu/add")
+    @GetMapping("/eating_house/delete/{eatingHouseId}")
+    public String deleteEatingHouseDetail(HttpServletRequest request, @PathVariable Long eatingHouseId) {
+        HttpSession session = request.getSession();
+        session.setAttribute("message", "삭제완료");
+        EatingHouse eatingHouse = eatingHouseService.findOne(eatingHouseId);
+        eatingHouseService.delete(eatingHouse);
+        return "redirect:/manager/eating_house";
+    }
+
+    @GetMapping("/eating_house/edit/{eatingHouseId}/menu/add")
     public String getAddMenu(@PathVariable Long eatingHouseId, Model model, MenuForm menuForm){
-        eatingHouseService.findOne(eatingHouseId);
         model.addAttribute("page", "addMenu");
         model.addAttribute("menuForm", menuForm);
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";
     }
 
-
-    @PostMapping("eating_house/edit/{eatingHouseId}/menu/add")
+    @PostMapping("/eating_house/edit/{eatingHouseId}/menu/add")
     public String postAddMenu(HttpServletRequest request, @PathVariable Long eatingHouseId, @Valid MenuForm menuForm){
         HttpSession session = request.getSession();
         Menu menu = new Menu();
@@ -114,13 +120,40 @@ public class ManagerController {
         return "redirect:/manager/eating_house/edit/" + eatingHouseId;
     }
 
-    @GetMapping("eating_house/delete/{eatingHouseId}")
-    public String deleteEatingHouseDetail(HttpServletRequest request, @PathVariable Long eatingHouseId) {
+    @GetMapping("/eating_house/edit/{eatingHouseId}/menu/edit/{menuId}")
+    public String getEditMenu(
+            @PathVariable Long eatingHouseId,
+            @PathVariable Long menuId, Model model, MenuForm menuForm){
+        model.addAttribute("page", "editMenu");
+        model.addAttribute("menuForm", menuForm);
+        model.addAttribute("menu", menuService.findOne(menuId));
+        model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
+        return "layout";
+    }
+    @PostMapping("/eating_house/edit/{eatingHouseId}/menu/edit/{menuId}")
+    public String postEditMenu(
+            HttpServletRequest request,
+            @PathVariable Long eatingHouseId,
+            @PathVariable Long menuId,
+            @Valid MenuForm menuForm){
         HttpSession session = request.getSession();
-        session.setAttribute("message", "삭제완료");
-        EatingHouse eatingHouse = eatingHouseService.findOne(eatingHouseId);
-        eatingHouseService.delete(eatingHouse);
-        return "redirect:/manager/eating_house";
+        session.setAttribute("message", "메뉴수정");
+        Menu menu = menuService.findOne(menuId);
+        menu.setName(menuForm.getName());
+        menu.setPrice(menuForm.getPrice());
+        menuService.join(menu);
+        return "redirect:/manager/eating_house/edit/" + eatingHouseId;
     }
 
+    @GetMapping("/eating_house/edit/{eatingHouseId}/menu/delete/{menuId}")
+    public String deleteMenu(
+            HttpServletRequest request,
+            @PathVariable Long eatingHouseId,
+            @PathVariable Long menuId){
+        HttpSession session = request.getSession();
+        session.setAttribute("message", "메뉴삭제");
+        Menu menu = menuService.findOne(menuId);
+        menuService.delete(menu);
+        return "redirect:/manager/eating_house/edit/" + eatingHouseId;
+    }
 }
