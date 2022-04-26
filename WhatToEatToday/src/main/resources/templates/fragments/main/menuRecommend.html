@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴 추천받기</title>   
+    <script
+      src="https://kit.fontawesome.com/bfafa52380.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    
+    <main class="main">
+      <div class="inner">
+        <br>
+        <br>
+        <br>
+        <h2>오늘 뭐 먹지?</h2>
+        <p>키워드로 메뉴 추천을 도와드릴게요</p>
+        <input
+          type="radio"
+          name="keyword_nav__trigger"
+          id="keyword_nav__trigger01"
+          checked
+        />
+        <input
+          type="radio"
+          name="keyword_nav__trigger"
+          id="keyword_nav__trigger02"
+        />
+        <input
+          type="radio"
+          name="keyword_nav__trigger"
+          id="keyword_nav__trigger03"
+        />
+        <nav class="keyword_nav">
+          <ul>
+            <li>
+              <label class="keyword_nav__item" for="keyword_nav__trigger01"
+                >오늘 기분은?</label
+              >
+            </li>
+            <li>
+              <label class="keyword_nav__item" for="keyword_nav__trigger02"
+                >오늘 날씨는?</label
+              >
+            </li>
+            <li>
+              <label class="keyword_nav__item" for="keyword_nav__trigger03"
+                >오늘 상황은?</label
+              >
+            </li>
+          </ul>
+        </nav>
+        <ul class="keyword_box">
+          <li class="keyword_box__item">
+            <form id="section_search">
+              <input type="checkbox" name="즐거운" id="즐거운" />
+              <label for="즐거운">즐거운</label>
+              <input type="checkbox" name="무기력한" id="무기력한" />
+              <label for="무기력한">무기력한</label>
+              <input type="checkbox" name="입이 심심한" id="입이 심심한" />
+              <label for="입이 심심한">입이 심심한</label>
+              <input type="checkbox" name="허전한" id="허전한" />
+              <label for="허전한">허전한</label>
+              <input type="checkbox" name="행복한" id="행복한" />
+              <label for="행복한">행복한</label>
+              <input type="checkbox" name="설레는" id="설레는" />
+              <label for="설레는">설레는</label>
+              <input type="checkbox" name="긴장되는" id="긴장되는" />
+              <label for="긴장되는">긴장되는</label>
+              <input type="checkbox" name="짜증나는" id="짜증나는" />
+              <label for="짜증나는">짜증나는</label>
+              <input type="checkbox" name="피곤한" id="피곤한" />
+              <label for="피곤한">피곤한</label>
+              <input type="checkbox" name="기쁜" id="기쁜" />
+              <label for="기쁜">기쁜</label>
+              <input type="checkbox" name="슬픈" id="슬픈" />
+              <label for="슬픈">슬픈</label>
+              <input type="checkbox" name="답답한" id="답답한" />
+              <label for="답답한">답답한</label>
+              <input type="checkbox" name="우울한" id="우울한" />
+              <label for="우울한">우울한</label>
+              <input type="checkbox" name="예민한" id="예민한" />
+              <label for="예민한">예민한</label>
+              <input type="checkbox" name="스트레스 받는" id="스트레스 받는" />
+              <label for="스트레스 받는">스트레스 받는</label>
+            </form>
+          </li>
+          <li class="keyword_box__item">
+            <form>
+              <input type="checkbox" name="화창한" id="화창한" />
+              <label for="화창한">화창한</label>
+              <input type="checkbox" name="선선한" id="선선한" />
+              <label for="선선한">선선한</label>
+              <input type="checkbox" name="추운" id="추운" />
+              <label for="추운">추운</label>
+              <input type="checkbox" name="더운" id="더운" />
+              <label for="더운">더운</label>
+              <input type="checkbox" name="비가오는" id="비가오는" />
+              <label for="비가오는">비가오는</label>
+              <input type="checkbox" name="눈오는" id="눈오는" />
+              <label for="눈오는">눈오는</label>
+              <input type="checkbox" name="바람부는" id="바람부는" />
+              <label for="바람부는">바람부는</label>
+              <input type="checkbox" name="미세먼지 심한" id="미세먼지 심한" />
+              <label for="미세먼지 심한">미세먼지 심한</label>
+              <input type="checkbox" name="따뜻한" id="따뜻한" />
+              <label for="따뜻한">따뜻한</label>
+              <input type="checkbox" name="번개치는" id="번개치는" />
+              <label for="번개치는">번개치는</label>
+              <input type="checkbox" name="안개 낀" id="안개 낀" />
+              <label for="안개 낀">안개 낀</label>
+              <input type="checkbox" name="쌀쌀한" id="쌀쌀한" />
+              <label for="쌀쌀한">쌀쌀한</label>
+              <input type="checkbox" name="건조한" id="건조한" />
+              <label for="건조한">건조한</label>
+              <input type="checkbox" name="습한" id="습한" />
+              <label for="습한">습한</label>
+              <input type="checkbox" name="흐린" id="흐린" />
+              <label for="흐린">흐린</label>
+            </form>
+          </li>
+          <li class="keyword_box__item">
+            <form>
+              <input type="checkbox" name="다이어트 3일차 날" id="다이어트 3일차 날" />
+              <label for="다이어트 3일차 날">다이어트 3일차 날</label>
+              <input type="checkbox" name="회사점심회식 날" id="회사점심회식 날" />
+              <label for="회사점심회식 날">회사점심회식 날</label>
+              <input type="checkbox" name="가족식사 날" id="가족식사 날" />
+              <label for="가족식사 날">가족식사 날</label>
+              <input type="checkbox" name="집들이 날" id="집들이 날" />
+              <label for="집들이 날">집들이 날</label>
+              <input type="checkbox" name="손님 대접하는 날" id="손님 대접하는 날" />
+              <label for="손님 대접하는 날">손님 대접하는 날</label>
+              <input type="checkbox" name="단체 주문 있는 날" id="단체 주문 있는 날" />
+              <label for="단체 주문 있는 날">단체 주문 있는 날</label>
+              <input type="checkbox" name="야식 당기는 날" id="야식 당기는 날" />
+              <label for="야식 당기는 날">야식 당기는 날</label>
+              <input type="checkbox" name="소화 안 되는 날" id="소화 안 되는 날" />
+              <label for="소화 안 되는 날">소화 안 되는 날</label>
+              <input type="checkbox" name="데이트 하는 날" id="데이트 하는 날" />
+              <label for="데이트 하는 날">데이트 하는 날</label>
+              <input type="checkbox" name="당기는 음식이 없는 날" id="당기는 음식이 없는 날" />
+              <label for="당기는 음식이 없는 날">당기는 음식이 없는 날</label>
+              <input type="checkbox" name="잠 안오는 날" id="잠 안오는 날" />
+              <label for="잠 안오는 날">잠 안오는 날</label>
+              <input type="checkbox" name="배부은데 입 심심한 날" id="배부은데 입 심심한 날" />
+              <label for="배부은데 입 심심한 날">배부은데 입 심심한 날</label>
+              <input type="checkbox" name="혼밥하는 날" id="혼밥하는 날" />
+              <label for="혼밥하는 날">혼합하는 날</label>
+              <input type="checkbox" name="면접 날" id="면접 날" />
+              <label for="면접 날">면접 날</label>
+              <input type="checkbox" name="기념일" id="기념일" />
+              <label for="기념일">기념일</label>
+            </form>
+          </li>
+        </ul>
+        <button type="submit" id="input_submit" onclick="location.href='/customer/recommendResult'">결정하기</button>
+        <button>다시 고르기</button>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+
+
+   
+  </body>
+ 
+</html>

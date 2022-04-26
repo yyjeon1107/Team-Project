@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//--------------------------------------------변수 선언----------------------
+//id:input_submit인 요소를 지정(여기서는 button)
+const button = document.querySelector("#input_submit");
+let checkedItem = []
+
+//---------------------------------------메서드 정의-------------------
+function check(event){
+  event.preventDefault()
+
+  //input 중에 type이 checkbox이며 동시에 체크가 된 모든 요소들을 받음
+  const checked = document.querySelectorAll("input[type=checkbox]:checked");
+  console.dir(checked)
+
+  //체크된 아이템들의 개수만큼 로컬스토리지에 {number:i, text:아이템 이름}꼴로 저장함
+  for(let i = 0; i < checked.length; i++){
+      const temp = {text:checked[i].name};
+      checkedItem.push(temp);
+  }
+  localStorage.setItem("Selected_condition", JSON.stringify(checkedItem));
+
+  //체크된 아이템이 없다면 로컬스토리지 비움
+  if(checked.length == 0){
+      localStorage.removeItem("Selected_condition")
+  }
+}
+
+
+//--------------------------실행문----------------------------------
+//버튼 클릭시 이벤트 발생
+button.addEventListener("click", check);
+
+</script>
+
+
+</body>
+</html>
