@@ -20,8 +20,7 @@ import team.project.WhatToEatToday.domain.member.Member;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.http.HttpRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @Slf4j
@@ -37,24 +36,10 @@ public class AdminController {
     @GetMapping("/members")
     public String getMembers(Model model) {
         List<Member> members = memberService.findAll();
-        List<Member> sortedMembers = new ArrayList<>();
-        for(Member member : members){
-            if(member.getClass().getSimpleName().equals("Admin")){
-                sortedMembers.add(member);
-            }
-        }
-        for(Member member : members){
-            if(member.getClass().getSimpleName().equals("Manager")){
-                sortedMembers.add(member);
-            }
-        }
-        for(Member member : members){
-            if(member.getClass().getSimpleName().equals("Customer")){
-                sortedMembers.add(member);
-            }
-        }
+        ArrayList<String> memberKindList = new ArrayList<>(Arrays.asList("Admin", "Manager", "Customer"));
+        members.sort(Comparator.comparingInt(a -> memberKindList.indexOf(a.getClass().getSimpleName())));
         model.addAttribute("page", "members");
-        model.addAttribute("members", sortedMembers);
+        model.addAttribute("members", members);
         return "layout";
     }
 
