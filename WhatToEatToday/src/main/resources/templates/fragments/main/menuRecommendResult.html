@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +26,7 @@
           id="keyword_nav__trigger01"
           checked
         />
-        <input
+        <!-- <input
           type="radio"
           name="keyword_nav__trigger"
           id="keyword_nav__trigger02"
@@ -35,24 +35,19 @@
           type="radio"
           name="keyword_nav__trigger"
           id="keyword_nav__trigger03"
-        />
+        /> -->
     
         <ul class="keyword_box">
           <li class="keyword_box__item">
+          	<span th:text=${session.member.getAddress()} style="display:none"></span>
             <form id="section_search">
              
             </form>
           </li>
-          <li class="keyword_box__item">
-            <form>
-              
-            </form>
+          <!-- <li class="keyword_box__item">
           </li>
           <li class="keyword_box__item">
-            <form>
-           
-            </form>
-          </li>
+          </li> -->
         </ul>
         <button type="submit" id="input_submit" onclick="location.href='/customer/recommendResult'">가게 보기</button>
         <button onclick="location.href='/customer/recommend'">다시 고르기</button>
