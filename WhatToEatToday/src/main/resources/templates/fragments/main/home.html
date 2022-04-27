@@ -14,13 +14,13 @@
           </button>
         </fieldset>
         <fieldset class="menu">
-          <button class="menu__button">
+          <button type="button" class="menu__button" th:onclick="|location.href='@{/customer/recommend}'|">
             <figure>
               <i class="fa-solid fa-thumbs-up menu__button__icon"></i>
               <figcaption class="menu__button__text">메뉴 추천 받기</figcaption>
             </figure>
           </button>
-          <button class="menu__button">
+          <button type="button" class="menu__button" th:onclick="|location.href='@{/customer/menuAll}'|">
             <figure>
               <i class="fa-solid fa-utensils menu__button__icon"></i>
               <figcaption class="menu__button__text">메뉴 전체 보기</figcaption>

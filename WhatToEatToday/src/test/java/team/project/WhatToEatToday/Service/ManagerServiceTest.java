@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import team.project.WhatToEatToday.domain.member.Manager;
-import team.project.WhatToEatToday.repository.ManagerRepository;
+import team.project.WhatToEatToday.repository.member.ManagerRepository;
 
 import javax.persistence.EntityManager;
 

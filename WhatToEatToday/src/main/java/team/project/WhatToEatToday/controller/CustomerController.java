@@ -29,12 +29,12 @@ public class CustomerController {
         return "layout";
         
     }
-	
+
 	@GetMapping("/recommendResult")
     public String recommendMenuResult(Model model) {
     	model.addAttribute("page", "menuRecommendResult");
         return "layout";
-        
+
     }
 	
 	

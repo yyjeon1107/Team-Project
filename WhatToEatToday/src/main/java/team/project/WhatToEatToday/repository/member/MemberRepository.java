@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.repository;
+package team.project.WhatToEatToday.repository.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -12,9 +12,6 @@ import java.util.List;
 public class MemberRepository {
     public final EntityManager em;
 
-    public void save(Member member) {
-        em.persist(member);
-    }
     public Member findOne(String id) {
         return em.find(Member.class, id);
     }
@@ -29,4 +26,5 @@ public class MemberRepository {
                 .setParameter("id", id)
                 .getResultList();
     }
+
 }

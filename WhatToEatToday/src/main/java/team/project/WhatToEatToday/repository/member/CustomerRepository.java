@@ -1,7 +1,8 @@
-package team.project.WhatToEatToday.repository;
+package team.project.WhatToEatToday.repository.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import team.project.WhatToEatToday.domain.member.Admin;
 import team.project.WhatToEatToday.domain.member.Customer;
 
 import javax.persistence.EntityManager;
@@ -13,7 +14,11 @@ public class CustomerRepository {
     public final EntityManager em;
 
     public void save(Customer customer) {
-        em.persist(customer);
+        if(customer.getId() == null) {
+            em.persist(customer);
+        } else {
+            em.merge(customer);
+        }
     }
 
     public Customer findOne(String id) {
@@ -28,5 +33,9 @@ public class CustomerRepository {
         return em.createQuery("SELECT c FROM Customer c where c.id = :id", Customer.class)
                 .setParameter("id", id)
                 .getResultList();
+    }
+
+    public void delete(Customer customer) {
+        em.remove(customer);
     }
 }

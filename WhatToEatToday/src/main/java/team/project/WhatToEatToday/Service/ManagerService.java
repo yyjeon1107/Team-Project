@@ -3,8 +3,9 @@ package team.project.WhatToEatToday.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import team.project.WhatToEatToday.domain.member.Customer;
 import team.project.WhatToEatToday.domain.member.Manager;
-import team.project.WhatToEatToday.repository.ManagerRepository;
+import team.project.WhatToEatToday.repository.member.ManagerRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -39,4 +40,10 @@ public class ManagerService {
         return managerRepository.findOne(managerId);
     }
 
+    @Transactional
+    public String delete(Manager manager) {
+        String deletedManagerId = manager.getId();
+        managerRepository.delete(manager);
+        return deletedManagerId;
+    }
 }

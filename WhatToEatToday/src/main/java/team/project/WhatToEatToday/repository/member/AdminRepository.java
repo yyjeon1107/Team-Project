@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.repository;
+package team.project.WhatToEatToday.repository.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -13,7 +13,11 @@ public class AdminRepository {
     public final EntityManager em;
 
     public void save(Admin admin) {
-        em.persist(admin);
+        if(admin.getId() == null) {
+            em.persist(admin);
+        } else {
+            em.merge(admin);
+        }
     }
 
     public Admin findOne(String id) {
@@ -29,5 +33,9 @@ public class AdminRepository {
         return em.createQuery("SELECT a FROM Admin a where a.id = :id", Admin.class)
                 .setParameter("id", id)
                 .getResultList();
+    }
+
+    public void delete(Admin admin) {
+        em.remove(admin);
     }
 }
