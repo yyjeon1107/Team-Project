@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrinkto-fit=no"
+    />
+    <!-- Custom styles for this template -->
+
+    <link href="../../static/css/reset.css" rel="stylesheet" />
+    <link href="../../static/css/reset.css" rel="stylesheet" />
+    <link href="../../static/css/global.css" rel="stylesheet" />
+    <link href="../../static/css/header.css" rel="stylesheet" />
+    <link href="../../static/css/main/category.css" rel="stylesheet" />
+    <link href="../../static/css/footer.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/bfafa52380.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>What to eat Today</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="/">
+              오늘 뭐 먹지?
+          </a>
+        </h1>
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a href="#">로그인</a>
+            </li>
+            <li>
+              <a href="#">회원가입</a>
+            </li>
+            <li>
+              <a href="#">정보</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="inner">
+        <form action="#" method="post">
+          <fieldset class="search">
+            <input
+              type="search"
+              class="search__text"
+              placeholder="메뉴를 검색하세요"
+            />
+            <button class="search__button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </fieldset>
+          <fieldset class="category">
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">menu</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">한식</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">일식</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">중식</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">양식</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">치킨</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">분식</figcaption>
+                </figure>
+            </button>
+            <button class="category__button">
+                <figure>
+                    <figcaption class="category__button__text">디저트</figcaption>
+                </figure>
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="inner">
+        <address>멀티캠퍼스</address>
+      </div>
+    </footer>
+  </body>
+</html>

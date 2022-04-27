@@ -1,0 +1,83 @@
+  .title {
+      font-size: var(--font-large);
+      font-weight: bold;
+      text-align: center;
+      color: #2B3F6B;
+      /* -webkit-text-stroke: 1px whitesmoke; */
+      padding: 60px 0 50px 0;
+  }
+
+  .main .inner{
+    border: 2px solid #2B3F6B;
+    background-color: #2B3F6B;
+    border-radius: 8px;
+    padding: 60px 60px 60px 60px;
+}
+
+  .img {
+      width: 25%;
+      border: 2px solid #2B3F6B;
+      border-radius: 8px;
+  }
+
+  .info {
+      display: inline-block;
+      vertical-align: top;
+      padding: 20px 20px 20px 60px;
+      font-size: var(--font-medium);
+      color:whitesmoke;
+  }
+
+  .info .info__text {
+      line-height: 140%;
+  }
+
+  .update {
+      width: 100%;
+      text-align: center;
+      padding-top: 50px;
+  }
+  .update::after {
+    content: "";
+    display: block;
+    width: 100%;
+    clear: both;
+  }
+  .update .update__button {
+    float: left;
+    color: whitesmoke;
+    padding: 10px 0;
+    width: 48%;
+    border-radius: 8px;
+    border: 3px solid #2B3F6B;
+    background-color: whitesmoke;
+    color:#2B3F6B;
+  }
+  
+  .update .update__button:hover {
+    background-color: #7B8EA9;
+    color: whitesmoke;
+  }
+  
+  .update .update__button:nth-child(n + 2) {
+    margin-left: 4%;
+  }
+  
+  .update .update__button:hover .update__button__icon {
+    animation: animate var(--animation-duration) ease-out var(--transition-duration)  infinite alternate;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(5deg);
+    }
+  }
+  
+  .update__button__text {
+    font-size: var(--font-medium);
+    font-weight: bold;
+  }
+  

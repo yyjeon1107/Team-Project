@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrinkto-fit=no"
+    />
+    <!-- Custom styles for this template -->
+
+    <link href="../../static/css/reset.css" rel="stylesheet" />
+    <link href="../../static/css/reset.css" rel="stylesheet" />
+    <link href="../../static/css/global.css" rel="stylesheet" />
+    <link href="../../static/css/header.css" rel="stylesheet" />
+    <link href="../../static/css/main/mypage.css" rel="stylesheet" />
+    <link href="../../static/css/footer.css" rel="stylesheet" />
+    <link href="../../../resources/static/css/main/style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/bfafa52380.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>What to eat Today</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="/">
+              오늘 뭐 먹지?
+          </a>
+        </h1>
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a href="#">마이페이지</a>
+            </li>
+            <li>
+              <a href="#">로그아웃</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <h1 class="title">마이페이지</h1>
+      <div class="inner">
+        <form action="#" method="post">
+          <img src="https://us.123rf.com/450wm/inueng/inueng1601/inueng160100068/51082442-%EC%9B%8C%EB%93%9C-%EC%83%98%ED%94%8C-%EB%82%B4%EB%B6%80-%EB%B2%A1%ED%84%B0-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%A0%88%EC%9D%B4-%EC%85%98-%EA%B3%A0%EB%AC%B4-%EC%8A%A4%ED%83%AC%ED%94%84.jpg?ver=6" class="img">
+          <div class="info" th:object="${member}">
+            <p class="info__text">이름 : <span  th:text=$*{name}>name</span></p>
+            <p class="info__text">아이디 : <span  th:text=$*{id}>id</span></p>
+            <p class="info__text">이메일 : <span  th:text=$*{email}>email</span></p>
+            <p class="info__text">전화번호 : <span  th:text=$*{tel}>tel</span></p>
+            <p class="info__text">주소 : <span  th:text=$*{address}>address</span></p>
+          </div>
+           <fieldset class="update">
+            <button class="update__button">
+                <figure>
+                    <figcaption class="update__button__text">회원정보 수정</figcaption>
+                </figure>
+            </button>
+            <button class="update__button">
+                <figure>
+                    <figcaption class="update__button__text">메인으로</figcaption>
+                </figure>
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="inner">
+        <address>멀티캠퍼스</address>
+      </div>
+    </footer>
+  </body>
+</html>
