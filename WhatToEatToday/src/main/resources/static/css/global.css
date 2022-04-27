@@ -113,6 +113,7 @@ button {
   font-family: "jua", Arial, Helvetica, sans-serif;
 }
 
+a,
 button,
 label {
   transition-property: color, background;

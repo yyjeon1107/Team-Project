@@ -25,6 +25,12 @@ public class CustomerService {
         return customer.getId();
     }
 
+    @Transactional
+    public String edit(Customer customer) {
+        customerRepository.save(customer);
+        return customer.getId();
+    }
+
     private void validateDuplicateCustomer(Customer customer) {
         List<Customer> findCustomers = customerRepository.findById(customer.getId());
         if(!findCustomers.isEmpty()) {
