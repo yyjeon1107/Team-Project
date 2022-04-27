@@ -15,6 +15,7 @@
 const box1 = document.querySelector("#section_search");
 const saves = localStorage.getItem("Selected_condition");
 const memberAdd = document.querySelector(".keyword_box span")
+console.dir(memberAdd)
 const P = document.querySelector("p")
 
 //장소 검색 객체를 생성합니다
@@ -43,8 +44,9 @@ function loadList(){
     	    console.log(i, j, food[i*3 + j])
     	    randomFood = food[i*3 + j]
     	    P.innerText = "오늘의 추천메뉴 : " + randomFood
+    	    ps.keywordSearch(randomFood + " 식당", placesSearchCB);
     }else{
-    	result.innerText = "선택해주세요"
+    	result.innerText = "키워드 선택해주세요"
     	result.id = "selected"
         box1.appendChild(result)
     }
@@ -171,7 +173,6 @@ function placesSearchCB (data, status) {
 //------------------------실행--------------------------------------------
 
 loadList();
-ps.keywordSearch(randomFood + " 식당", placesSearchCB);
 
 </script>
 
