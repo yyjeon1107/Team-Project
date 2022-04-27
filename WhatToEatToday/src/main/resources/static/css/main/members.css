@@ -154,3 +154,11 @@ input[name="map_active_button"] {
   + label[for="map_close_button"] {
   display: block;
 }
+
+.members
+  tbody
+  tr
+  td:nth-child(9) {
+  color: var(--color-jalapeno-red);
+  text-decoration: underline;
+}
