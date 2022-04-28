@@ -47,6 +47,7 @@ public class CustomerController {
         customer.setEmail(joinForm.getEmail());
         customer.setTel(joinForm.getTel());
         customer.setAddress(joinForm.getAddress());
+        customer.setAddressDetail(joinForm.getAddressDetail());
         customerService.edit(customer);
         session.setAttribute("message", "회원정보 변경");
         return "redirect:/customer/mypage/" + customerId;
@@ -80,7 +81,6 @@ public class CustomerController {
     public String viewMenuAll(Model model) {
     	model.addAttribute("page", "viewMenuAll");
         return "layout";
-        
     }
 	
 
