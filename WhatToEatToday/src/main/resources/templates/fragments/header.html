@@ -16,7 +16,7 @@
                     <a href="/join">회원가입</a>
                 </li>
             </ul>
-            <ul   th:if=" ${session.login == 'logined'} "  th:switch="${session.memberType}" >
+            <ul th:if=" ${session.login == 'logined'} "  th:switch="${session.memberType}" >
                 <th:block th:case="Admin">
                     <li>
                         <a href="/admin/members" >회원관리</a>

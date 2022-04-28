@@ -6,14 +6,15 @@
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wbeu0mozwg&submodules=panorama"
     ></script>
     <script th:inline="javascript">
-      const members = [[${members}]];
-
+      const membersAddress = [[${membersAddress}]];
+      const membersAddressDetail = [[${membersAddressDetail}]]
+      console.log(membersAddress)
       const membersBody = document.querySelector(".members_body");
       const tr = membersBody.querySelectorAll("tr");
-      for( let i=0; i<members.length; i++) {
-          if(members[i].address !== null) {
+      for( let i=0; i<membersAddress.length; i++) {
+          if(membersAddress !== null) {
 
-            const address = JSON.parse(members[i].address).addresses[0];
+            const address = JSON.parse(membersAddress[i]).addresses[0];
             const addressTd = tr[i].querySelector("td:nth-child(8)");
 
             addressTd.innerText = "";
@@ -38,7 +39,6 @@
 
             addressTd.appendChild( mapActiveButton);
 
-
             const mapCloseButtonLabel = document.createElement("label");
 
             mapCloseButtonLabel.setAttribute("for", "map_close_button");
@@ -55,7 +55,7 @@
 
             const mapFigureCaption = document.createElement("figcaption");
 
-            mapFigureCaption.innerText = `${address.roadAddress} ${members[i].addressDetail}`;
+            mapFigureCaption.innerText = `${address.roadAddress} ${membersAddressDetail[i]}`;
 
             mapOuter.appendChild(mapFigureCaption);
 
@@ -132,7 +132,6 @@
           for(let column of columns){
             if(column === "address"){
               if(member[column] !== null){
-                console.log(JSON.parse(member[column]))
                 data.push(JSON.parse(member[column]).addresses[0].roadAddress);
               }else {
                 data.push("");

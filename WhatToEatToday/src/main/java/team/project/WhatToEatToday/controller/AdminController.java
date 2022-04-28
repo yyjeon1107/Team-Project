@@ -38,8 +38,22 @@ public class AdminController {
         List<Member> members = memberService.findAll();
         ArrayList<String> memberKindList = new ArrayList<>(Arrays.asList("Admin", "Manager", "Customer"));
         members.sort(Comparator.comparingInt(a -> memberKindList.indexOf(a.getClass().getSimpleName())));
+
+        List<String> membersAddress = new ArrayList<>();
+        for (Member member : members){
+            membersAddress.add(member.getAddress());
+        }
+
+        List<String> membersAddressDetail = new ArrayList<>();
+        for (Member member : members){
+            membersAddressDetail.add(member.getAddressDetail());
+        }
+
         model.addAttribute("page", "members");
         model.addAttribute("members", members);
+        model.addAttribute("membersAddress", membersAddress);
+        model.addAttribute("membersAddressDetail", membersAddressDetail);
+
         return "layout";
     }
 
