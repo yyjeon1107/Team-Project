@@ -39,20 +39,34 @@ public class AdminController {
         ArrayList<String> memberKindList = new ArrayList<>(Arrays.asList("Admin", "Manager", "Customer"));
         members.sort(Comparator.comparingInt(a -> memberKindList.indexOf(a.getClass().getSimpleName())));
 
+        HashMap<String, Object> jsMembers = new HashMap<>();
+        List<String> membersId = new ArrayList<>();
+        List<String> membersPassword = new ArrayList<>();
+        List<String> membersName = new ArrayList<>();
+        List<String> membersEmail = new ArrayList<>();
+        List<String> membersTel = new ArrayList<>();
         List<String> membersAddress = new ArrayList<>();
-        for (Member member : members){
-            membersAddress.add(member.getAddress());
-        }
-
         List<String> membersAddressDetail = new ArrayList<>();
         for (Member member : members){
+            membersId.add(member.getId());
+            membersPassword.add(member.getPassword());
+            membersName.add(member.getName());
+            membersEmail.add(member.getEmail());
+            membersTel.add(member.getTel());
+            membersAddress.add(member.getAddress());
             membersAddressDetail.add(member.getAddressDetail());
         }
+        jsMembers.put("id", membersId);
+        jsMembers.put("password", membersPassword);
+        jsMembers.put("name", membersName);
+        jsMembers.put("email", membersEmail);
+        jsMembers.put("tel", membersTel);
+        jsMembers.put("address", membersAddress);
+        jsMembers.put("addressDetail", membersAddressDetail);
 
         model.addAttribute("page", "members");
         model.addAttribute("members", members);
-        model.addAttribute("membersAddress", membersAddress);
-        model.addAttribute("membersAddressDetail", membersAddressDetail);
+        model.addAttribute("jsMembers", jsMembers);
 
         return "layout";
     }

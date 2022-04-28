@@ -6,15 +6,12 @@
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wbeu0mozwg&submodules=panorama"
     ></script>
     <script th:inline="javascript">
-      const membersAddress = [[${membersAddress}]];
-      const membersAddressDetail = [[${membersAddressDetail}]]
-      console.log(membersAddress)
+      const jsMembers = [[${jsMembers}]];
       const membersBody = document.querySelector(".members_body");
       const tr = membersBody.querySelectorAll("tr");
-      for( let i=0; i<membersAddress.length; i++) {
-          if(membersAddress !== null) {
-
-            const address = JSON.parse(membersAddress[i]).addresses[0];
+      for( let i=0; i<jsMembers["id"].length; i++) {
+          if(jsMembers !== null) {
+            const address = JSON.parse(jsMembers["address"][i]).addresses[0];
             const addressTd = tr[i].querySelector("td:nth-child(8)");
 
             addressTd.innerText = "";
@@ -55,7 +52,7 @@
 
             const mapFigureCaption = document.createElement("figcaption");
 
-            mapFigureCaption.innerText = `${address.roadAddress} ${membersAddressDetail[i]}`;
+            mapFigureCaption.innerText = `${address.roadAddress} ${jsMembers['addressDetail'][i]}`;
 
             mapOuter.appendChild(mapFigureCaption);
 
@@ -118,26 +115,17 @@
 
       function setDownloadMembersCsv() {
         const csv = []
-        const tempMembers = members;
-        let columns = Object.keys(tempMembers[0])
-
-        for(let i=1; i<tempMembers.length; i++){
-          columns = columns.filter(column => Object.keys(tempMembers[i]).includes(column));
-        }
+        let columns = ["id", "password", "name", "email", "tel", "address", "addressDetail"];
 
         csv.push(columns.join(","));
 
-        for(let member of tempMembers){
+        for(let i=0; i<jsMembers['id'].length; i++){
           const data = []
           for(let column of columns){
             if(column === "address"){
-              if(member[column] !== null){
-                data.push(JSON.parse(member[column]).addresses[0].roadAddress);
-              }else {
-                data.push("");
-              }
+               data.push(JSON.parse(jsMembers[column][i]).addresses[0].roadAddress);
             }else {
-              data.push(member[column]);
+              data.push(jsMembers[column][i]);
             }
           }
           csv.push(data.join(","))
