@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrinkto-fit=no"
+    />
+    <!-- Custom styles for this template -->
+
+    <link href="../../static/css/reset.css" rel="stylesheet" />
+    <link href="../../static/css/reset.css" rel="stylesheet" />
+    <link href="../../static/css/global.css" rel="stylesheet" />
+    <link href="../../static/css/header.css" rel="stylesheet" />
+    <link href="../../static/css/main/myPage0.css" rel="stylesheet" />
+    <link href="../../static/css/footer.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/bfafa52380.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>What to eat Today</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="/">
+              오늘 뭐 먹지?
+          </a>
+        </h1>
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a href="#">마이페이지</a>
+            </li>
+            <li>
+              <a href="#">로그아웃</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main" th:fragment="main">      
+      <h2 class="title">마이페이지</h2>
+       <section class="inner">
+       	<figure>
+       		<img class="img" src="https://us.123rf.com/450wm/inueng/inueng1601/inueng160100068/51082442-%EC%9B%8C%EB%93%9C-%EC%83%98%ED%94%8C-%EB%82%B4%EB%B6%80-%EB%B2%A1%ED%84%B0-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%A0%88%EC%9D%B4-%EC%85%98-%EA%B3%A0%EB%AC%B4-%EC%8A%A4%ED%83%AC%ED%94%84.jpg?ver=6">
+       		<figcaption class="blind">sample</figcaption>
+       	</figure>
+       	<ul class="info">
+	       	<li class="info__text" th:text="${customer.getName()}">이름</li>
+	       	<li class="info__text" th:text="${customer.getId()}">아이디</li>
+	       	<li class="info__text" th:text="${customer.getEmail()}">이메일</li>
+	       	<li class="info__text" th:text="${customer.getTel()}">전화번호</li>
+	       	<li class="info__text" th:text="${customer.getAddress()}">주소</li>
+       	</ul>
+        <div class="update">
+          <button class="update__button" type="button" onclick="location.href='/edit'"><figure class="update__button__text">회원정보 수정</figure></button>
+       	  <button class="update__button" type="button" onclick="location.href='/'"><figure class="update__button__text">메인으로</figure></button>
+        </div>
+       </section>         
+    </main>
+    <footer class="footer">
+      <div class="inner">
+        <address>멀티캠퍼스</address>
+      </div>
+    </footer>
+  </body>
+</html>

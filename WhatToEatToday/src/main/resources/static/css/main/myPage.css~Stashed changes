@@ -1,4 +1,4 @@
-  .title {
+ .title {
       font-size: var(--font-large);
       font-weight: bold;
       text-align: center;
@@ -12,9 +12,11 @@
     background-color: #2B3F6B;
     border-radius: 8px;
     padding: 60px 60px 60px 60px;
+    
 }
 
   .img {
+      float: left;
       width: 25%;
       border: 2px solid #2B3F6B;
       border-radius: 8px;
@@ -30,6 +32,7 @@
 
   .info .info__text {
       line-height: 140%;
+      color:whitesmoke;
   }
 
   .update {
@@ -80,4 +83,75 @@
     font-size: var(--font-medium);
     font-weight: bold;
   }
-  
+ 
+ 
+  .members tbody tr td:nth-child(5) label[for*="map_active_button"] {
+  cursor: pointer;
+  color: var(--color-waterfall);
+  text-decoration: underline;
+}
+
+.members tbody tr td:nth-child(5) label[for*="map_active_button"]:hover {
+  color: var(--color-reef-encounter);
+}
+
+.members tbody tr td:nth-child(5) label[for="map_close_button"] {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 1;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.members tbody tr td:nth-child(5) label[for="map_close_button"] .map_outer {
+  margin-top: 100px;
+  padding: 30px;
+  background-color: var(--color-iceland-poppy);
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.members tbody tr td:nth-child(5) label[for="map_close_button"] .map_inner {
+  width: 1024px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.members
+  tbody
+  tr
+  td:nth-child(5)
+  label[for="map_close_button"]
+  .map_outer
+  figcaption {
+  margin-top: 30px;
+  color: whitesmoke;
+}
+
+.members
+  tbody
+  tr
+  td:nth-child(5)
+  label[for="map_close_button"]
+  .map_outer
+  figcaption {
+  font-size: var(--font-medium);
+  text-align: center;
+}
+
+.members
+  tbody
+  tr
+  td:nth-child(5)
+  input[name="map_active_button"]:checked
+  + label[for="map_close_button"] {
+  display: block;
+}
