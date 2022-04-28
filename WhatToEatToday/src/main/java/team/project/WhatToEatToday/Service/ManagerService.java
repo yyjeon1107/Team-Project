@@ -3,8 +3,9 @@ package team.project.WhatToEatToday.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import team.project.WhatToEatToday.domain.member.Customer;
 import team.project.WhatToEatToday.domain.member.Manager;
-import team.project.WhatToEatToday.repository.ManagerRepository;
+import team.project.WhatToEatToday.repository.member.ManagerRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -38,9 +39,11 @@ public class ManagerService {
     public Manager findOne(String managerId) {
         return managerRepository.findOne(managerId);
     }
-    public List<Manager> findById(String id) { // 없는 id 찾을시 비어있는 list출력 (error X)
-        return em.createQuery("SELECT categoryid FROM Manager m where m.id = :id", Manager.class)
-                .setParameter("id", id)
-                .getResultList();
+
+    @Transactional
+    public String delete(Manager manager) {
+        String deletedManagerId = manager.getId();
+        managerRepository.delete(manager);
+        return deletedManagerId;
     }
 }

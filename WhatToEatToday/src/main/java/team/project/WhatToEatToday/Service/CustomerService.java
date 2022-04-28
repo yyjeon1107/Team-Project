@@ -3,8 +3,9 @@ package team.project.WhatToEatToday.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import team.project.WhatToEatToday.domain.member.Admin;
 import team.project.WhatToEatToday.domain.member.Customer;
-import team.project.WhatToEatToday.repository.CustomerRepository;
+import team.project.WhatToEatToday.repository.member.CustomerRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -20,6 +21,12 @@ public class CustomerService {
     @Transactional
     public String join(Customer customer) {
         validateDuplicateCustomer(customer);
+        customerRepository.save(customer);
+        return customer.getId();
+    }
+
+    @Transactional
+    public String edit(Customer customer) {
         customerRepository.save(customer);
         return customer.getId();
     }
@@ -40,4 +47,10 @@ public class CustomerService {
         return customerRepository.findOne(customerId);
     }
 
+    @Transactional
+    public String delete(Customer customer) {
+        String deletedCustomerId = customer.getId();
+        customerRepository.delete(customer);
+        return deletedCustomerId;
+    }
 }

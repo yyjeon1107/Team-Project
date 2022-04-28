@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import team.project.WhatToEatToday.domain.member.Member;
-import team.project.WhatToEatToday.repository.MemberRepository;
+import team.project.WhatToEatToday.repository.member.MemberRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;

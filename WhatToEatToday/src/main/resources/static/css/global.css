@@ -104,11 +104,16 @@ body {
   font-family: "jua", Arial, Helvetica, sans-serif;
   color: whitesmoke;
 }
+
+textarea,
 input,
 button {
+  border: 0;
+  outline: 0;
   font-family: "jua", Arial, Helvetica, sans-serif;
 }
 
+a,
 button,
 label {
   transition-property: color, background;
@@ -117,7 +122,7 @@ label {
 
 .main {
   min-height: 100vh;
-  padding: 8vh 0;
+  padding: 10vh 0 8vh;
   background-color: var(--color-flat-flesh);
 }
 
@@ -129,6 +134,16 @@ label {
   text-align: center;
   color: saddlebrown;
   font-size: var(--font-large);
+}
+
+.download_button {
+  display: block;
+  float: right;
+  width: 200px;
+  padding: 10px;
+  font-size: var(--font-regular);
+  border-radius: 5px;
+  background-color: #3c6382;
 }
 
 .loading {

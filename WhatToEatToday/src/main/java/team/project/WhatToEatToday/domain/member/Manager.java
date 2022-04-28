@@ -6,9 +6,6 @@ import team.project.WhatToEatToday.domain.EatingHouse;
 import team.project.WhatToEatToday.domain.Order;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +18,6 @@ public class Manager extends Member {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "admin_id")
-    @JsonIgnore
     private Admin admin;
 
     @OneToMany(mappedBy = "manager")

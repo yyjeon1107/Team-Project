@@ -1,6 +1,41 @@
+.header {
+  padding: 10px 0;
+}
+
+.header .inner {
+  max-width: 1400px;
+}
+
 .main .inner {
   padding: 30px 0;
-  max-width: 1600px;
+  max-width: 1400px;
+}
+
+.members__details .members__summary {
+  border-radius: 5px;
+}
+
+.members__details[open] .members__summary {
+  border-radius: 5px 5px 0 0;
+}
+
+.members__summary {
+  padding: 15px;
+  padding-left: 30px;
+  border-radius: 5px 5px 0 0;
+  font-size: var(--font-large);
+  background-color: var(--color-yue-guang-lan-blue);
+}
+
+.members__summary::marker {
+  display: none;
+  content: "";
+}
+.members__summary::after {
+  content: "";
+  display: block;
+  width: 100%;
+  clear: both;
 }
 
 input[name="map_active_button"] {
@@ -118,4 +153,12 @@ input[name="map_active_button"] {
   input[name="map_active_button"]:checked
   + label[for="map_close_button"] {
   display: block;
+}
+
+.members
+  tbody
+  tr
+  td:nth-child(9) {
+  color: var(--color-jalapeno-red);
+  text-decoration: underline;
 }

@@ -8,7 +8,6 @@ import javax.validation.constraints.NotEmpty;
 @Getter @Setter
 public class JoinForm {
 
-    @NotEmpty(message = "회원 이름은 필수 입니다.")
     private String id;
     private String password;
     private String name;

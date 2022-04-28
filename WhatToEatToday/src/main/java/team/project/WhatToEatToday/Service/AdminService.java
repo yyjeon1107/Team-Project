@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import team.project.WhatToEatToday.domain.member.Admin;
-import team.project.WhatToEatToday.repository.AdminRepository;
+import team.project.WhatToEatToday.repository.member.AdminRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -38,6 +38,13 @@ public class AdminService {
 
     public Admin findOne(String adminId) {
         return adminRepository.findOne(adminId);
+    }
+
+    @Transactional
+    public String delete(Admin admin) {
+        String deletedAdminId = admin.getId();
+        adminRepository.delete(admin);
+        return deletedAdminId;
     }
 
 }

@@ -1,65 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<main class="main" th:fragment="main">
-	<div class="inner">
-		<form action="#" method="post">
-			<fieldset class="search">
-				<input type="search" class="search__text" placeholder="메뉴를 검색하세요" />
-				<button class="search__button">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-			</fieldset>
-			<th:block th:switch="${session.memberType}">
-				<fieldset class="menu" th:case="Admin">
-					<button class="menu__button" type="button"
-						onclick=" location.href='/menu/recommend' ">
-						<figure>
-							<i class="fa-solid fa-thumbs-up menu__button__icon"></i>
-							<figcaption class="menu__button__text">메뉴</figcaption>
-						</figure>
-					</button>
-					<button class="menu__button" type="button"
-						onclick=" location.href='/menu/all' ">
-						<figure>
-							<i class="fa-solid fa-utensils menu__button__icon"></i>
-							<figcaption class="menu__button__text">메뉴</figcaption>
-						</figure>
-					</button>
-				</fieldset>
-				<fieldset class="menu" th:case="Manager">
-					<button class="menu__button" type="button"
-						onclick=" location.href='/eatinghouse/store' ">
-						<figure>
-							<i class="fa-solid fa-shop menu__button__icon"></i>
-							<figcaption class="menu__button__text">가게 등록</figcaption>
-						</figure>
-					</button>
-					<button class="menu__button" type="button"
-						onclick=" location.href='/eatinghouse/item' ">
-						<figure>
-							<i class="fa-solid fa-book-open menu__button__icon"></i>
-							<figcaption class="menu__button__text">메뉴 등록</figcaption>
-						</figure>
-					</button>
-				</fieldset>
-				<fieldset class="menu" th:case="Customer">
-					<button class="menu__button" type="button"
-						onclick=" location.href='/menu/recommend' ">
-						<figure>
-							<i class="fa-solid fa-thumbs-up menu__button__icon"></i>
-							<figcaption class="menu__button__text">메뉴 추천 받기</figcaption>
-						</figure>
-					</button>
-					<button class="menu__button" type="button"
-						onclick=" location.href='/menu/all' ">
-						<figure>
-							<i class="fa-solid fa-utensils menu__button__icon"></i>
-							<figcaption class="menu__button__text">메뉴 전체 보기</figcaption>
-						</figure>
-					</button>
-				</fieldset>
-			</th:block>
-		</form>
-	</div>
-</main>
+  <main class="main" th:fragment="main">
+    <div class="inner">
+      <form action="#" method="post">
+        <fieldset class="search">
+          <input
+            type="search"
+            class="search__text"
+            placeholder="메뉴를 검색하세요"
+          />
+          <button class="search__button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </fieldset>
+        <fieldset class="menu">
+          <button type="button" class="menu__button" th:onclick="|location.href='@{/customer/recommend}'|">
+            <figure>
+              <i class="fa-solid fa-thumbs-up menu__button__icon"></i>
+              <figcaption class="menu__button__text">메뉴 추천 받기</figcaption>
+            </figure>
+          </button>
+          <button type="button" class="menu__button" th:onclick="|location.href='@{/customer/menuAll}'|">
+            <figure>
+              <i class="fa-solid fa-utensils menu__button__icon"></i>
+              <figcaption class="menu__button__text">메뉴 전체 보기</figcaption>
+            </figure>
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </main>
 </html>

@@ -38,7 +38,7 @@ public class LoginController {
                 session.setAttribute("member", member);
                 session.setAttribute("memberType", member.getClass().getSimpleName());
                 session.setAttribute("message", "로그인 성공");
-                return "redirect:/";
+                return "redirect:";
             } else {
                 session.setAttribute("message", "비밀번호가 올바르지 않습니다.");
                 return "redirect:/login";

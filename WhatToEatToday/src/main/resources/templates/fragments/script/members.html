@@ -3,18 +3,15 @@
   <th:block th:fragment="script">
     <script
       type="text/javascript"
-      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8uij0746cx&submodules=panorama"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wbeu0mozwg&submodules=panorama"
     ></script>
     <script th:inline="javascript">
-      const members = [[${members}]];
-
-      console.log(members)
+      const jsMembers = [[${jsMembers}]];
       const membersBody = document.querySelector(".members_body");
       const tr = membersBody.querySelectorAll("tr");
-      for( let i=0; i<members.length; i++) {
-          if(members[i].address !== null) {
-
-            const address = JSON.parse(members[i].address).addresses[0];
+      for( let i=0; i<jsMembers["id"].length; i++) {
+          if(jsMembers !== null) {
+            const address = JSON.parse(jsMembers["address"][i]).addresses[0];
             const addressTd = tr[i].querySelector("td:nth-child(8)");
 
             addressTd.innerText = "";
@@ -39,7 +36,6 @@
 
             addressTd.appendChild( mapActiveButton);
 
-
             const mapCloseButtonLabel = document.createElement("label");
 
             mapCloseButtonLabel.setAttribute("for", "map_close_button");
@@ -56,7 +52,7 @@
 
             const mapFigureCaption = document.createElement("figcaption");
 
-            mapFigureCaption.innerText = `${address.roadAddress} ${members[i].addressDetail}`;
+            mapFigureCaption.innerText = `${address.roadAddress} ${jsMembers['addressDetail'][i]}`;
 
             mapOuter.appendChild(mapFigureCaption);
 
@@ -116,6 +112,45 @@
             });
           }
       }
+
+      function setDownloadMembersCsv() {
+        const csv = []
+        let columns = ["id", "password", "name", "email", "tel", "address", "addressDetail"];
+
+        csv.push(columns.join(","));
+
+        for(let i=0; i<jsMembers['id'].length; i++){
+          const data = []
+          for(let column of columns){
+            if(column === "address"){
+               data.push(JSON.parse(jsMembers[column][i]).addresses[0].roadAddress);
+            }else {
+              data.push(jsMembers[column][i]);
+            }
+          }
+          csv.push(data.join(","))
+        }
+
+        downloadCSV(csv.join("\n"), "회원정보");
+      }
+      function downloadCSV(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        //한글 처리를 해주기 위해 BOM 추가하기
+        const BOM = "\uFEFF";
+        csv = BOM + csv;
+
+        csvFile = new Blob([csv], { type: "text/csv" });
+
+        downloadLink = document.createElement("a");
+        downloadLink.className = "download_button"
+        downloadLink.innerText = filename + " 다운받기"
+        downloadLink.download = filename;
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+        document.querySelector(".main .inner .members__summary").appendChild(downloadLink);
+      }
+      setDownloadMembersCsv();
     </script>
   </th:block>
 </html>

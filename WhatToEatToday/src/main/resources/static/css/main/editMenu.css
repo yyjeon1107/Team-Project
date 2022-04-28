@@ -1,0 +1,50 @@
+.menu {
+  background-color: var(--color-azraq-blue);
+  padding: 40px;
+  border-radius: 15px;
+}
+.menu__fieldset {
+  border: 3px solid var(--color-dark-sapphire);
+  background-color: white;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+}
+
+.menu__fieldset:nth-child(1) {
+  margin-bottom: 30px;
+}
+
+.menu__fieldset:nth-child(2) {
+  margin-bottom: 50px;
+}
+.menu__legend {
+  font-size: var(--font-medium);
+  padding: 10px 15px;
+  background-color: white;
+  margin-left: 20px;
+  color: #8b8b8b;
+  border-radius: 8px;
+}
+.menu__input {
+  padding: 15px;
+  width: 100%;
+  font-size: var(--font-medium);
+}
+
+.menu__button {
+  font-size: var(--font-medium);
+  margin-bottom: 10px;
+  padding: 15px;
+  width: 100%;
+  background-color: var(--color-yue-guang-lan-blue);
+  border-radius: 8px;
+  color: whitesmoke;
+  border: 0;
+}
+
+a.menu__button {
+  margin-top: 30px;
+  text-align: center;
+  display: block;
+}
