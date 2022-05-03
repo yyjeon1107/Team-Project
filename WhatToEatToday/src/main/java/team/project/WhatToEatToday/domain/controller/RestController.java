@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.controller;
+package team.project.WhatToEatToday.domain.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,5 +14,7 @@ public class RestController {
         HttpSession session = request.getSession();
         session.setAttribute("message", null);
     }
+
+
 
 }

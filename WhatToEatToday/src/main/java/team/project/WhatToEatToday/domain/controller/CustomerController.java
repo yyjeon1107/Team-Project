@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.controller;
+package team.project.WhatToEatToday.domain.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

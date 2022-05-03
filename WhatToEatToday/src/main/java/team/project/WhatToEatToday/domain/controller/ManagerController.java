@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.controller;
+package team.project.WhatToEatToday.domain.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
