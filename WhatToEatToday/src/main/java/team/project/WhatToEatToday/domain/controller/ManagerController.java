@@ -110,9 +110,8 @@ public class ManagerController {
 
         model.addAttribute("page", "addMenu");
         model.addAttribute("menuForm", menuForm);
-        List<Category> categoryList = categoryRepository.getCategory();
-        model.addAttribute("category", categoryList);
-        System.out.println(categoryList);
+        List<Category> categoryList = categoryRepository.findAll();
+        model.addAttribute("cate", categoryList);
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";
     }
@@ -123,6 +122,7 @@ public class ManagerController {
         Menu menu = new Menu();
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
+        menu.setCategorys(menuForm.getCategory());
         menu.setEatingHouse(eatingHouseService.findOne(eatingHouseId));
         menuService.join(menu);
         session.setAttribute("message", "메뉴추가");

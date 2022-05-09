@@ -30,6 +30,12 @@ public class Menu {
     @JoinColumn(name = "category_id")
     private Category categorys;
 
+//    public void setCategory(Category category) {
+//        this.categorys = category;
+//        category.getMenu().add(this);
+//
+//    }
+
     public void setEatingHouse(EatingHouse eatingHouse) {
         this.eatingHouse = eatingHouse;
         eatingHouse.getMenus().add(this);

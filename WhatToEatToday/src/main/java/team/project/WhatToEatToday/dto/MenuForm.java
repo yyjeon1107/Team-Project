@@ -13,5 +13,5 @@ import java.util.List;
 public class MenuForm {
     private String name;
     private int price;
-    private List<Category> category;
+    private Category category;
 }

@@ -34,4 +34,8 @@ public class CategoryRepository {
         return CAT;
     }
 
+    public List<Category> findAll() {
+        return em.createQuery("SELECT c FROM Category c", Category.class)
+                .getResultList();
+    }
 }
