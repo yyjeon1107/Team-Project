@@ -23,11 +23,18 @@ public class Menu {
     private String name;
     private int price;
 
-    @ManyToMany(mappedBy = "menus")
-    private List<Category> categories = new ArrayList<>();
-
     @OneToMany(mappedBy = "menu")
     List<OrderMenu> orderMenus = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category categorys;
+
+//    public void setCategory(Category category) {
+//        this.categorys = category;
+//        category.getMenu().add(this);
+//
+//    }
 
     public void setEatingHouse(EatingHouse eatingHouse) {
         this.eatingHouse = eatingHouse;

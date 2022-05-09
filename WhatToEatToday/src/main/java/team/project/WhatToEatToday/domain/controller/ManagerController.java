@@ -7,16 +7,19 @@ import org.springframework.web.bind.annotation.*;
 import team.project.WhatToEatToday.Service.EatingHouseService;
 import team.project.WhatToEatToday.Service.ManagerService;
 import team.project.WhatToEatToday.Service.MenuService;
+import team.project.WhatToEatToday.domain.Category;
 import team.project.WhatToEatToday.domain.EatingHouse;
 import team.project.WhatToEatToday.domain.Menu;
 import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.domain.member.Member;
 import team.project.WhatToEatToday.dto.EatingHouseForm;
 import team.project.WhatToEatToday.dto.MenuForm;
+import team.project.WhatToEatToday.repository.CategoryRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/manager")
@@ -26,6 +29,8 @@ public class ManagerController {
     private final ManagerService managerService;
     private final EatingHouseService eatingHouseService;
     private final MenuService menuService;
+
+    private final CategoryRepository categoryRepository;
 
     @GetMapping("/eating_house")
     public String getManager(HttpServletRequest request, Model model) {
@@ -102,8 +107,11 @@ public class ManagerController {
 
     @GetMapping("/eating_house/edit/{eatingHouseId}/menu/add")
     public String getAddMenu(@PathVariable Long eatingHouseId, Model model, MenuForm menuForm){
+
         model.addAttribute("page", "addMenu");
         model.addAttribute("menuForm", menuForm);
+        List<Category> categoryList = categoryRepository.findAll();
+        model.addAttribute("cate", categoryList);
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";
     }
@@ -114,6 +122,7 @@ public class ManagerController {
         Menu menu = new Menu();
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
+        menu.setCategorys(menuForm.getCategory());
         menu.setEatingHouse(eatingHouseService.findOne(eatingHouseId));
         menuService.join(menu);
         session.setAttribute("message", "메뉴추가");
