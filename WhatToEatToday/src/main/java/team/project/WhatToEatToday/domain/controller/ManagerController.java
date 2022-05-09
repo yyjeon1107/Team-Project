@@ -122,7 +122,7 @@ public class ManagerController {
         Menu menu = new Menu();
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
-        menu.setCategorys(menuForm.getCategory());
+        menu.setCategorys(categoryRepository.findOne(menuForm.getCategory()));
         menu.setEatingHouse(eatingHouseService.findOne(eatingHouseId));
         menuService.join(menu);
         session.setAttribute("message", "메뉴추가");
