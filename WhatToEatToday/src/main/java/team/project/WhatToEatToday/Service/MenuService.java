@@ -39,4 +39,10 @@ public class MenuService {
         return menuRepository.findOne(menuId);
     }
 
+//    public Menu findCategory(Long id) { return menuRepository.findCategoryOne(id);}
+
+    public List<Menu> findCategoryId(Long Id) { return menuRepository.findByCategoryId(Id);}
+
+    public Menu findEatingHouseId(Long id) { return menuRepository.findEatingHouseId(id);}
+
 }

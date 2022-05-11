@@ -38,4 +38,19 @@ public class MenuRepository {
                 .setParameter("id", id)
                 .getResultList();
     }
+
+//    public Menu findCategoryOne(Long id) { return em.find(Menu.class, findByCategoryId(id));}
+
+
+    public List<Menu> findByCategoryId(Long id) {
+        return em.createQuery("SELECT m FROM Menu m where categorys.id = :id", Menu.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
+    public Menu findEatingHouseId(Long id) {
+        return em.createQuery("select m from Menu m where categorys.id = :id", Menu.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }
