@@ -4,6 +4,7 @@
     <div class="inner">
       <ul class="eating_house__list">
           <li class="eating_house" th:each="eatingHouse : ${eatingHouses}">
+            <a th:href="@{'/manager/eating_house/edit/' + ${eatingHouse.getId()} } " class="eating_house__inner">
               <figure class="eating_house__img">
                 <img src="/img/sample.webp" alt="" />
                 <figcaption class="blind"></figcaption>

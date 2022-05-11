@@ -101,8 +101,18 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(1L);
         List<EatingHouse> eatingHouses = new ArrayList<>();
         for(int i=1; i<menu.size(); i++){
-            eatingHouses.add(menu.get(i).getEatingHouse());
+            int x = 0;
+            for(int j=1; j<eatingHouses.size(); j++) {
+                if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
+                    x++;
+                }
+            }
+           if(x==0) {
+               eatingHouses.add(menu.get(i).getEatingHouse());
+           }
         }
+
+
 
 //        System.out.println("=================================");
 //        System.out.println(menu.toString());

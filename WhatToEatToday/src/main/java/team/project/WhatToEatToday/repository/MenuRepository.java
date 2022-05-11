@@ -49,7 +49,7 @@ public class MenuRepository {
     }
 
     public Menu findEatingHouseId(Long id) {
-        return em.createQuery("select m from Menu m where categorys.id = :id", Menu.class)
+        return em.createQuery("select distinct(m) from Menu m where categorys.id = :id", Menu.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
