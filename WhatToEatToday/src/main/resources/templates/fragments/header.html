@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <header class="header" th:fragment="header">
     <div class="inner">
-        <h1 class="logo">
-            <a href="/">
-                오늘 뭐 먹지?
+        <h3 class="logo__container">
+            <a class="logo" href="/">
+                What To Eat Today
             </a>
-        </h1>
+        </h3>
         <nav class="navbar">
-            <ul  th:if=" ${session.login == null} ">
+            <ul th:if=" ${session.login == null} ">
                 <li>
                     <a href="/login">로그인</a>
                 </li>

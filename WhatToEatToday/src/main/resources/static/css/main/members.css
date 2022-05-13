@@ -1,32 +1,88 @@
 .main .inner {
   padding: 30px 0;
+<<<<<<< Updated upstream
+=======
+  max-width: 1400px;
+}
+
+.members__details .members__summary {
+  border-radius: 5px;
+}
+
+.members__details[open] .members__summary {
+  border-radius: 10px 10px 0 0;
+}
+
+.members__summary {
+  padding: 15px;
+  padding-left: 30px;
+  border-radius: 5px 5px 0 0;
+  font-size: var(--font-large);
+  background-color: #0a3d62;
+}
+
+.members__summary::marker {
+  display: none;
+  content: "";
+}
+.members__summary::after {
+  content: "";
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+input[name="map_active_button"] {
+  display: none;
+>>>>>>> Stashed changes
 }
 
 .members {
   width: 100%;
   border-collapse: collapse;
+<<<<<<< Updated upstream
   border: 3px solid var(--color-carrot-orange);
   border-radius: 15px;
+=======
+  border: 2px solid #0a3d62;
+>>>>>>> Stashed changes
 }
 
 .members .members__caption {
   border-radius: 15px 15px 0 0;
   padding: 15px;
   font-size: var(--font-medium);
+<<<<<<< Updated upstream
   background-color: var(--color-carrot-orange);
+=======
+  background-color: white;
+>>>>>>> Stashed changes
 }
 
 .members tr th,
 .members tr td {
   color: black;
   vertical-align: middle;
+<<<<<<< Updated upstream
   border: 2px dotted var(--color-carrot-orange);
   border-bottom: 2px solid var(--color-carrot-orange);
   background-color: aliceblue;
+=======
+  border: 2px solid #0a3d62;
+  border-bottom: 2px solid #0a3d62;
+  background-color: white;
+>>>>>>> Stashed changes
 }
 .members tr th {
+<<<<<<< Updated upstream
   font-weight: bold;
   border: 3px solid var(--color-carrot-orange);
+=======
+  border: 2px solid #0a3d62;
+  font-size: var(--font-regular);
+  font-family: "NotoSansKR-Bold";
+  border-bottom: 1px solid #0a3d62;
+>>>>>>> Stashed changes
 }
 
 .members tr {
@@ -36,6 +92,7 @@
   text-align: center;
 }
 
+<<<<<<< Updated upstream
 .members tbody tr td:nth-child(1) {
   padding-left: 40px;
   text-align: left;
@@ -44,6 +101,63 @@
 .pagenation {
   padding: 15px 0 5px;
   display: inline-block;
+=======
+.members tbody tr td {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.members tbody tr td:nth-child(8) label[for*="map_active_button"] {
+  cursor: pointer;
+  color: var(--color-waterfall);
+  text-decoration: underline;
+}
+
+.members tbody tr td:nth-child(8) label[for*="map_active_button"]:hover {
+  color: var(--color-reef-encounter);
+}
+
+.members tbody tr td:nth-child(8) label[for="map_close_button"] {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 1;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.members tbody tr td:nth-child(8) label[for="map_close_button"] .map_outer {
+  margin-top: 100px;
+  padding: 30px;
+  background-color: #f5cd79;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.members tbody tr td:nth-child(8) label[for="map_close_button"] .map_inner {
+  width: 1024px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.members
+  tbody
+  tr
+  td:nth-child(8)
+  label[for="map_close_button"]
+  .map_outer
+  figcaption {
+  margin-top: 30px;
+  color: black;
+  font-family: "hanna";
+>>>>>>> Stashed changes
 }
 .pagenation::after {
   content: "";
@@ -60,3 +174,4 @@
 .pagenation li:nth-child(n + 2) {
   margin-left: 10px;
 }
+

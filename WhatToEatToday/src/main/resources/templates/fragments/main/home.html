@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <main class="main" th:fragment="main">
+<<<<<<< Updated upstream
     <div class="inner">
       <form action="#" method="post">
         <fieldset class="search">
@@ -28,6 +29,44 @@
           </button>
         </fieldset>
       </form>
+=======
+    <section class="highlight-clean">
+      <div class="search__container">
+          <div class="intro">
+              <h2 class="search__text">"오늘 뭐 먹지?"</h2>
+          </div>
+          <div class="inner">
+            <form action="#" method="post">
+              <fieldset class="search">
+                <input
+                  type="search"
+                  class="search__bar"
+                  placeholder="메뉴를 검색하세요"/>
+                <button class="search__button">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </fieldset>
+            </form>
+          </div>
+      </div>
+    </section>
+
+    <div class="category__container">
+      <div class="category__all">
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/recommend}'|" style= "background-image: url(/img/category/메뉴추천받기.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/menuAll}'|" style= "background-image: url(/img/category/전체메뉴보기.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/kFood}'|" style= "background-image: url(/img/category/한식.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/jFood}'|" style= "background-image: url(/img/category/일식.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/cFood}'|" style= "background-image: url(/img/category/중식.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/wFood}'|" style= "background-image: url(/img/category/양식.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/chicken}'|" style= "background-image: url(/img/category/치킨.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/bunsik}'|" style= "background-image: url(/img/category/분식.png)";></button></div>
+          <div class="category"><button class="category__button" type="button" th:onclick="|location.href='@{/customer/dessert}'|" style= "background-image: url(/img/category/디저트.png)";></button></div>
+          <div class="category__empty"></div>
+          <div class="category__empty"></div>
+          <div class="category__empty"></div>
+      </div>
+>>>>>>> Stashed changes
     </div>
   </main>
 </html>

@@ -3,24 +3,27 @@
   <main class="main" th:fragment="main">
     <div class="inner">
       <form action="/login" method="post" th:object="${loginForm}" class="login">
+      	<figure class="logo">
+      		<img src="/img/category/로고.png" alt="">
+      		<figcaption class="blind">
+      		</figcaption>
+      	</figure> 	   
         <fieldset class="login__fieldset">
-          <legend class="login__legend">아이디</legend>
           <input
             class="login__input"
             type="text"
             th:field="*{id}"
-            placeholder="ID"
+            placeholder="아이디"
             autocomplete="off"
             required
           />
         </fieldset>
         <fieldset class="login__fieldset">
-          <legend class="login__legend">비밀번호</legend>
           <input
             class="login__input"
             type="password"
             th:field="*{password}"
-            placeholder="PASSWORD"
+            placeholder="비밀번호"
             autocomplete="off"
             required
           />

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <main class="main" th:fragment="main">
+    <div class="inner">
+      <form
+        th:action="@{ '/manager/eating_house/edit/' + ${eatingHouse.getId()} + '/menu/add'}"
+        method="post"
+        th:object="${menuForm}"
+        class="menu"
+      >
+        <fieldset class="menu__fieldset">
+          <input type="image" src="/img/category/음식.png" class="menu__input" />
+        </fieldset>
+        <fieldset class="menu__fieldset">
+          <legend class="menu__legend">이름</legend>
+          <input type="text" class="menu__input" th:field="*{name}" />
+        </fieldset>
+        <fieldset class="menu__fieldset">
+          <legend class="menu__legend">가격</legend>
+          <input
+            type="number"
+            class="menu__input"
+            th:field="*{price}"
+            min="0"
+            step="100"
+          />
+        </fieldset>
+        <button class="menu__button">등록</button>
+      </form>
+    </div>
+  </main>
+</html>

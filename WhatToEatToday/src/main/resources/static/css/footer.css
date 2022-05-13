@@ -1,7 +1,19 @@
 .footer {
+<<<<<<< Updated upstream
+=======
+  width: 100%;
+  bottom: 0;
+>>>>>>> Stashed changes
   padding: 15px 0;
-  background-color: var(--color-iceland-poppy);
+  color: #4b4c4d;
+  border-top: 1px double;
+  border-color: lightgray;
+  font-family:"GmarketSans";
+  line-height: 1.5;
 }
-.footer address {
-  font-size: var(--font-medium);
+
+.footer .inner {
+	margin: auto;
+	width: 380px;
+	padding-top: 10px;
 }

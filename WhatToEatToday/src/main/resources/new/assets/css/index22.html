@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        input[name="page"] {
+            display: none;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            display: grid;
+            list-style: none;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        nav ul li label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+            font-size: 40px;
+        }
+        #page01:checked ~ nav ul li:nth-child(1) {
+            background-color: whitesmoke;
+        }
+        #page02:checked ~ nav ul li:nth-child(2) {
+            background-color: whitesmoke;
+        }
+        #page03:checked ~ nav ul li:nth-child(3) {
+            background-color: whitesmoke;
+        }
+        main section {
+            height: 70vh;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            display: none;
+        }
+        #page01:checked ~ main section:nth-child(1) {
+            display: flex;
+            background-color: whitesmoke;
+        }
+        #page02:checked ~ main section:nth-child(2) {
+            display: flex;
+            background-color: whitesmoke;
+        }
+        #page03:checked ~ main section:nth-child(3) {
+            display: flex;
+            background-color: whitesmoke;
+        }
+    </style>
+  </head>
+  <body>
+    <input type="radio" name="page" id="page01" checked/>
+    <input type="radio" name="page" id="page02" />
+    <input type="radio" name="page" id="page03" />
+    <nav>
+        <ul>
+            <li>
+                <label for="page01">page01</label>
+            </li>
+            <li>
+                <label for="page02">page02</label>
+            </li>
+            <li>
+                <label for="page03">page03</label>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>page01</section>
+        <section>page02</section>
+        <section>page03</section>
+    </main>
+  </body>
+</html>
