@@ -38,4 +38,11 @@ public class CategoryRepository {
         return em.createQuery("SELECT c FROM Category c", Category.class)
                 .getResultList();
     }
+
+//    public List<Category> findKFood(Long id){
+//        return em.createQuery("select c from category c where c.id = id", Category.class)
+//                .setParameter("id", id)
+//                .getResultList();
+//    }
+
 }

@@ -135,6 +135,8 @@ public class ManagerController {
             @PathVariable Long menuId, Model model, MenuForm menuForm){
         model.addAttribute("page", "editMenu");
         model.addAttribute("menuForm", menuForm);
+        List<Category> categoryList = categoryRepository.findAll();
+        model.addAttribute("cate", categoryList);
         model.addAttribute("menu", menuService.findOne(menuId));
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";
@@ -150,6 +152,7 @@ public class ManagerController {
         Menu menu = menuService.findOne(menuId);
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
+        menu.setCategorys(categoryRepository.findOne(menuForm.getCategory()));
         menuService.join(menu);
         return "redirect:/manager/eating_house/edit/" + eatingHouseId;
     }

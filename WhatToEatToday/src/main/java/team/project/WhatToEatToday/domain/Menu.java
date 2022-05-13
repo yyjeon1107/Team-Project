@@ -45,4 +45,17 @@ public class Menu {
         orderMenus.add(orderMenu);
         orderMenu.setMenu(this);
     }
+
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", eatingHouse=" + eatingHouse +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", orderMenus=" + orderMenus +
+                ", categorys=" + categorys +
+                '}';
+    }
 }

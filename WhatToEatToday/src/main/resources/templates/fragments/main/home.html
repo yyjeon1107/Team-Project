@@ -2,14 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <main class="main" th:fragment="main">
     <div class="inner">
-      <form action="#" method="post">
+      <form action="/search/result" method="get">
         <fieldset class="search">
           <input
-            type="search"
+            type="text"
+            name="name"
             class="search__text"
             placeholder="메뉴를 검색하세요"
           />
-          <button class="search__button">
+          <button class="search__button" type="submit" th:onclick="|location.href='@{/search/result}'|">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </fieldset>

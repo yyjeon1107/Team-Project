@@ -3,6 +3,7 @@ package team.project.WhatToEatToday.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import team.project.WhatToEatToday.domain.Category;
 import team.project.WhatToEatToday.domain.Menu;
 import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.repository.MenuRepository;
@@ -37,6 +38,23 @@ public class MenuService {
 
     public Menu findOne(Long menuId) {
         return menuRepository.findOne(menuId);
+    }
+
+
+    public List<Menu> findCategoryId(Long id){
+        return menuRepository.findByCategoryId(id);
+    }
+
+    public List<Menu> findEatingHouseId(Long id){
+        return menuRepository.findEatingHouse(id);
+    }
+
+    public Menu findCateId(Long id){
+        return menuRepository.findByCateId(id);
+    }
+
+    public List<Menu> findByName(String name){
+        return menuRepository.findByName(name);
     }
 
 }
