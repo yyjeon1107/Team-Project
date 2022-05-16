@@ -14,14 +14,14 @@
                     <figure class="eating_house__menu__img_fieldset">
                         <img
                                 class="eating_house__menu__img"
-                                src="/img/sample.webp"
+                                src="/img/category/음식.png"
                                 alt=""
                         />
                         <figcaption class="blind">메뉴 이미지</figcaption>
                     </figure>
                     <div class="eating_house__menu__text">
-                        <h2 th:text="'메뉴명 : ' + ${menu.getName()}"></h2><br/>
-                        <p th:text="'가격 : ' + ${menu.getPrice()} + '원'"></p>
+                        <h2 th:text="${menu.getName()}"></h2><br/>
+                        <p th:text="${menu.getPrice()} + '원'"></p>
                     </div>
                 </div>
             </li>
