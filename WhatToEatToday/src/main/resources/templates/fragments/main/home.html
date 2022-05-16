@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <main class="main" th:fragment="main">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <div class="inner">
       <form action="#" method="post">
         <fieldset class="search">
@@ -30,12 +31,15 @@
         </fieldset>
       </form>
 =======
+=======
+>>>>>>> Stashed changes
     <section class="highlight-clean">
       <div class="search__container">
           <div class="intro">
               <h2 class="search__text">"오늘 뭐 먹지?"</h2>
           </div>
           <div class="inner">
+<<<<<<< Updated upstream
             <form action="#" method="post">
               <fieldset class="search">
                 <input
@@ -43,6 +47,16 @@
                   class="search__bar"
                   placeholder="메뉴를 검색하세요"/>
                 <button class="search__button">
+=======
+            <form action="/search/result" method="get">
+              <fieldset class="search">
+                <input
+                  type="text"
+                  name="name"
+                  class="search__bar"
+                  placeholder="메뉴를 검색하세요"/>
+                <button class="search__button" type="submit" th:onclick="|location.href='@{/search/result}'|">
+>>>>>>> Stashed changes
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </fieldset>
@@ -66,6 +80,9 @@
           <div class="category__empty"></div>
           <div class="category__empty"></div>
       </div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     </div>
   </main>

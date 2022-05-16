@@ -41,8 +41,12 @@ input[name="map_active_button"] {
   width: 100%;
   border-collapse: collapse;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   border: 3px solid var(--color-carrot-orange);
   border-radius: 15px;
+=======
+  border: 2px solid #0a3d62;
+>>>>>>> Stashed changes
 =======
   border: 2px solid #0a3d62;
 >>>>>>> Stashed changes
@@ -53,7 +57,11 @@ input[name="map_active_button"] {
   padding: 15px;
   font-size: var(--font-medium);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   background-color: var(--color-carrot-orange);
+=======
+  background-color: white;
+>>>>>>> Stashed changes
 =======
   background-color: white;
 >>>>>>> Stashed changes
@@ -64,6 +72,7 @@ input[name="map_active_button"] {
   color: black;
   vertical-align: middle;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   border: 2px dotted var(--color-carrot-orange);
   border-bottom: 2px solid var(--color-carrot-orange);
   background-color: aliceblue;
@@ -72,16 +81,27 @@ input[name="map_active_button"] {
   border-bottom: 2px solid #0a3d62;
   background-color: white;
 >>>>>>> Stashed changes
+=======
+  border: 2px solid #0a3d62;
+  border-bottom: 2px solid #0a3d62;
+  background-color: white;
+>>>>>>> Stashed changes
 }
 .members tr th {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   font-weight: bold;
   border: 3px solid var(--color-carrot-orange);
 =======
+=======
+>>>>>>> Stashed changes
   border: 2px solid #0a3d62;
   font-size: var(--font-regular);
   font-family: "NotoSansKR-Bold";
   border-bottom: 1px solid #0a3d62;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 
@@ -103,7 +123,11 @@ input[name="map_active_button"] {
   display: inline-block;
 =======
 .members tbody tr td {
+<<<<<<< Updated upstream
   padding-left: 10px;
+=======
+  padding-left: 8px;
+>>>>>>> Stashed changes
   text-align: left;
 }
 
@@ -157,6 +181,9 @@ input[name="map_active_button"] {
   margin-top: 30px;
   color: black;
   font-family: "hanna";
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 .pagenation::after {

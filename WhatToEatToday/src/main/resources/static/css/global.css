@@ -49,6 +49,9 @@
 	src: url(/font/GmarketSansTTFMedium.ttf);
 	font-family:"GmarketSans"
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 /* Global */
 
@@ -134,6 +137,9 @@ button {
   border: 0;
   outline: 0;
   font-family: "hanna", Arial, Helvetica, sans-serif;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 
@@ -143,8 +149,14 @@ button {
 
 .main {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   min-height: 791px;
   background-color: var(--color-flat-flesh);
+=======
+  min-height: 82vh;
+  padding: 5vh 0 0vh;
+  background-color: white;
+>>>>>>> Stashed changes
 =======
   min-height: 82vh;
   padding: 5vh 0 0vh;

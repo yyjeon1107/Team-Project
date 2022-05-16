@@ -24,8 +24,15 @@
                     <li th:case="Manager">
                         <a href="/manager" >매장관리</a>
                     </li>
+<<<<<<< Updated upstream
                     <li th:case="Customer">
                         <a href="/customer" >마이페이지</a>
+=======
+                </th:block>
+                <th:block th:case="Customer">
+                    <li>
+                        <a th:href="@{'/customer/mypage/' + ${session.member.getId()} }" >마이페이지</a>
+>>>>>>> Stashed changes
                     </li>
                 </th:block>
                 <li>
