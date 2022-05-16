@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.domain.controller;
+package team.project.WhatToEatToday.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

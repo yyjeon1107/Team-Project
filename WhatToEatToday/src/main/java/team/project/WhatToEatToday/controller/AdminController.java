@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.domain.controller;
+package team.project.WhatToEatToday.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

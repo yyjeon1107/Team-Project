@@ -14,7 +14,7 @@
         <fieldset class="menu__fieldset">
           <legend class="menu__legend">카테고리</legend>
           <select class="menu__input" th:field="*{category}"}>
-            <option class="menu__category" value=""> 음식 종류 </option>
+            <option class="menu__category" value="">전체 메뉴</option>
               <option th:each="category : ${cate}" th:value="${category.id}" th:text="${category.name}"></option>
           </select>
         </fieldset>

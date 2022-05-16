@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.domain.controller;
+package team.project.WhatToEatToday.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -137,6 +137,9 @@ public class ManagerController {
         model.addAttribute("menuForm", menuForm);
         List<Category> categoryList = categoryRepository.findAll();
         model.addAttribute("cate", categoryList);
+        Menu menu = menuService.findOne(menuId);
+        Category category = categoryRepository.findOne(menu.getCategorys().getId());
+        model.addAttribute("cateid", category.getId());
         model.addAttribute("menu", menuService.findOne(menuId));
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";

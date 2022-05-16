@@ -1,4 +1,4 @@
-package team.project.WhatToEatToday.domain.controller;
+package team.project.WhatToEatToday.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -104,12 +104,12 @@ public class CustomerController {
     @GetMapping("/eating_house/All")
     public String viewAll(Model model){
 
-        List<Menu> menu = menuService.findCategoryId(1L);
+        List<Menu> menu = menuService.findAll();
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
@@ -128,14 +128,9 @@ public class CustomerController {
 
     @GetMapping("/eating_house/All/{eatingHouseId}")
     public String viewMenu(@PathVariable Long eatingHouseId,  Model model) {
-//
-//        EatingHouse eatingHouses = new EatingHouse();
-//        eatingHouses.addMenus(menuService.findCateId(1L));
-//        System.out.println(eatingHouses.getMenus());
+
 
         EatingHouse eatingHouses = eatingHouseService.findOne(eatingHouseId);
-        //eatingHouses.addMenus(menuService.findCateId(1L));
-
         System.out.println(eatingHouses.getMenus());
 
 
@@ -151,14 +146,14 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(2L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
                 int x = 0;
-                for(int j=1; j< eatingHouses.size(); j++){
+                for(int j=0; j< eatingHouses.size(); j++){
                     if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                         x++;
                     }
                 }
-            if(x ==0){
+            if(x ==0 ){
                 eatingHouses.add(menu.get(i).getEatingHouse());
             }
         }
@@ -175,9 +170,9 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(3L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
@@ -199,9 +194,9 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(4L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
@@ -223,9 +218,9 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(5L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
@@ -247,9 +242,9 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(6L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
@@ -271,9 +266,9 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(7L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
@@ -295,9 +290,9 @@ public class CustomerController {
         List<Menu> menu = menuService.findCategoryId(8L);
 
         List<EatingHouse> eatingHouses = new ArrayList<>();
-        for(int i=1; i<menu.size(); i++){
+        for(int i=0; i<menu.size(); i++){
             int x = 0;
-            for(int j=1; j< eatingHouses.size(); j++){
+            for(int j=0; j< eatingHouses.size(); j++){
                 if(eatingHouses.get(j).getId().equals(menu.get(i).getEatingHouse().getId())){
                     x++;
                 }
