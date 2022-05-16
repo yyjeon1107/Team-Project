@@ -9,11 +9,11 @@
         class="eating_house"
       >
         <fieldset class="img__field eating_house__fieldset">
-          <input type="image" src="/img/sample.webp" />
+          <input type="image" src="/img/category/가게.png" alt=""/>
         </fieldset>
         <fieldset class="text__field eating_house__fieldset">
           <fieldset class="eating_house__fieldset">
-            <legend class="eating_house__legend">이름</legend>
+            <legend class="eating_house__legend">매장이름</legend>
             <input
               id="name"
               th:field="*{name}"
@@ -22,7 +22,7 @@
             />
           </fieldset>
           <fieldset class="eating_house__fieldset">
-            <legend class="eating_house__legend">가게소개</legend>
+            <legend class="eating_house__legend">매장소개</legend>
             <textarea
               id="description"
               th:field="*{description}"
@@ -85,7 +85,7 @@
             <figure class="eating_house__menu__img_fieldset">
               <img
                 class="eating_house__menu__img"
-                src="/img/sample.webp"
+                src="/img/category/음식.png"
                 alt=""
               />
               <figcaption class="blind">메뉴 이미지</figcaption>
@@ -101,7 +101,7 @@
             class="eating_house__menu_inner"
             th:href="@{'/manager/eating_house/edit/' + ${eatingHouse.getId()} + '/menu/add' }"
           >
-            <i class="fa-solid fa-plus"></i>
+            <i class="menu__add">메뉴추가</i>
           </a>
         </li>
       </ul>

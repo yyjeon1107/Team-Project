@@ -11,6 +11,7 @@
       const tr = membersBody.querySelectorAll("tr");
       for( let i=0; i<jsMembers["id"].length; i++) {
           if(jsMembers !== null) {
+            if(JSON.parse(jsMembers["address"][i]) == null){continue;}
             const address = JSON.parse(jsMembers["address"][i]).addresses[0];
             const addressTd = tr[i].querySelector("td:nth-child(8)");
 
@@ -122,7 +123,7 @@
         for(let i=0; i<jsMembers['id'].length; i++){
           const data = []
           for(let column of columns){
-            if(column === "address"){
+            if(column === "address" && JSON.parse(jsMembers[column][i]) != null){
                data.push(JSON.parse(jsMembers[column][i]).addresses[0].roadAddress);
             }else {
               data.push(jsMembers[column][i]);

@@ -3,14 +3,8 @@
 }
 .eating_house {
   padding: 40px;
-  border-radius: 15px;
-  background-color: var(--color-tomato-red);
-}
-
-.eating_house__fieldset {
-  border: 3px solid var(--color-jalapeno-red);
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 25px 25px 0 0;
+  background-color: #ece6cc;
 }
 
 .eating_house .img__field {
@@ -18,7 +12,6 @@
   height: 366px;
   width: 50%;
   float: left;
-  background-color: white;
 }
 
 .eating_house .img__field input[type="image"] {
@@ -34,7 +27,7 @@
   margin-bottom: 30px;
 }
 .eating_house .text__field .eating_house__fieldset {
-  border: 3px solid var(--color-jalapeno-red);
+  border: 3px solid #c0bca7;
   background-color: white;
   padding-bottom: 10px;
   margin-bottom: 5px;
@@ -54,6 +47,7 @@
   padding: 10px;
   width: 100%;
   font-size: var(--font-medium);
+  color: #494841;
 }
 
 .eating_house__textarea {
@@ -61,6 +55,7 @@
   width: 100%;
   font-size: var(--font-medium);
   resize: none;
+  color: #494841;
 }
 
 .eating_house__button {
@@ -68,9 +63,9 @@
   font-size: var(--font-medium);
   padding: 15px;
   width: 100%;
-  background-color: var(--color-jalapeno-red);
+  background-color: #6f6c61;
   border-radius: 8px;
-  color: whitesmoke;
+  color: white;
   border: 0;
 }
 
@@ -82,7 +77,7 @@ a.eating_house__button {
 .eating_house__address_fieldset {
   clear: both;
   background-color: white;
-  border: 3px solid var(--color-jalapeno-red);
+  border: 3px solid #c0bca7;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -95,7 +90,7 @@ a.eating_house__button {
   font-size: var(--font-regular);
   padding: 10px;
   width: 20%;
-  background-color: var(--color-jalapeno-red);
+  background-color: #c0bca7;
   border-radius: 8px;
   color: whitesmoke;
   border: 0;
@@ -105,15 +100,16 @@ a.eating_house__button {
 }
 
 .eating_house__menu_list {
-  background-color: var(--color-yue-guang-lan-blue);
-  padding: 40px;
-  border-radius: 15px;
+  background-color: #dee1d1;
+  padding: 25px;
+  border-radius: 0 0 25px 25px;
 }
 
 .eating_house__menu {
-  background-color: var(--color-azraq-blue);
-  margin-bottom: 5px;
-  border-radius: 10px;
+  margin: 10px 0 2px 0;
+  border-radius: 25px;
+  background-color: white;
+  color: #494841;
 }
 
 .eating_house__menu_inner {
@@ -132,8 +128,8 @@ a.eating_house__button {
   width: 15%;
   float: left;
   overflow: hidden;
-  border: 3px solid var(--color-dark-sapphire);
   border-radius: 5px;
+
 }
 
 .eating_house__menu__img {
@@ -143,14 +139,22 @@ a.eating_house__button {
   display: block;
 }
 
+.eating_house__menu__img img{
+	width: 100%;
+  	height: 100%;
+	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: contain;
+}
 .eating_house__menu__text {
   float: left;
   width: 85%;
-  padding-left: 20px;
+  padding: 15px 0 0 20px;
 }
 
 .eating_house__menu__text h2 {
   font-size: var(--font-medium);
+  padding-bottom: 10px;
 }
 
 .eating_house__menu__text p {
@@ -158,4 +162,10 @@ a.eating_house__button {
 }
 .eating_house__menu:last-child {
   text-align: center;
+  background-color: #dee1d1;
+}
+
+.menu__add{
+	color: white;
+	font-size: var(--font-medium);
 }
