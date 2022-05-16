@@ -158,9 +158,7 @@ label {
 
 .download_button {
   display: block;
-  float: right;
-  width: 180px;
-  padding: 15px;
+  padding: 15px 30px;
   font-size: var(--font-regular);
   border-radius: 20px;
   text-align: center;

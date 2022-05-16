@@ -92,7 +92,7 @@
             </figure>
             <div class="eating_house__menu__text">
               <h2 th:text="${menu.getName()}"></h2>
-              <p th:text="${menu.getPrice()}"></p>
+              <p th:text="${menu.getPrice()} + '원'"></p>
             </div>
           </a>
         </li>

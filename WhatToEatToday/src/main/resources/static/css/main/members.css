@@ -4,7 +4,7 @@
 }
 
 .members__details .members__summary {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .members__details[open] .members__summary {
@@ -12,22 +12,17 @@
 }
 
 .members__summary {
-  padding: 15px;
-  padding-left: 30px;
-  border-radius: 5px 5px 0 0;
-  font-size: var(--font-large);
+  padding: 20px 30px;
+  font-size: 40px;
   background-color: #0a3d62;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .members__summary::marker {
   display: none;
   content: "";
-}
-.members__summary::after {
-  content: "";
-  display: block;
-  width: 100%;
-  clear: both;
 }
 
 input[name="map_active_button"] {

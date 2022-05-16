@@ -9,6 +9,13 @@
     border-radius: 5px;
   }
   
+  .menu__fieldset select {
+	font-family: "hanna"; 
+	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 98% 50%; /* 네이티브 화살표 대체 */ 
+	border: 1px solid white; 
+	appearance: none;
+  }
+  
   .menu__fieldset:nth-child(1) {
     margin-bottom: 30px;
   }
@@ -21,6 +28,13 @@
   }
   
   .menu__fieldset:nth-child(3) {
+    margin-bottom: 50px; 
+    border: 3px solid #c0bca7;
+    background-color: white;
+      border-radius: 8px;
+  }
+  
+   .menu__fieldset:nth-child(4) {
 /*     margin-bottom: 50px; */
     border: 3px solid #c0bca7;
     background-color: white;
@@ -35,10 +49,14 @@
     border-radius: 8px;
   }
   .menu__input {
-    padding: 10px;
+    padding: 15px 20px;
     width: 100%;
     font-size: var(--font-medium);
-     color: #494841;
+    color: #494841;
+  }
+  
+  .menu__input option {
+  	font-family: "hanna2";
   }
   
   .menu__button {
