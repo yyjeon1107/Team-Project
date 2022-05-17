@@ -29,14 +29,13 @@ public class CategoryService {
 //        return deletedId;
 //    }
 
-
+    //전체 조회
     public List<Category> findCategory() { return categoryRepository.findAll(); }
 
     public List<Category> findCategoryExOne() {
         List<Category> category = categoryRepository.findAll();
         category.remove(0);
         return category;
-
     }
 
 
