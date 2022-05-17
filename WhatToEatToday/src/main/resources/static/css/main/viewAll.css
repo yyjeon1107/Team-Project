@@ -10,20 +10,21 @@
 
 .eating_house {
   position: relative;
-  background-color: #dee1d1;
-  border-radius: 0 0 25px 25px;
+  background-color: #ece6cc;
   padding: 20px 10px 10px;
+  border-radius: 10px;
 }
 
 .eating_house::after {
   content: "";
   display: block;
   position: absolute;
-  width: calc(100% + 10px);
+  width: calc(100%);
   margin-top: -100px;
-  margin-left: -15px;
+  margin-left: -10px;
   height: 10%;
-  background-color: whitesmoke;
+  background-color: #979383;
+  border-radius: 60px 60px 0 0;
 }
 
 .eating_house__inner {
@@ -69,4 +70,9 @@
 
 .eating_house__text h2 {
   font-size: var(--font-medium);
+}
+
+.eating_house__text p {
+	font-family: "hanna2";
+	font-weight: bold;
 }

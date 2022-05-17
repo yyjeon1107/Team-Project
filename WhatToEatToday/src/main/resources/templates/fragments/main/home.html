@@ -7,14 +7,14 @@
               <h2 class="search__text">"오늘 뭐 먹지?"</h2>
           </div>
           <div class="inner">
-            <form action="/search/result" method="get">
+            <form action="/search" method="get">
               <fieldset class="search">
                 <input
                   type="text"
                   name="name"
                   class="search__bar"
                   placeholder="메뉴를 검색하세요"/>
-                <button class="search__button" type="submit" th:onclick="|location.href='@{/search/result}'|">
+                <button class="search__button" type="submit" th:onclick="|location.href='@{/search}'|">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </fieldset>

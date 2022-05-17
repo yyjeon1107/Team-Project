@@ -79,9 +79,18 @@ public class CustomerController {
 	
 
 	@GetMapping("/recommend")
-    public String recommendMenu(Model model) {
-    	model.addAttribute("page", "menuRecommend");
-        return "layout";
+    public String recommendMenu(HttpServletRequest request, Model model) {
+        HttpSession session= request.getSession();
+        try {
+            Member member = (Member) session.getAttribute("member");
+            member.getId().isBlank();
+            model.addAttribute("page", "menuRecommend");
+            return "layout";
+        }
+        catch (Exception e){
+            session.setAttribute("message","로그인 이후에 이용 가능합니다");
+            return "redirect:/";
+        }
     }
 
 	@GetMapping("/recommendResult")
