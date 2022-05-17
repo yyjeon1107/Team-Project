@@ -2,70 +2,64 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <main class="main" th:fragment="main">
     <div class="inner">
-      <h2>관리자 회원가입</h2>
       <form
         action="/join/manager"
         method="post"
         th:object="${joinForm}"
         class="join"
       >
+      <address class="join__title">매니저 회원가입</address>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">아이디</legend>
           <input
             class="join__input"
             type="text"
             th:field="*{id}"
-            placeholder="ID"
+            placeholder="아이디"
             autocomplete="off"
             required
           />
         </fieldset>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">비밀번호</legend>
           <input
             class="join__input"
             type="password"
             th:field="*{password}"
-            placeholder="password"
+            placeholder="비밀번호"
             autocomplete="off"
             required
           />
         </fieldset>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">이름</legend>
           <input
             class="join__input"
             type="text"
             th:field="*{name}"
-            placeholder="name"
+            placeholder="이름"
             autocomplete="off"
             required
           />
         </fieldset>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">이메일</legend>
           <input
             class="join__input"
             type="email"
             th:field="*{email}"
-            placeholder="email"
+            placeholder="이메일"
             autocomplete="off"
             required
           />
         </fieldset>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">전화번호</legend>
           <input
             class="join__input"
             type="tel"
             th:field="*{tel}"
-            placeholder="phone number"
+            placeholder="전화번호"
             autocomplete="off"
             required
           />
         </fieldset>
         <fieldset class="join__fieldset">
-          <legend class="join__legend">주소</legend>
           <input
             class="blind"
             id="address-info"
@@ -78,7 +72,7 @@
             id="address"
             onkeyup="addressEmptyCheck()"
             onclick="getAddress()"
-            placeholder="Address"
+            placeholder="주소"
             autocomplete="off"
             required
           />
@@ -94,7 +88,7 @@
                   th:field="*{addressDetail}"
           />
         </fieldset>
-        <button class="join__button">회원가입</button>
+        <button class="join__button">가입하기</button>
       </form>
     </div>
   </main>

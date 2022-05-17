@@ -9,17 +9,17 @@
         class="menu"
       >
         <fieldset class="menu__fieldset">
-          <input type="image" src="/img/sample.webp" class="menu__input" />
+          <input type="image" src="/img/category/음식.png" class="menu__input" />
         </fieldset>
         <fieldset class="menu__fieldset">
           <legend class="menu__legend">카테고리</legend>
           <select class="menu__input" th:field="*{category}"}>
-            <option value=""> 음식 종류 </option>
+            <option class="menu__category" value="">전체 메뉴</option>
               <option th:each="category : ${cate}" th:value="${category.id}" th:text="${category.name}"></option>
           </select>
         </fieldset>
         <fieldset class="menu__fieldset">
-          <legend class="menu__legend">이름</legend>
+          <legend class="menu__legend">메뉴명</legend>
           <input type="text" class="menu__input" th:field="*{name}" />
         </fieldset>
         <fieldset class="menu__fieldset">

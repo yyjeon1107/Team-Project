@@ -27,12 +27,4 @@ public class Manager extends Member {
         this.admin = admin;
         admin.getManagers().add(this);
     }
-
-    @Override
-    public String toString() {
-        return "Manager{" +
-                "admin=" + admin +
-                ", EatingHouses=" + EatingHouses +
-                '}';
-    }
 }

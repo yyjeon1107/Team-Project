@@ -8,7 +8,7 @@
 .section .mypage {
   border-radius: 10px;
   padding: 40px;
-  background-color: var(--color-yue-guang-lan-blue);
+  background-color: #0a3d62;
 }
 
 .section .mypage::after {
@@ -21,8 +21,8 @@
 .section .mypage .mypage__img {
   float: left;
   width: 200px;
-  height: 230px;
-  background-color: white;
+  height: 206px;
+ /*  background-color: white; */
   overflow: hidden;
   border-radius: 5px;
 }
@@ -47,7 +47,7 @@
   width: 140px;
   padding-left: 20px;
   padding-right: 10px;
-  font-size: var(--font-medium);
+  font-size: var(--font-regular);
   vertical-align: middle;
 }
 
@@ -73,7 +73,7 @@
   float: left;
   height: 50px;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .section .mypage .mypage__button__list .mypage__button__item:last-child {
@@ -86,8 +86,8 @@
   justify-content: center;
   align-items: center;
   font-size: var(--font-regular);
-  color: var(--color-dark-sapphire);
-  background-color: whitesmoke;
+  color: #0a3d62;
+  background-color: white;
 }
 
 .section
@@ -95,6 +95,6 @@
   .mypage__button__list
   .mypage__button__item
   .mypage__button:hover {
-  color: whitesmoke;
-  background-color: var(--color-dark-sapphire);
+  color: white;
+  background-color: #60a3bc;
 }

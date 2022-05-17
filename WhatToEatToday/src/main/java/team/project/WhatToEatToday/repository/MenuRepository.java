@@ -2,6 +2,7 @@ package team.project.WhatToEatToday.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import team.project.WhatToEatToday.domain.Category;
 import team.project.WhatToEatToday.domain.Menu;
 
 import javax.persistence.EntityManager;
@@ -34,23 +35,39 @@ public class MenuRepository {
                 .getResultList();
     }
     public List<Menu> findById(Long id) {
-        return em.createQuery("SELECT m FROM Menu m where m.id = :id", Menu.class)
-                .setParameter("id", id)
+        return em.createQuery("SELECT m FROM Menu m where m.id = :Id", Menu.class)
+                .setParameter("Id", id)
                 .getResultList();
     }
 
-//    public Menu findCategoryOne(Long id) { return em.find(Menu.class, findByCategoryId(id));}
 
-
-    public List<Menu> findByCategoryId(Long id) {
+    public List<Menu> findByCategoryId(Long id){
         return em.createQuery("SELECT m FROM Menu m where categorys.id = :id", Menu.class)
                 .setParameter("id", id)
                 .getResultList();
+
     }
 
-    public Menu findEatingHouseId(Long id) {
-        return em.createQuery("select distinct(m) from Menu m where categorys.id = :id", Menu.class)
+    public List<Menu> findEatingHouse(Long id){
+        return em.createQuery("SELECT m FROM Menu m where eatingHouse.id = :id", Menu.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
+
+    //List로 안받기
+    public Menu findByCateId(Long id){
+        return em.createQuery("SELECT m FROM Menu m where categorys.id = :id", Menu.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
+
+
+    public List<Menu> findByName(String name){
+        return em.createQuery("select m from Menu m where m.name like concat('%', :name, '%')", Menu.class)
+                .setParameter("name", name)
+                .getResultList();
+    }
+
+
 }

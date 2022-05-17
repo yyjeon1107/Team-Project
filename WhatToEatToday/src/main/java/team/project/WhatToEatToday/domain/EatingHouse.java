@@ -6,7 +6,6 @@ import team.project.WhatToEatToday.domain.member.Manager;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -36,8 +35,6 @@ public class EatingHouse {
 
     private String addressDetail;
 
-    private HashSet<String> categorys = new HashSet<>();
-
     public void setManager(Manager manager) {
         this.manager = manager;
         manager.getEatingHouses().add(this);
@@ -48,13 +45,7 @@ public class EatingHouse {
         item.setEatingHouse(this);
     }
 
-    @Override
-    public String toString() {
-        return "EatingHouse{" +
-                "id=" + id +
-                ", Name='" + Name + '\'' +
-                ", address='" + address + '\'' +
-                ", addressDetail='" + addressDetail + '\'' +
-                '}';
-    }
+
+
+
 }

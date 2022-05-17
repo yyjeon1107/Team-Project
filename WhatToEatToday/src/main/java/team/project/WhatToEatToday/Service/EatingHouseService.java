@@ -36,4 +36,5 @@ public class EatingHouseService {
     public EatingHouse findOne(Long eatingHouseId) {
         return eatingHouseRepository.findOne(eatingHouseId);
     }
+
 }
