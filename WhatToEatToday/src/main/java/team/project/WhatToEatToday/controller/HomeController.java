@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import team.project.WhatToEatToday.Service.MenuService;
 import team.project.WhatToEatToday.domain.Menu;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -39,16 +41,19 @@ public class HomeController {
 
 
     @GetMapping("/search/result")
-    public String SearchResult(@RequestParam(required = false, value = "name") String text, Model model){
-
+    public String SearchResult(@RequestParam(required = false, value = "name") String text, Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
         List<Menu> menuList = menuService.findByName(text);
-        System.out.println(menuList);
+        if(menuList.isEmpty()){
+            session.setAttribute("message", "해당 음식을 판매하는 매장이 없습니다");
+            return "redirect:";
+        }
+        else {
+            model.addAttribute("page", "researchMenuList");
+            model.addAttribute("menu", menuList);
+            return "layout";
+        }
 
-
-
-        model.addAttribute("page", "researchMenuList");
-        model.addAttribute("menu",menuList);
-        return "layout";
     }
 
 

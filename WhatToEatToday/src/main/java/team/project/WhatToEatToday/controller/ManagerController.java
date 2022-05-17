@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import team.project.WhatToEatToday.Service.CategoryService;
 import team.project.WhatToEatToday.Service.EatingHouseService;
 import team.project.WhatToEatToday.Service.ManagerService;
 import team.project.WhatToEatToday.Service.MenuService;
@@ -29,8 +30,8 @@ public class ManagerController {
     private final ManagerService managerService;
     private final EatingHouseService eatingHouseService;
     private final MenuService menuService;
+    private final CategoryService categoryService;
 
-    private final CategoryRepository categoryRepository;
 
     @GetMapping("/eating_house")
     public String getManager(HttpServletRequest request, Model model) {
@@ -110,7 +111,8 @@ public class ManagerController {
 
         model.addAttribute("page", "addMenu");
         model.addAttribute("menuForm", menuForm);
-        List<Category> categoryList = categoryRepository.findAll();
+        List<Category> categoryList = categoryService.findCategoryExOne();
+
         model.addAttribute("cate", categoryList);
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";
@@ -122,7 +124,8 @@ public class ManagerController {
         Menu menu = new Menu();
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
-        menu.setCategorys(categoryRepository.findOne(menuForm.getCategory()));
+        menu.setCategorys(categoryService.findOne(menuForm.getCategory()));
+
         menu.setEatingHouse(eatingHouseService.findOne(eatingHouseId));
         menuService.join(menu);
         session.setAttribute("message", "메뉴추가");
@@ -135,10 +138,11 @@ public class ManagerController {
             @PathVariable Long menuId, Model model, MenuForm menuForm){
         model.addAttribute("page", "editMenu");
         model.addAttribute("menuForm", menuForm);
-        List<Category> categoryList = categoryRepository.findAll();
+        List<Category> categoryList = categoryService.findCategoryExOne();
         model.addAttribute("cate", categoryList);
         Menu menu = menuService.findOne(menuId);
-        Category category = categoryRepository.findOne(menu.getCategorys().getId());
+        Category category = categoryService.findOne(menu.getCategorys().getId());
+
         model.addAttribute("cateid", category.getId());
         model.addAttribute("menu", menuService.findOne(menuId));
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
@@ -155,7 +159,8 @@ public class ManagerController {
         Menu menu = menuService.findOne(menuId);
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
-        menu.setCategorys(categoryRepository.findOne(menuForm.getCategory()));
+        menu.setCategorys(categoryService.findOne(menuForm.getCategory()));
+
         menuService.join(menu);
         return "redirect:/manager/eating_house/edit/" + eatingHouseId;
     }
