@@ -32,6 +32,7 @@ public class ManagerController {
     private final MenuService menuService;
     private final CategoryService categoryService;
 
+
     @GetMapping("/eating_house")
     public String getManager(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
@@ -111,6 +112,7 @@ public class ManagerController {
         model.addAttribute("page", "addMenu");
         model.addAttribute("menuForm", menuForm);
         List<Category> categoryList = categoryService.findCategoryExOne();
+
         model.addAttribute("cate", categoryList);
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
         return "layout";
@@ -123,6 +125,7 @@ public class ManagerController {
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
         menu.setCategorys(categoryService.findOne(menuForm.getCategory()));
+
         menu.setEatingHouse(eatingHouseService.findOne(eatingHouseId));
         menuService.join(menu);
         session.setAttribute("message", "메뉴추가");
@@ -139,6 +142,7 @@ public class ManagerController {
         model.addAttribute("cate", categoryList);
         Menu menu = menuService.findOne(menuId);
         Category category = categoryService.findOne(menu.getCategorys().getId());
+
         model.addAttribute("cateid", category.getId());
         model.addAttribute("menu", menuService.findOne(menuId));
         model.addAttribute("eatingHouse", eatingHouseService.findOne(eatingHouseId));
@@ -156,6 +160,7 @@ public class ManagerController {
         menu.setName(menuForm.getName());
         menu.setPrice(menuForm.getPrice());
         menu.setCategorys(categoryService.findOne(menuForm.getCategory()));
+
         menuService.join(menu);
         return "redirect:/manager/eating_house/edit/" + eatingHouseId;
     }

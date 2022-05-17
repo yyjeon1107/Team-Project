@@ -53,6 +53,7 @@ public class HomeController {
             model.addAttribute("menu", menuList);
             return "layout";
         }
+
     }
 
 
