@@ -15,7 +15,7 @@
   font-size: 22px;
   margin-bottom: 30px;
   text-align: center;
-  color : #D07445;
+  color : darkslategray;
 }
 
 .main .inner {
@@ -77,8 +77,8 @@
 }
 
 .main .keyword_box .keyword_box__item form {
-  height: 300px;
-  border: 3px solid #AF9572;
+  height: 400px;
+  border: 8px solid #f5cd79;
 }
 
 .main .keyword_box .keyword_box__item form input:checked + label {
@@ -110,11 +110,11 @@
 .main .inner button {
   width: 48%;
   height: 50px;
-  font-weight: bold;
+/*   font-weight: bold; */
   font-size: 18px;
   margin-top: 20px;
   float: left;
-  color : #8B461F;
+  color : black;
 }
 
 .main .inner button:last-child {
@@ -126,5 +126,5 @@
 	display: flex;
     justify-content: center;
     margin-top:15%;
-    color:saddlebrown;
+    color:black;
 }

@@ -23,13 +23,17 @@ public class Menu {
     private String name;
     private int price;
 
-    @OneToMany(mappedBy = "menu")
-    List<OrderMenu> orderMenus = new ArrayList<>();
-
+   
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category categorys;
 
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="condition_id")
+    private Condition condition;
+    
+    
     public void setCategory(Category category) {
         this.categorys = category;
         category.getMenu().add(this);
@@ -40,13 +44,14 @@ public class Menu {
         this.eatingHouse = eatingHouse;
         eatingHouse.getMenus().add(this);
     }
-
-    public void addOrderMenu(OrderMenu orderMenu) {
-        orderMenus.add(orderMenu);
-        orderMenu.setMenu(this);
+    
+    
+    public void setCondition(Condition condition) {
+    	this.condition = condition;
+    	condition.getMenus().add(this);
     }
 
-
+  
     @Override
     public String toString() {
         return "Menu{" +
@@ -54,7 +59,6 @@ public class Menu {
                 ", eatingHouse=" + eatingHouse +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", orderMenus=" + orderMenus +
                 ", categorys=" + categorys +
                 '}';
     }

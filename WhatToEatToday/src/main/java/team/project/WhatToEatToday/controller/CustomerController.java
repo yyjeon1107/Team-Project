@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.RequiredArgsConstructor;
 import team.project.WhatToEatToday.Service.CategoryService;
+import team.project.WhatToEatToday.Service.ConditionCategoryService;
+import team.project.WhatToEatToday.Service.ConditionService;
 import team.project.WhatToEatToday.Service.CustomerService;
 import team.project.WhatToEatToday.Service.EatingHouseService;
 import team.project.WhatToEatToday.Service.MenuService;
 import team.project.WhatToEatToday.domain.Category;
+import team.project.WhatToEatToday.domain.Condition;
+import team.project.WhatToEatToday.domain.ConditionCategory;
 import team.project.WhatToEatToday.domain.EatingHouse;
 import team.project.WhatToEatToday.domain.Menu;
 import team.project.WhatToEatToday.domain.member.Customer;
@@ -37,6 +41,8 @@ public class CustomerController {
     private final MenuService menuService;
     private final EatingHouseService eatingHouseService;
     private final CategoryService categoryService;
+    private final ConditionService conditionService;
+    private final ConditionCategoryService conditionCategoryService;
 
 	@GetMapping("/mypage/{customerId}")
     public String getMypage(@PathVariable String customerId, Model model) {
@@ -84,7 +90,17 @@ public class CustomerController {
         try {
             Member member = (Member) session.getAttribute("member");
             member.getId().isBlank();
+            
+            //ConditionCategory concate = conditionCategoryService.findOne(1L); //기분
+            List<Condition> conditionList1 = conditionService.findCate1(1L);
+            model.addAttribute("condition1", conditionList1);
+            List<Condition> conditionList2 = conditionService.findCate1(2L);
+            model.addAttribute("condition2", conditionList2);
+            List<Condition> conditionList3 = conditionService.findCate1(3L);
+            model.addAttribute("condition3", conditionList3);
+            
             model.addAttribute("page", "menuRecommend");
+            
             return "layout";
         }
         catch (Exception e){

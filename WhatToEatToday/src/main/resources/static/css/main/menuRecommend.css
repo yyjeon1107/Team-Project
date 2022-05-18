@@ -22,19 +22,25 @@
   ~ .keyword_nav
   li:nth-child(1)
   .keyword_nav__item {
-  background-color: var(--color-iceland-poppy);
+  background-color: #0a3d62;
+  color: white;
+  transition: none;
 }
 #keyword_nav__trigger02:checked
   ~ .keyword_nav
   li:nth-child(2)
   .keyword_nav__item {
-  background-color: var(--color-iceland-poppy);
+  background-color: #0a3d62;
+  color: white;
+  transition: none;
 }
 #keyword_nav__trigger03:checked
   ~ .keyword_nav
   li:nth-child(3)
   .keyword_nav__item {
-  background-color: var(--color-iceland-poppy);
+  background-color: #0a3d62;
+  color: white;
+  transition: none;
 }
 
 .main .keyword_nav ul::after {
@@ -56,8 +62,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: whitesmoke;
+  color: black;
   border: 8px solid rgba(0, 0, 0, 0.2);
+  background-color: #efefef;
 }
 
 .main .keyword_box .keyword_box__item {
@@ -65,9 +72,9 @@
 }
 
 .main .keyword_box .keyword_box__item form {
-  border-left: 8px solid rgba(0, 0, 0, 0.2);
-  border-right: 8px solid #AF9572;
-  border-bottom: 8px solid #AF9572;
+  border: 8px solid rgba(0, 0, 0, 0.2);
+  
+
 }
 
 .main .keyword_box .keyword_box__item form::after {
@@ -83,10 +90,10 @@
   align-items: center;
   float: left;
   width: 20%;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+/*   font-weight: bold; */
   height: 100px;
-  color : saddlebrown;
+  color : black;
 }
 
 .main .keyword_box .keyword_box__item form label:hover {
@@ -113,9 +120,9 @@
   display: block;
   width: 50%;
   padding: 20px 0;
-  font-weight: bold;
-  font-size: 18px;
+/*   font-weight: bold; */
+  font-size: 20px;
   float: left;
-  color : #8B461F;
+  color : black;
   border: 8px solid rgba(0, 0, 0, 0.2);
 }

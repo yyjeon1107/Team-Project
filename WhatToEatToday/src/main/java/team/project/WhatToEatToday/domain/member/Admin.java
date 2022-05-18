@@ -2,7 +2,6 @@ package team.project.WhatToEatToday.domain.member;
 
 import lombok.Getter;
 import lombok.Setter;
-import team.project.WhatToEatToday.domain.Order;
 
 import javax.persistence.*;
 import java.util.ArrayList;
