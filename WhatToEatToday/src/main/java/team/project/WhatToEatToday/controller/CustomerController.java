@@ -91,7 +91,13 @@ public class CustomerController {
             Member member = (Member) session.getAttribute("member");
             member.getId().isBlank();
             
-            //ConditionCategory concate = conditionCategoryService.findOne(1L); //기분
+            ConditionCategory concate1 = conditionCategoryService.findOne(1L);
+            model.addAttribute("concate1", concate1);
+            ConditionCategory concate2 = conditionCategoryService.findOne(2L);
+            model.addAttribute("concate2", concate2);  
+            ConditionCategory concate3 = conditionCategoryService.findOne(3L);
+            model.addAttribute("concate3", concate3);  
+            
             List<Condition> conditionList1 = conditionService.findCate1(1L);
             model.addAttribute("condition1", conditionList1);
             List<Condition> conditionList2 = conditionService.findCate1(2L);
@@ -111,6 +117,11 @@ public class CustomerController {
 
 	@GetMapping("/recommendResult")
     public String recommendMenuResult(Model model) {
+		
+		List<Condition> conditionList = conditionService.findAll();
+		List<Menu> menuList = menuService.findAll();
+		model.addAttribute("conditionList", conditionList);
+		model.addAttribute("menuList", menuList);
     	model.addAttribute("page", "menuRecommendResult");
         return "layout";
 
