@@ -25,7 +25,5 @@ public class ConditionCategory {
 	@OneToMany(mappedBy = "concate")
 	private List<Condition> condition = new ArrayList<>();
 	
-	
-	
 
 }

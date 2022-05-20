@@ -57,4 +57,6 @@ public class MenuService {
         return menuRepository.findByName(name);
     }
 
+    public List<Menu> findByConditionId(Long id) { return menuRepository.findByConditionMenuId(id); }
+
 }

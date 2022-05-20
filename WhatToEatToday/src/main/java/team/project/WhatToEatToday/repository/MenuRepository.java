@@ -69,5 +69,10 @@ public class MenuRepository {
                 .getResultList();
     }
 
+    public List<Menu> findByConditionMenuId(Long id){
+        return em.createQuery("select m from Menu m where conditionMenu.id = :id", Menu.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
 
 }

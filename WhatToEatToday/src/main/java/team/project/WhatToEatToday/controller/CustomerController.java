@@ -2,10 +2,7 @@ package team.project.WhatToEatToday.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
 import team.project.WhatToEatToday.Service.CategoryService;
@@ -23,6 +20,7 @@ import team.project.WhatToEatToday.domain.member.Customer;
 import team.project.WhatToEatToday.domain.member.Manager;
 import team.project.WhatToEatToday.domain.member.Member;
 import team.project.WhatToEatToday.dto.JoinForm;
+import team.project.WhatToEatToday.dto.LongIdForm;
 import team.project.WhatToEatToday.dto.MenuForm;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +30,7 @@ import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/customer")
@@ -85,7 +84,7 @@ public class CustomerController {
 	
 
 	@GetMapping("/recommend")
-    public String recommendMenu(HttpServletRequest request, Model model) {
+    public String recommendMenu(HttpServletRequest request, Model model, LongIdForm longIdForm) {
         HttpSession session= request.getSession();
         try {
             Member member = (Member) session.getAttribute("member");
@@ -104,7 +103,8 @@ public class CustomerController {
             model.addAttribute("condition2", conditionList2);
             List<Condition> conditionList3 = conditionService.findCate1(3L);
             model.addAttribute("condition3", conditionList3);
-            
+
+            model.addAttribute("longIdForm", longIdForm);
             model.addAttribute("page", "menuRecommend");
             
             return "layout";
@@ -116,12 +116,28 @@ public class CustomerController {
     }
 
 	@GetMapping("/recommendResult")
-    public String recommendMenuResult(Model model) {
-		
-		List<Condition> conditionList = conditionService.findAll();
-		List<Menu> menuList = menuService.findAll();
-		model.addAttribute("conditionList", conditionList);
-		model.addAttribute("menuList", menuList);
+    public String recommendMenuResult(Model model, LongIdForm longIdForm) {
+	
+//		List<Long> id = longIdForm.getIds();
+//        List<Menu> menu = new ArrayList<>();
+//        for(int i=0; i<id.size(); i++){
+//            for(int j=0; j<menuService.findByConditionId(id.get(i)).size(); j++){
+//                menu.add(menuService.findByConditionId(id.get(i)).get(j));
+//            }
+//        }
+//        Random random = new Random();
+//        int rand = random.nextInt()*(menu.size());
+//        menu.get(rand).getEatingHouse();
+
+
+//        model.addAttribute("memberAddress", member.getAddress());
+//        model.addAttribute("eatingHouseAddress", menu.get(rand).getEatingHouse().getAddress());
+//
+//        System.out.println("==============================================");
+//        System.out.println(member.getAddress());
+//        System.out.println(menu.get(rand).getEatingHouse().getAddress());
+//        System.out.println("==============================================");
+
     	model.addAttribute("page", "menuRecommendResult");
         return "layout";
 

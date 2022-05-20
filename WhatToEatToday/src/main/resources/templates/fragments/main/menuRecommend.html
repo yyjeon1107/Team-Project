@@ -25,7 +25,7 @@
         <input
           type="radio"
           name="keyword_nav__trigger"
-          id="keyword_nav__trigger02"
+          id="keyword_nav__trigger02"          
         />
         <input
           type="radio"
@@ -56,25 +56,25 @@
         </nav>
         <ul class="keyword_box">
           <li class="keyword_box__item">
-            <form id="section_search">
+            <form id="section_search" th:object="${longIdForm}" th:action="@{/customer/recommendResult/}">
               <div th:each="condition : ${condition1}">
-              	<input th:id="${condition}" type="checkbox" th:value="${condition.name}"/>    
+              	<input th:id="${condition}" type="checkbox" th:value="${condition.id}"/>    
               	<label th:for="${condition}" th:value="${condition.id}" th:text="${condition.name}"></label>          	
               </div>              
             </form>
           </li>
           <li class="keyword_box__item">
-            <form id="section_search">
+            <form id="section_search" th:object="${longIdForm}" th:action="@{/customer/recommendResult/}">
               <div th:each="condition : ${condition2}">
-              	<input th:id="${condition}" type="checkbox" />    
+              	<input th:id="${condition}" type="checkbox" th:value="${condition.id}"/>    
               	<label th:for="${condition}" th:value="${condition.id}" th:text="${condition.name}"></label>          	
               </div> 
             </form>
           </li>
           <li class="keyword_box__item">
-            <form id="section_search">
+            <form id="section_search" th:object="${longIdForm}" th:action="@{/customer/recommendResult/}">
             <div th:each="condition : ${condition3}">
-              	<input th:id="${condition}" type="checkbox" />    
+              	<input th:id="${condition}" type="checkbox" th:value="${condition.id}"/>    
               	<label th:for="${condition}" th:value="${condition.id}" th:text="${condition.name}"></label>          	
               </div> 
             </form>

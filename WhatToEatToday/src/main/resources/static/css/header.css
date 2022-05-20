@@ -1,8 +1,7 @@
 .header {
-  background: var(--color-forest-blues);
+  background: #0a3d62;
   height: 60px;
 }
-
 .header .inner {
   max-width: 1400px;
   margin: auto;
@@ -15,7 +14,7 @@
 
 .header .logo {
   font-size: var(--font-regular);
-  color: white;
+  color: var(--bs-white);
   font-family: "hanna2";
   font-weight: bold;
 }
@@ -35,7 +34,7 @@
   height: 40px;
   border: 1px white;
   border-radius: 20px;
-  background-color: var(--color-forest-blues);
+  background-color: #0a3d62;
   color: white;
   text-align: center;
   line-height: 40px;
@@ -44,5 +43,9 @@
 
 .header .navbar ul li:hover {
   background-color: white;
-  color: var(--color-forest-blues);
+  color: #0a3d62;
+}
+
+.header .navbar .admin_recommend {
+	width: 120px;
 }

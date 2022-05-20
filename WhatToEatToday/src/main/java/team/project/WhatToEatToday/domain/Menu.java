@@ -28,11 +28,11 @@ public class Menu {
     @JoinColumn(name = "category_id")
     private Category categorys;
 
-    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="condition_id")
-    private Condition condition;
-    
+    @JoinColumn(name = "condition_menu_id")
+    private ConditionMenu conditionMenu;
+
+
     
     public void setCategory(Category category) {
         this.categorys = category;
@@ -45,13 +45,7 @@ public class Menu {
         eatingHouse.getMenus().add(this);
     }
     
-    
-    public void setCondition(Condition condition) {
-    	this.condition = condition;
-    	condition.getMenus().add(this);
-    }
 
-  
     @Override
     public String toString() {
         return "Menu{" +

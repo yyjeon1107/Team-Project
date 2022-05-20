@@ -23,17 +23,17 @@ public class Condition {
 	
 	@Id 
 	private Long id;
-	
+
 	private String name;
 	
-	
-	@OneToMany(mappedBy = "condition")
-    private List<Menu> menus = new ArrayList<>();
-	
+
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "conditioncategory_id")
 	private ConditionCategory concate;
+
+	@OneToMany(mappedBy = "condition")
+	private List<ConditionMenu> conditionMenu = new ArrayList<>();
 	
 	
     public void setConditionCategory(ConditionCategory concate) {
