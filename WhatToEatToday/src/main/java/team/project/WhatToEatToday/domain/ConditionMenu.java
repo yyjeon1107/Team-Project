@@ -12,6 +12,7 @@ import java.util.List;
 public class ConditionMenu {
 
     @Id
+    @Column(name = "condition_menu_id")
     @GeneratedValue
     private Long id;
 
@@ -29,4 +30,9 @@ public class ConditionMenu {
         condition.getConditionMenu().add(this);
     }
 
+	@Override
+	public String toString() {
+		return "ConditionMenu [id=" + id + ", name=" + name + ", condition=" + condition + ", menu=" + menu + "]";
+	}
+	
 }

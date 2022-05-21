@@ -28,4 +28,11 @@ public class ConditionMenuService {
 	public List<ConditionMenu> findByConditionId(Long id) { return conditionMenuRepository.findOneByConditionId(id); }
 
 	public ConditionMenu findByName(String name) { return conditionMenuRepository.findByName(name); }
+	
+	
+	public List<ConditionMenu> findAll(){
+		return conditionMenuRepository.findAll();
+	}
+	
+	
 }

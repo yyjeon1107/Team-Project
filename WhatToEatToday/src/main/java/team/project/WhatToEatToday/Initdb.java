@@ -244,38 +244,43 @@
 ////            em.persist(conditionMenu083);
 //
 //
-//            ConditionMenu conditionMenu1 = createConditionMenu("견과류", condition1);
-//            em.persist(conditionMenu1);
-//            ConditionMenu conditionMenu2 = createConditionMenu("견과류", condition2);
-//            em.persist(conditionMenu2);
-//            ConditionMenu conditionMenu3 = createConditionMenu("견과류", condition3);
-//            em.persist(conditionMenu3);
-//            ConditionMenu conditionMenu4 = createConditionMenu("견과류", condition4);
-//            em.persist(conditionMenu4);
-//            ConditionMenu conditionMenu5 = createConditionMenu("견과류", condition5);
-//            em.persist(conditionMenu5);
-//            ConditionMenu conditionMenu6 = createConditionMenu("견과류", condition6);
-//            em.persist(conditionMenu6);
-//            ConditionMenu conditionMenu7 = createConditionMenu("견과류", condition7);
-//            em.persist(conditionMenu7);
-//            ConditionMenu conditionMenu8 = createConditionMenu("견과류", condition8);
-//            em.persist(conditionMenu8);
-//            ConditionMenu conditionMenu9 = createConditionMenu("견과류", condition9);
-//            em.persist(conditionMenu9);
-//            ConditionMenu conditionMenu10 = createConditionMenu("견과류", condition10);
-//            em.persist(conditionMenu10);
-//            ConditionMenu conditionMenu11 = createConditionMenu("견과류", condition11);
-//            em.persist(conditionMenu11);
-//            ConditionMenu conditionMenu12 = createConditionMenu("견과류", condition12);
-//            em.persist(conditionMenu12);
-//            ConditionMenu conditionMenu13 = createConditionMenu("견과류", condition13);
-//            em.persist(conditionMenu13);
-//            ConditionMenu conditionMenu14 = createConditionMenu("견과류", condition14);
-//            em.persist(conditionMenu14);
-//            ConditionMenu conditionMenu15 = createConditionMenu("견과류", condition15);
-//            em.persist(conditionMenu15);
+////            ConditionMenu conditionMenu1 = createConditionMenu("견과류", condition1);
+////            em.persist(conditionMenu1);
+////            ConditionMenu conditionMenu2 = createConditionMenu("견과류", condition2);
+////            em.persist(conditionMenu2);
+////            ConditionMenu conditionMenu3 = createConditionMenu("견과류", condition3);
+////            em.persist(conditionMenu3);
+////            ConditionMenu conditionMenu4 = createConditionMenu("견과류", condition4);
+////            em.persist(conditionMenu4);
+////            ConditionMenu conditionMenu5 = createConditionMenu("견과류", condition5);
+////            em.persist(conditionMenu5);
+////            ConditionMenu conditionMenu6 = createConditionMenu("견과류", condition6);
+////            em.persist(conditionMenu6);
+////            ConditionMenu conditionMenu7 = createConditionMenu("견과류", condition7);
+////            em.persist(conditionMenu7);
+////            ConditionMenu conditionMenu8 = createConditionMenu("견과류", condition8);
+////            em.persist(conditionMenu8);
+////            ConditionMenu conditionMenu9 = createConditionMenu("견과류", condition9);
+////            em.persist(conditionMenu9);
+////            ConditionMenu conditionMenu10 = createConditionMenu("견과류", condition10);
+////            em.persist(conditionMenu10);
+////            ConditionMenu conditionMenu11 = createConditionMenu("견과류", condition11);
+////            em.persist(conditionMenu11);
+////            ConditionMenu conditionMenu12 = createConditionMenu("견과류", condition12);
+////            em.persist(conditionMenu12);
+////            ConditionMenu conditionMenu13 = createConditionMenu("견과류", condition13);
+////            em.persist(conditionMenu13);
+////            ConditionMenu conditionMenu14 = createConditionMenu("견과류", condition14);
+////            em.persist(conditionMenu14);
+////            ConditionMenu conditionMenu15 = createConditionMenu("견과류", condition15);
+////            em.persist(conditionMenu15);
 //
-//
+//        	ConditionMenu[] cond = new ConditionMenu[145];
+//        	for(int i = 0; i < 145; i++) {
+//        		cond[i] = createConditionMenu("견과류"+i, condition1);
+//            	em.persist(cond[i]);
+//        	}
+//        	
 //
 //
 //

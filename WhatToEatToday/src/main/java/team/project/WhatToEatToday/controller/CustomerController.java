@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 import team.project.WhatToEatToday.Service.CategoryService;
 import team.project.WhatToEatToday.Service.ConditionCategoryService;
+import team.project.WhatToEatToday.Service.ConditionMenuService;
 import team.project.WhatToEatToday.Service.ConditionService;
 import team.project.WhatToEatToday.Service.CustomerService;
 import team.project.WhatToEatToday.Service.EatingHouseService;
@@ -14,6 +15,7 @@ import team.project.WhatToEatToday.Service.MenuService;
 import team.project.WhatToEatToday.domain.Category;
 import team.project.WhatToEatToday.domain.Condition;
 import team.project.WhatToEatToday.domain.ConditionCategory;
+import team.project.WhatToEatToday.domain.ConditionMenu;
 import team.project.WhatToEatToday.domain.EatingHouse;
 import team.project.WhatToEatToday.domain.Menu;
 import team.project.WhatToEatToday.domain.member.Customer;
@@ -42,6 +44,7 @@ public class CustomerController {
     private final CategoryService categoryService;
     private final ConditionService conditionService;
     private final ConditionCategoryService conditionCategoryService;
+    private final ConditionMenuService conditionMenuService;
 
 	@GetMapping("/mypage/{customerId}")
     public String getMypage(@PathVariable String customerId, Model model) {
@@ -116,27 +119,32 @@ public class CustomerController {
     }
 
 	@GetMapping("/recommendResult")
-    public String recommendMenuResult(Model model, LongIdForm longIdForm) {
-	
-//		List<Long> id = longIdForm.getIds();
-//        List<Menu> menu = new ArrayList<>();
-//        for(int i=0; i<id.size(); i++){
-//            for(int j=0; j<menuService.findByConditionId(id.get(i)).size(); j++){
-//                menu.add(menuService.findByConditionId(id.get(i)).get(j));
-//            }
-//        }
-//        Random random = new Random();
-//        int rand = random.nextInt()*(menu.size());
-//        menu.get(rand).getEatingHouse();
-
-
-//        model.addAttribute("memberAddress", member.getAddress());
-//        model.addAttribute("eatingHouseAddress", menu.get(rand).getEatingHouse().getAddress());
-//
-//        System.out.println("==============================================");
-//        System.out.println(member.getAddress());
-//        System.out.println(menu.get(rand).getEatingHouse().getAddress());
-//        System.out.println("==============================================");
+    public String recommendMenuResult(Model model) {
+		
+		
+		List<Menu> menuList = menuService.findAll();
+		
+		HashMap<String, Object> menus = new HashMap<>();
+		List<Long> menuId = new ArrayList<>();
+        List<String> menuName = new ArrayList<>();
+        List<Integer> menuPrice = new ArrayList<>();
+        List<String> menuAddress = new ArrayList<>();
+        List<String> menuStore = new ArrayList<>();
+        for (Menu menu : menuList){
+        	  menuId.add(menu.getId());
+        	  menuName.add(menu.getName());
+        	  menuPrice.add(menu.getPrice());
+        	  menuAddress.add(menu.getEatingHouse().getAddress());
+        	  menuStore.add(menu.getEatingHouse().getName());
+        }
+        menus.put("id", menuId);
+        menus.put("name", menuName);
+        menus.put("price", menuPrice);
+        menus.put("address", menuAddress);
+        menus.put("store", menuStore);
+		
+        model.addAttribute("menus", menus);
+        model.addAttribute("menuList", menuList);
 
     	model.addAttribute("page", "menuRecommendResult");
         return "layout";
