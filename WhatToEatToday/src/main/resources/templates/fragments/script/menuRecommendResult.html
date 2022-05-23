@@ -55,9 +55,9 @@ function loadList(){
    	    j = Math.floor(Math.random()*foods.id.length)
    	    //랜덤 음식은 전체 food 배열중에서 랜덤으로 선택된 i, j에 의해 결정됨
    	    randomFood = foods.name[j]
-   	    P.innerText = "오늘의 추천메뉴 : " + randomFood
+   	    P.innerText = "오늘의 메뉴 : " + randomFood
    	    //맵을 사용하는 함수를 호출
-   	    ps.keywordSearch(randomFood + " 식당", placesSearchCB);
+   	    ps.keywordSearch(randomFood + " 매장", placesSearchCB);
     }else{
     	//만약 전 페이지에서 선택된 값이 없다면 빈 페이지에 실행요구
     	result.innerText = "키워드 선택해주세요"
@@ -124,7 +124,7 @@ function placesSearchCB (data, status) {
           '</div>'
       ].join('');
       
-    P.innerText = "오늘의 추천메뉴 : " + randomFood + "\n추천 식당 : " + foods.store[j]
+    P.innerText = "오늘의 메뉴 : " + randomFood + "\n추천 매장 : " + foods.store[j]
       
     var infowindow = new naver.maps.InfoWindow({
           content: contentString

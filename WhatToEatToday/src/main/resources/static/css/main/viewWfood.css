@@ -58,23 +58,29 @@
 }
 
 .eating_house__text {
-	width: calc(100% -80px);
-	padding: 10px;
-	padding-left: 20px;
-	height: 100%;
-	float: left;
-	color: var(--color-crown-diamond);
+  width: calc(100%-80px);
+  padding: 10px;
+  padding-left: 20px;
+  height: 100%;
+  color: var(--color-crown-diamond);
 }
 
 .eating_house__text h2 {
-	margin-bottom: 10px;
-}
-
-.eating_house__text h2 {
-	font-size: var(--font-medium);
+  font-size: var(--font-medium);
+  margin-bottom: 10px;
+  padding-left: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .eating_house__text p {
-	font-family: "hanna2";
-	font-weight: bold;
+  font-family: "hanna2";
+  font-weight: bold;
+  padding-left: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }

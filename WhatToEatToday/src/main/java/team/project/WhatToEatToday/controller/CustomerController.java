@@ -150,6 +150,17 @@ public class CustomerController {
         return "layout";
 
     }
+    @GetMapping("/eating_house/{eatingHouseId}")
+    public String serarchEatingHouse(@PathVariable Long eatingHouseId, Model model) {
+
+
+        EatingHouse eatingHouses = eatingHouseService.findOne(eatingHouseId);
+
+        model.addAttribute("page", "viewKfood");
+        model.addAttribute("eatingHouse", eatingHouses);
+
+        return "layout";
+    }
 	
 	
 	@GetMapping("/menuAll")
@@ -191,7 +202,6 @@ public class CustomerController {
 
 
         EatingHouse eatingHouses = eatingHouseService.findOne(eatingHouseId);
-        System.out.println(eatingHouses.getMenus());
 
 
         model.addAttribute("eatingHouse", eatingHouses);

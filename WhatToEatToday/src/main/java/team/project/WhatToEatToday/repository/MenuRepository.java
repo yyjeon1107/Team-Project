@@ -54,6 +54,12 @@ public class MenuRepository {
                 .getResultList();
     }
 
+    public List<Menu> findCrossMenu(Long id){
+        return em.createQuery("SELECT m FROM Menu m where crossMenu.id = :id", Menu.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
 
     //List로 안받기
     public Menu findByCateId(Long id){

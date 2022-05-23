@@ -22,17 +22,18 @@ public class ConditionMenu {
     @JoinColumn(name = "condition_id")
     private Condition condition;
 
-    @OneToMany(mappedBy = "conditionMenu")
-    private List<Menu> menu = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cross_menu_id")
+    private CrossMenu crossMenus;
+
+    public void setCrossMenu(CrossMenu crossMenu) {
+        this.crossMenus = crossMenu;
+        crossMenu.getConditionMenu().add(this);
+    }
 
     public void setCondition(Condition condition) {
         this.condition = condition;
         condition.getConditionMenu().add(this);
     }
-
-	@Override
-	public String toString() {
-		return "ConditionMenu [id=" + id + ", name=" + name + ", condition=" + condition + ", menu=" + menu + "]";
-	}
 	
 }

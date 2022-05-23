@@ -7,10 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import team.project.WhatToEatToday.Service.*;
-import team.project.WhatToEatToday.domain.Condition;
-import team.project.WhatToEatToday.domain.ConditionCategory;
-import team.project.WhatToEatToday.domain.ConditionMenu;
-import team.project.WhatToEatToday.domain.Menu;
+import team.project.WhatToEatToday.domain.*;
 import team.project.WhatToEatToday.domain.member.Admin;
 import team.project.WhatToEatToday.domain.member.Customer;
 import team.project.WhatToEatToday.domain.member.Manager;
@@ -37,6 +34,7 @@ public class AdminController {
     public final ConditionCategoryService conditionCategoryService;
     public final ConditionMenuService conditionMenuService;
     public final MenuService menuService;
+    public final CrossMenuService crossMenuService;
 
     @GetMapping("/members")
     public String getMembers(Model model) {
@@ -281,48 +279,85 @@ public class AdminController {
     public String editConditionMenus(EditConditionForm editConditionForm, Model model,
                                     @PathVariable Long conditionId,
                                     @PathVariable Long conditionMenuId) {
+        if(!(editConditionForm.getAfter().isBlank())){
+            ConditionMenu conditionMenu = conditionMenuService.findOne(conditionMenuId);
+            conditionMenu.setName(editConditionForm.getAfter());
+            conditionMenuService.save(conditionMenu);
 
+            if(!(crossMenuService.findNewByName(editConditionForm.getAfter()).isEmpty())){
+                conditionMenu.setCrossMenu(crossMenuService.findByName(editConditionForm.getAfter()));
+                conditionMenuService.save(conditionMenu);
+                List<Menu> menuList = menuService.findByName(editConditionForm.getAfter());
+                for(int i=0; i< menuList.size(); i++){
+                    if(menuList.get(i).getCrossMenu().getId().equals(146L)){
+                        menuList.get(i).setCrossMenu(crossMenuService.findByName(editConditionForm.getAfter()));
+                        menuService.join(menuList.get(i));
+                    }
+                }
+            } else{
+                CrossMenu crossMenu = new CrossMenu();
+                crossMenu.setName(editConditionForm.getAfter());
+                crossMenuService.save(crossMenu);
+                conditionMenu.setCrossMenu(crossMenu);
+                conditionMenuService.save(conditionMenu);
+
+                List<Menu> menuList = menuService.findByName(editConditionForm.getAfter());
+                for(int i=0; i< menuList.size(); i++){
+                    if(menuList.get(i).getCrossMenu().getId().equals(146L)){
+                        menuList.get(i).setCrossMenu(crossMenu);
+                        menuService.join(menuList.get(i));
+                    }
+                }
+            }
+
+            List<Condition> conditionList1 = conditionService.findCate1(1L);
+            model.addAttribute("condition1", conditionList1);
+            List<Condition> conditionList2 = conditionService.findCate1(2L);
+            model.addAttribute("condition2", conditionList2);
+            List<Condition> conditionList3 = conditionService.findCate1(3L);
+            model.addAttribute("condition3", conditionList3);
+
+            ConditionCategory concate1 = conditionCategoryService.findOne(1L);
+            model.addAttribute("concate1", concate1);
+            ConditionCategory concate2 = conditionCategoryService.findOne(2L);
+            model.addAttribute("concate2", concate2);
+            ConditionCategory concate3 = conditionCategoryService.findOne(3L);
+            model.addAttribute("concate3", concate3);
+            model.addAttribute("page", "menuRecommendAdmin");
+            List<Menu> menu = menuService.findByName(editConditionForm.getBefore());
+            return "redirect:/admin/admin_recommend/editCondition/{conditionId}";
+        } else{
+            List<Condition> conditionList1 = conditionService.findCate1(1L);
+            model.addAttribute("condition1", conditionList1);
+            List<Condition> conditionList2 = conditionService.findCate1(2L);
+            model.addAttribute("condition2", conditionList2);
+            List<Condition> conditionList3 = conditionService.findCate1(3L);
+            model.addAttribute("condition3", conditionList3);
+
+            ConditionCategory concate1 = conditionCategoryService.findOne(1L);
+            model.addAttribute("concate1", concate1);
+            ConditionCategory concate2 = conditionCategoryService.findOne(2L);
+            model.addAttribute("concate2", concate2);
+            ConditionCategory concate3 = conditionCategoryService.findOne(3L);
+            model.addAttribute("concate3", concate3);
+            model.addAttribute("page", "menuRecommendAdmin");
+            List<Menu> menu = menuService.findByName(editConditionForm.getBefore());
+            return "redirect:/admin/admin_recommend/editCondition/{conditionId}";
+        }
+
+    }
+
+    @GetMapping("/admin_recommend/editCondition/{conditionId}/delete/{conditionMenuId}")
+    public String deleteConditionMenu(
+            HttpServletRequest request,
+            @PathVariable Long conditionId,
+            @PathVariable Long conditionMenuId){
+        HttpSession session = request.getSession();
+        session.setAttribute("message", "메뉴삭제");
         ConditionMenu conditionMenu = conditionMenuService.findOne(conditionMenuId);
-        if(!(menuService.findByName(conditionMenu.getName()).isEmpty())){
-
-            List<Menu> menu = menuService.findByName(conditionMenu.getName());
-            for(int i=0; i<menu.size(); i++){
-                menu.get(i).setConditionMenu(null);
-                menuService.join(menu.get(i));
-            }
-        }
-
-        conditionMenu.setName(editConditionForm.getAfter());
-        conditionMenuService.save(conditionMenu);
-
-        if(!(menuService.findByName(conditionMenu.getName()).isEmpty())){
-
-            List<Menu> menu = menuService.findByName(conditionMenu.getName());
-            for(int i=0; i<menu.size(); i++){
-                menu.get(i).setConditionMenu(conditionMenu);
-                menuService.join(menu.get(i));
-            }
-        }
-
-        List<Condition> conditionList1 = conditionService.findCate1(1L);
-        model.addAttribute("condition1", conditionList1);
-        List<Condition> conditionList2 = conditionService.findCate1(2L);
-        model.addAttribute("condition2", conditionList2);
-        List<Condition> conditionList3 = conditionService.findCate1(3L);
-        model.addAttribute("condition3", conditionList3);
-        
-        ConditionCategory concate1 = conditionCategoryService.findOne(1L);
-        model.addAttribute("concate1", concate1); 
-        ConditionCategory concate2 = conditionCategoryService.findOne(2L);
-        model.addAttribute("concate2", concate2);
-        ConditionCategory concate3 = conditionCategoryService.findOne(3L);
-        model.addAttribute("concate3", concate3);  
-        model.addAttribute("page", "menuRecommendAdmin");
-        List<Menu> menu = menuService.findByName(editConditionForm.getBefore());
+        conditionMenuService.delete(conditionMenu);
         return "redirect:/admin/admin_recommend/editCondition/{conditionId}";
     }
-    
-    
     
     
     @GetMapping("/admin_recommend/editCondition/{conditionId}/addMenu")
@@ -347,13 +382,24 @@ public class AdminController {
             ConditionMenu conditionMenu = new ConditionMenu();
             conditionMenu.setName(editConditionForm.getAfter());
             conditionMenu.setCondition(condition);
-            conditionMenuService.save(conditionMenu);
-            if(!(menuService.findByName(editConditionForm.getAfter()).isEmpty())){
-                List<Menu> menu = menuService.findByName(editConditionForm.getAfter());
-                for (int i=0; i<menu.size(); i++){
-                    menu.get(i).setConditionMenu(conditionMenu);
-                    menuService.join(menu.get(i));
+            if(!(crossMenuService.findNewByName(editConditionForm.getAfter()).isEmpty())){
+                conditionMenu.setCrossMenu(crossMenuService.findByName(editConditionForm.getAfter()));
+                conditionMenuService.save(conditionMenu);
+            } else{
+                CrossMenu crossMenu = new CrossMenu();
+                crossMenu.setName(editConditionForm.getAfter());
+                conditionMenu.setCrossMenu(crossMenu);
+                crossMenuService.save(crossMenu);
+                conditionMenuService.save(conditionMenu);
+
+                List<Menu> menuList = menuService.findByName(editConditionForm.getAfter());
+                for(int i=0; i< menuList.size(); i++){
+                    if(menuList.get(i).getCrossMenu().getId().equals(146L)){
+                        menuList.get(i).setCrossMenu(crossMenu);
+                        menuService.join(menuList.get(i));
+                    }
                 }
+
             }
         }
         return "redirect:/admin/admin_recommend/editCondition/{conditionId}";

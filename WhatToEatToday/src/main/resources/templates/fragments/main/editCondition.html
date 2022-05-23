@@ -11,7 +11,7 @@
       <address class="editCondition__title">메뉴추천관리</address>
         <fieldset class="text__field">
           <fieldset class="eating_house__fieldset">
-            <legend class="eating_house__legend">기존 카테고리명</legend>
+            <legend class="eating_house__legend">기존 키워드</legend>
             <h3
                     th:text="${condition.getName()}"
                     id="name"
@@ -19,7 +19,7 @@
             />
           </fieldset>
           <fieldset class="eating_house__fieldset">
-            <legend class="eating_house__legend">새로운 카테고리명</legend>
+            <legend class="eating_house__legend">새로운 키워드</legend>
             <textarea
               id="description"
               th:field="*{after}"
