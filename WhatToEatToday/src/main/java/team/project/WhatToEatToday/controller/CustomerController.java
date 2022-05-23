@@ -54,7 +54,7 @@ public class CustomerController {
     }
 
     @GetMapping("/mypage/edit/{customerId}")
-    public String editMypage(@PathVariable String customerId, Model model, JoinForm joinForm) {
+    public String getEditMypage(@PathVariable String customerId, Model model, JoinForm joinForm) {
         model.addAttribute("customer", customerService.findOne(customerId));
         model.addAttribute("JoinForm", joinForm);
         model.addAttribute("page", "editCustomerInfo");
@@ -62,7 +62,7 @@ public class CustomerController {
     }
 
     @PostMapping("/mypage/edit/{customerId}")
-    public String editMypage(HttpServletRequest request , @PathVariable String customerId, @Valid JoinForm joinForm) {
+    public String postEditMypage(HttpServletRequest request , @PathVariable String customerId, @Valid JoinForm joinForm) {
         HttpSession session = request.getSession();
         Customer customer = customerService.findOne(customerId);
         customer.setName(joinForm.getName());
@@ -77,7 +77,7 @@ public class CustomerController {
     }
 
     @GetMapping("/mypage/delete/{customerId}")
-    public String editMypage(HttpServletRequest request , @PathVariable String customerId) {
+    public String deleteMypage(HttpServletRequest request , @PathVariable String customerId) {
         HttpSession session = request.getSession();
         Customer customer = customerService.findOne(customerId);
         customerService.delete(customer);
